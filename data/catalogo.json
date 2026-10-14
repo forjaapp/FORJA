@@ -1,0 +1,25 @@
+{
+ "schema": 1,
+ "nombre": "Biblioteca de ejercicios FORJA",
+ "idioma_base": "es-AR",
+ "fuentes": [
+  {
+   "archivo": "forja_ejercicios_v1.json",
+   "version": "1.0.0",
+   "descripcion": "424 variantes · 17 grupos (fuente de verdad)"
+  }
+ ],
+ "equipamiento": "equipamiento_v1.json",
+ "media": "media_v1.json",
+ "traducciones": {},
+ "rutinas_plantilla": [],
+ "como_ampliar": {
+  "nuevas_variantes": "Crear un archivo con el mismo formato que forja_ejercicios_v1.json que contenga SOLO los ejercicios nuevos, con IDs nuevos, y sumarlo al final de \"fuentes\". Nunca renumerar IDs publicados.",
+  "correcciones": "Para corregir un ejercicio existente, incluirlo con su mismo ID en un archivo posterior de \"fuentes\": sus campos reemplazan a los anteriores.",
+  "nuevos_grupos": "Un grupo nuevo aparece automáticamente al usarlo en \"grupo_muscular\".",
+  "equipamiento": "Agregar ítems y requisitos en equipamiento_v1.json (o una versión nueva) y apuntar \"equipamiento\" a ese archivo.",
+  "traducciones": "Agregar {\"en-US\": \"traduccion_en-US.json\"}: cada clave es un ID con \"nombre_es\", \"denominaciones_alternativas\" e \"instruccion_visual\" traducidos.",
+  "videos": "En media_v1.json, agregar en \"videos\" objetos {\"url\", \"tipo\", \"estado\"}: solo se muestran los que tienen estado produccion_aprobada.",
+  "rutinas": "Agregar en \"rutinas_plantilla\" objetos {\"nombre\", \"archivo\"} con un .txt en formato de texto FORJA; aparecen en «Pegar rutina»."
+ }
+}

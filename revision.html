@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#09131b">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex">
+<title>FORJA · Revisión de imágenes</title>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<style>
+:root{color-scheme:dark;--bg:#09131b;--card:#12222c;--line:#29414a;--txt:#f3f9fa;--muted:#a1b8bd;--mint:#a2f2c0;--amber:#f7c782;--red:#ff9e9a;--orange:#ff8a3d}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.5 Inter,ui-sans-serif,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+.wrap{max-width:1150px;margin:0 auto;padding:22px 18px 80px}h1{font-size:1.9rem;letter-spacing:-.04em;margin:6px 0}h2{font-size:1.2rem;margin:0 0 10px}p{color:var(--muted);margin:6px 0}
+.eyebrow{font-size:.72rem;letter-spacing:.17em;font-weight:900;color:var(--mint);text-transform:uppercase}
+.panel{border:1px solid var(--line);background:#12232c;border-radius:16px;padding:16px;margin:14px 0}
+.btn{min-height:42px;border:1px solid #43606a;border-radius:10px;background:#1c343f;color:var(--txt);font:inherit;font-size:.85rem;font-weight:800;padding:8px 12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.btn.primary{background:var(--mint);color:#083124;border-color:var(--mint)}.btn.danger{background:#3c292e;border-color:#815151;color:#ffbfbb}.btn:disabled{opacity:.45;cursor:not-allowed}.btn.sm{min-height:34px;padding:6px 10px;font-size:.76rem}
+input,select,textarea{font:inherit;color:var(--txt);background:#0b1a23;border:1px solid #3c5760;border-radius:9px;padding:9px 10px;font-size:16px}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}.field{display:flex;flex-direction:column;gap:4px}.field label{font-size:.75rem;font-weight:800;color:#c2d4d9}
+.stats{display:flex;gap:8px;flex-wrap:wrap}.stat{background:#172e36;border:1px solid var(--line);border-radius:12px;padding:10px 12px;min-width:120px}.stat b{display:block;font-size:1.4rem}.stat span{font-size:.74rem;color:var(--muted)}
+.chip{display:inline-flex;border-radius:20px;padding:3px 8px;font-size:.7rem;font-weight:800;background:#29404a;color:#c9dadd}
+.chip.pendiente_generacion_individual{background:#2a3740;color:#b9c9cf}.chip.muestra_generada_pendiente_revision_profesional,.chip.en_revision{background:#4c3d2b;color:#fbd4a2}.chip.rechazada{background:#4d2a2c;color:#ffc2bd}.chip.produccion_aprobada{background:#244a3d;color:var(--mint)}
+table{width:100%;border-collapse:collapse;font-size:.84rem}th,td{text-align:left;padding:8px 6px;border-top:1px solid #213842;vertical-align:top}th{color:var(--muted);font-size:.72rem}
+td .acts{display:flex;gap:6px;flex-wrap:wrap}.id{font-family:ui-monospace,Consolas,monospace;font-size:.78rem;color:#cfe}
+.steps{margin:6px 0 0 18px;padding:0;color:var(--muted)}.steps li{margin:4px 0}
+dialog{border:1px solid #537169;border-radius:18px;background:#132833;color:var(--txt);padding:0;width:min(980px,calc(100vw - 20px));max-height:calc(100dvh - 20px)}dialog::backdrop{background:#000b}
+.dlg{padding:16px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}@media(max-width:760px){.dlg{grid-template-columns:1fr}}
+.preview{background:#0b161d;border:1px solid var(--line);border-radius:14px;min-height:280px;display:grid;place-items:center;overflow:hidden}.preview img{max-width:100%;max-height:70vh;display:block}
+.checks label{display:flex;gap:9px;align-items:flex-start;padding:7px 0;border-top:1px solid #213842;font-size:.86rem}.checks input{width:18px;height:18px;margin-top:2px}
+.prompt{white-space:pre-wrap;font-size:.76rem;background:#0b1a23;border:1px solid var(--line);border-radius:10px;padding:10px;max-height:170px;overflow:auto;color:#cfe0e2}
+.warn{color:var(--amber)}.toast{position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#d3fbe2;color:#123328;padding:10px 16px;border-radius:12px;font-weight:800;display:none;z-index:9;max-width:92vw}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Equipo FORJA · herramienta interna</div>
+  <h1>Revisión de imágenes de la biblioteca</h1>
+  <p>La app pública muestra una imagen <strong>solo cuando su estado es «produccion_aprobada»</strong>. Nada se aprueba automáticamente: cada imagen la valida una persona con este checklist.</p>
+  <section class="panel"><h2>Cómo funciona</h2><ol class="steps">
+    <li><strong>Prepará un lote</strong> de 10 a 20 ejercicios pendientes y copiá sus prompts (cada uno trae el nombre de archivo que corresponde).</li>
+    <li><strong>Generá las imágenes</strong> en tu herramienta de imágenes (una por ejercicio, vertical 4:5, sin textos) y guardalas con el nombre de su ID, por ejemplo <span class="id">FJ-PEC-0004.png</span>.</li>
+    <li><strong>Subilas acá</strong>: se asocian solas por el ID del nombre de archivo.</li>
+    <li><strong>Revisá cada una</strong> con el checklist técnico y aprobala o rechazala con una nota.</li>
+    <li><strong>Descargá el paquete</strong> (.zip) y subí su contenido a GitHub: reemplaza <span class="id">data/media_v1.json</span> y agrega las imágenes en <span class="id">assets/ejercicios/</span>.</li>
+  </ol><p class="warn" id="webpWarn" hidden>Este navegador no puede convertir a WebP. Usá Chrome o Edge en computadora para exportar el paquete.</p></section>
+  <section class="panel"><div class="stats" id="stats">Cargando…</div></section>
+  <section class="panel"><h2>Lote de generación</h2><div class="row"><div class="field"><label for="batchSize">Cantidad</label><select id="batchSize"><option>10</option><option selected>15</option><option>20</option></select></div><button class="btn" id="makeBatch">Preparar lote con los pendientes del filtro</button><button class="btn" id="copyBatch" disabled>Copiar prompts</button><button class="btn" id="dlBatch" disabled>Descargar .txt</button></div><textarea id="batchText" rows="6" style="width:100%;margin-top:10px" readonly placeholder="Acá aparecen los prompts del lote."></textarea></section>
+  <section class="panel"><div class="row"><div class="field"><label for="fEstado">Estado</label><select id="fEstado"><option value="">Todos</option></select></div><div class="field"><label for="fGrupo">Grupo</label><select id="fGrupo"><option value="">Todos</option></select></div><div class="field" style="flex:1;min-width:200px"><label for="fText">Buscar</label><input id="fText" placeholder="ID o nombre"></div><label class="btn" for="upload">⤒ Subir imágenes generadas</label><input id="upload" type="file" accept="image/*" multiple hidden><button class="btn primary" id="exportZip">⤓ Descargar paquete para GitHub</button></div>
+    <p id="pendingNote" class="warn"></p>
+    <table><thead><tr><th>ID</th><th>Ejercicio</th><th>Estado</th><th>Acciones</th></tr></thead><tbody id="rows"></tbody></table><p id="moreNote"></p></section>
+</div>
+<dialog id="dlg"><div class="dlg"><div><div class="preview" id="pv"></div><p id="pvInfo"></p></div><div>
+  <div class="eyebrow" id="dGroup"></div><h2 id="dName"></h2><p id="dEquip"></p><p id="dInstr"></p>
+  <details><summary>Prompt de generación</summary><div class="prompt" id="dPrompt"></div><button class="btn sm" id="dCopy">Copiar prompt</button></details>
+  <div class="checks" id="checks"></div>
+  <div class="row" style="margin-top:8px"><div class="field" style="flex:1"><label for="rName">Revisor/a</label><input id="rName" placeholder="Nombre y apellido"></div></div>
+  <div class="field" style="margin-top:8px"><label for="rNote">Notas</label><textarea id="rNote" rows="3" placeholder="Obligatorio si la rechazás: qué hay que corregir."></textarea></div>
+  <div class="row" style="margin-top:10px"><button class="btn primary" id="approve" disabled>✓ Aprobar para producción</button><button class="btn danger" id="reject">✗ Rechazar</button><button class="btn" id="toPending">Marcar en revisión</button><button class="btn" id="close">Cerrar</button></div>
+</div></div></dialog>
+<div class="toast" id="toast"></div>
+<script>
+(function(){'use strict';
+const $=id=>document.getElementById(id),esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const CHECKS=['El ejercicio es exactamente el del registro (mismo nombre, variante y equipo: Smith ≠ barra libre, polea ≠ mancuerna, hack ≠ prensa).','Muestra posición inicial a la izquierda y final a la derecha (o dos ángulos si es isométrico), con la misma persona y el mismo equipo.','Técnica correcta: trayectoria, rango y postura seguros; la flecha naranja indica la dirección real.','Anatomía correcta: cantidad real de brazos, piernas y dedos; articulaciones en ángulos posibles; agarres firmes.','Sin textos, títulos, rótulos, logos ni marcas comerciales dentro de la imagen.','Estilo FORJA: gimnasio oscuro y neutro, naranja solo para músculos principales y movimiento, equipo fácil de reconocer.','Formato vertical 4:5 y nitidez suficiente para ver la técnica en el teléfono.','Es una imagen original con permisos para uso comercial (no copia de otra biblioteca o marca).'];
+let EX=[],MEDIA=null,mediaFile='media_v1.json',DEC={},FILES=new Map(),cur=null;
+try{DEC=JSON.parse(localStorage.getItem('forja_revision_v1')||'{}');}catch(e){DEC={};}
+const saveDec=()=>{try{localStorage.setItem('forja_revision_v1',JSON.stringify(DEC));}catch(e){}};
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>t.style.display='none',3200);}
+const state=id=>({...(MEDIA.items[id]||{estado:'pendiente_generacion_individual'}),...(DEC[id]||{})});
+async function load(){const get=f=>fetch('data/'+f,{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error(f);return r.json();});
+  try{const man=await get('catalogo.json');mediaFile=man.media||mediaFile;const srcs=await Promise.all(man.fuentes.map(s=>get(s.archivo||s)));const m=new Map();for(const s of srcs)for(const e of s.ejercicios)m.set(e.id,{...(m.get(e.id)||{}),...e});EX=[...m.values()];MEDIA=await get(mediaFile);}
+  catch(err){$('stats').textContent='No se pudieron cargar los datos ('+err.message+'). Abrí esta página desde el sitio publicado.';return;}
+  const est=Object.keys(MEDIA.estados||{});$('fEstado').innerHTML='<option value="">Todos</option>'+est.map(e=>'<option>'+esc(e)+'</option>').join('');
+  $('fGrupo').innerHTML='<option value="">Todos</option>'+[...new Set(EX.map(e=>e.grupo_muscular))].map(g=>'<option>'+esc(g)+'</option>').join('');
+  $('checks').innerHTML=CHECKS.map((c,i)=>'<label><input type="checkbox" data-check="'+i+'"><span>'+esc(c)+'</span></label>').join('');
+  $('rName').value=localStorage.getItem('forja_revisor')||'';render();}
+function filtered(){const e=$('fEstado').value,g=$('fGrupo').value,q=$('fText').value.trim().toLowerCase();return EX.filter(x=>(!e||state(x.id).estado===e)&&(!g||x.grupo_muscular===g)&&(!q||x.id.toLowerCase().includes(q)||x.nombre_es.toLowerCase().includes(q)));}
+function render(){const c={};for(const x of EX){const s=state(x.id).estado;c[s]=(c[s]||0)+1;}
+  $('stats').innerHTML='<div class="stat"><b>'+EX.length+'</b><span>ejercicios</span></div>'+Object.keys(MEDIA.estados).map(k=>'<div class="stat"><b>'+(c[k]||0)+'</b><span>'+esc(k.replace(/_/g,' '))+'</span></div>').join('');
+  const list=filtered(),shown=list.slice(0,200);
+  $('rows').innerHTML=shown.map(x=>{const s=state(x.id),has=FILES.has(x.id)||s.archivo;return '<tr><td class="id">'+esc(x.id)+'</td><td>'+esc(x.nombre_es)+'<br><small style="color:var(--muted)">'+esc(x.grupo_muscular)+' · '+esc(x.equipamiento)+'</small></td><td><span class="chip '+esc(s.estado)+'">'+esc(s.estado.replace(/_/g,' '))+'</span>'+(FILES.has(x.id)?'<br><small class="warn">imagen nueva sin exportar</small>':'')+'</td><td><div class="acts"><button class="btn sm" data-copy="'+esc(x.id)+'">Copiar prompt</button><label class="btn sm">Subir<input type="file" accept="image/*" hidden data-up="'+esc(x.id)+'"></label>'+(has?'<button class="btn sm primary" data-rev="'+esc(x.id)+'">Revisar</button>':'')+'</div></td></tr>';}).join('');
+  $('moreNote').textContent=list.length>shown.length?'Mostrando 200 de '+list.length+'. Usá los filtros para acotar.':'';
+  const pend=[...FILES.keys()].length+Object.keys(DEC).length;$('pendingNote').textContent=pend?'Tenés '+pend+' cambio(s) sin publicar: descargá el paquete y subilo a GitHub.':'';}
+function promptOf(x){return '### '+x.id+' — '+x.nombre_es+'\nGuardar como: '+x.id+'.png (vertical 4:5)\n'+(x.imagen?.prompt_es||'')+'\n';}
+function copy(t,m){navigator.clipboard.writeText(t).then(()=>toast(m)).catch(()=>toast('No se pudo copiar'));}
+function addFile(file,forced){const m=forced||(file.name.match(/FJ-[A-Z]{3}-\d{4}/i)||[])[0];if(!m){return file.name;}const id=m.toUpperCase();if(!EX.some(x=>x.id===id))return file.name;FILES.set(id,file);DEC[id]={...(DEC[id]||{}),estado:'en_revision',revisor:null,fecha_revision:null};saveDec();return null;}
+function open(id){cur=EX.find(x=>x.id===id);if(!cur)return;const s=state(id),f=FILES.get(id);const src=f?URL.createObjectURL(f):(s.archivo||'');
+  $('pv').innerHTML=src?'<img alt="" src="'+esc(src)+'">':'Sin imagen';$('pvInfo').textContent='';
+  if(src){const im=new Image();im.onload=()=>{const r=im.naturalWidth/im.naturalHeight;$('pvInfo').innerHTML=im.naturalWidth+'×'+im.naturalHeight+' px · proporción '+(Math.abs(r-.8)<.02?'4:5 ✓':'<span class="warn">'+r.toFixed(2)+' (se esperaba 0,80 = 4:5; al exportar se completa con fondo, idealmente regenerala)</span>');};im.src=src;}
+  $('dGroup').textContent=cur.grupo_muscular+' · '+(cur.subgrupo||'');$('dName').textContent=cur.nombre_es;$('dEquip').textContent='Equipo: '+cur.equipamiento;$('dInstr').textContent=cur.instruccion_visual;$('dPrompt').textContent=cur.imagen?.prompt_es||'';
+  document.querySelectorAll('[data-check]').forEach(c=>c.checked=false);$('rNote').value=s.notas||'';upd();$('dlg').showModal();}
+function upd(){const all=[...document.querySelectorAll('[data-check]')].every(c=>c.checked);$('approve').disabled=!(all&&$('rName').value.trim()&&cur&&(FILES.has(cur.id)||state(cur.id).archivo));}
+function decide(estado){if(!cur)return;const name=$('rName').value.trim(),note=$('rNote').value.trim();if(estado==='rechazada'&&!note){toast('Escribí en la nota qué hay que corregir.');return;}localStorage.setItem('forja_revisor',name);
+  DEC[cur.id]={...(DEC[cur.id]||{}),estado,revisor:estado==='en_revision'?null:name||null,fecha_revision:estado==='en_revision'?null:new Date().toISOString().slice(0,10),notas:note};saveDec();$('dlg').close();render();toast(estado==='produccion_aprobada'?'Aprobada. Recordá exportar el paquete.':'Estado actualizado.');}
+/* --- Conversión a WebP 4:5 (1080×1350, sin recortar: se completa con fondo oscuro) --- */
+function toWebp(file){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>{const W=1080,H=1350,c=document.createElement('canvas');c.width=W;c.height=H;const x=c.getContext('2d');x.fillStyle='#0b1116';x.fillRect(0,0,W,H);const k=Math.min(W/im.naturalWidth,H/im.naturalHeight),w=im.naturalWidth*k,h=im.naturalHeight*k;x.drawImage(im,(W-w)/2,(H-h)/2,w,h);c.toBlob(b=>b&&b.type==='image/webp'?res(b):rej(new Error('Este navegador no genera WebP')),'image/webp',.86);};im.onerror=()=>rej(new Error('Imagen ilegible: '+file.name));im.src=URL.createObjectURL(file);});}
+/* --- ZIP sin compresión (las imágenes WebP ya vienen comprimidas) --- */
+const CRC=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0;}return t;})();
+function crc32(u){let c=0xFFFFFFFF;for(let i=0;i<u.length;i++)c=CRC[(c^u[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0;}
+function zip(files){const enc=new TextEncoder(),parts=[],central=[];let off=0;const d=new Date(),time=(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1),date=((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate();
+  for(const f of files){const name=enc.encode(f.name),data=f.data,crc=crc32(data),h=new DataView(new ArrayBuffer(30));h.setUint32(0,0x04034b50,true);h.setUint16(4,20,true);h.setUint16(6,0x0800,true);h.setUint16(8,0,true);h.setUint16(10,time,true);h.setUint16(12,date,true);h.setUint32(14,crc,true);h.setUint32(18,data.length,true);h.setUint32(22,data.length,true);h.setUint16(26,name.length,true);h.setUint16(28,0,true);parts.push(new Uint8Array(h.buffer),name,data);
+    const c=new DataView(new ArrayBuffer(46));c.setUint32(0,0x02014b50,true);c.setUint16(4,20,true);c.setUint16(6,20,true);c.setUint16(8,0x0800,true);c.setUint16(10,0,true);c.setUint16(12,time,true);c.setUint16(14,date,true);c.setUint32(16,crc,true);c.setUint32(20,data.length,true);c.setUint32(24,data.length,true);c.setUint16(28,name.length,true);c.setUint32(42,off,true);central.push(new Uint8Array(c.buffer),name);off+=30+name.length+data.length;}
+  const csize=central.reduce((a,b)=>a+b.length,0),e=new DataView(new ArrayBuffer(22));e.setUint32(0,0x06054b50,true);e.setUint16(8,files.length,true);e.setUint16(10,files.length,true);e.setUint32(12,csize,true);e.setUint32(16,off,true);return new Blob([...parts,...central,new Uint8Array(e.buffer)],{type:'application/zip'});}
+async function exportZip(){if(!MEDIA)return;const files=[],items=JSON.parse(JSON.stringify(MEDIA.items)),today=new Date().toISOString().slice(0,10);
+  try{for(const [id,f] of FILES){const b=await toWebp(f);const x=EX.find(e=>e.id===id),path=(x?.imagen?.ruta_objetivo)||('assets/ejercicios/'+id+'.webp');files.push({name:path,data:new Uint8Array(await b.arrayBuffer())});items[id]={...(items[id]||{}),archivo:path,ruta_objetivo:path,version_imagen:(Number(items[id]?.version_imagen)||0)+1,proporcion_real:'4:5'};}}
+  catch(err){toast(err.message);$('webpWarn').hidden=false;return;}
+  for(const [id,d] of Object.entries(DEC)){items[id]={...(items[id]||{}),...d};if(d.estado==='rechazada'&&!FILES.has(id))items[id].archivo=items[id].archivo||null;}
+  const media={...MEDIA,actualizado:today,items};files.unshift({name:'data/'+mediaFile,data:new TextEncoder().encode(JSON.stringify(media,null,1))});
+  const a=document.createElement('a');a.href=URL.createObjectURL(zip(files));a.download='forja_revision_'+today+'.zip';document.body.appendChild(a);a.click();a.remove();
+  toast('Paquete listo: subí su contenido a GitHub manteniendo las carpetas.');}
+document.addEventListener('click',e=>{const t=e.target;const c=t.closest('[data-copy]');if(c){copy(promptOf(EX.find(x=>x.id===c.dataset.copy)),'Prompt copiado');return;}const r=t.closest('[data-rev]');if(r)open(r.dataset.rev);});
+document.addEventListener('change',e=>{const t=e.target;if(t.dataset.up&&t.files[0]){addFile(t.files[0],t.dataset.up);render();open(t.dataset.up);}if(t.dataset.check!=null)upd();});
+$('upload').addEventListener('change',e=>{const bad=[];for(const f of e.target.files){const b=addFile(f);if(b)bad.push(b);}render();toast(bad.length?'Sin ID reconocible: '+bad.join(', '):'Imágenes cargadas: revisalas una por una.');e.target.value='';});
+['fEstado','fGrupo'].forEach(i=>$(i).addEventListener('change',render));$('fText').addEventListener('input',render);$('rName').addEventListener('input',upd);
+$('makeBatch').addEventListener('click',()=>{const n=Number($('batchSize').value),l=filtered().filter(x=>state(x.id).estado==='pendiente_generacion_individual').slice(0,n);$('batchText').value=l.map(promptOf).join('\n');$('copyBatch').disabled=$('dlBatch').disabled=!l.length;toast(l.length?'Lote de '+l.length+' listo':'No hay pendientes con este filtro');});
+$('copyBatch').addEventListener('click',()=>copy($('batchText').value,'Prompts del lote copiados'));
+$('dlBatch').addEventListener('click',()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([$('batchText').value],{type:'text/plain'}));a.download='forja_lote_prompts.txt';a.click();});
+$('approve').addEventListener('click',()=>decide('produccion_aprobada'));$('reject').addEventListener('click',()=>decide('rechazada'));$('toPending').addEventListener('click',()=>decide('en_revision'));$('close').addEventListener('click',()=>$('dlg').close());$('dCopy').addEventListener('click',()=>copy($('dPrompt').textContent,'Prompt copiado'));
+$('exportZip').addEventListener('click',exportZip);
+window.addEventListener('beforeunload',e=>{if(FILES.size){e.preventDefault();e.returnValue='';}});
+load();})();
+</script>
+</body>
+</html>

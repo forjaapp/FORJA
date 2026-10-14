@@ -1,0 +1,2823 @@
+{
+ "schema": 1,
+ "version": "1.0.0",
+ "estado": "propuesta_inicial_pendiente_revision",
+ "nota": "Catálogo administrable de equipamiento. Cada ejercicio indica qué necesita: un ID es obligatorio; una lista de IDs significa \"cualquiera de estos\". \"satisfecho_por\" define equivalencias (por ejemplo, una doble polea cubre polea alta y baja). Revisar con un profesional antes de usarlo como inventario real.",
+ "grupos": [
+  "Pesos libres",
+  "Bancos y racks",
+  "Poleas",
+  "Máquina Smith",
+  "Máquinas de piernas y glúteos",
+  "Máquinas de torso y core",
+  "Peso corporal y suspensión",
+  "Accesorios",
+  "Cardio"
+ ],
+ "items": [
+  {
+   "id": "barra_olimpica",
+   "nombre": "Barra olímpica o recta con discos",
+   "grupo": "Pesos libres",
+   "categoria": "Barra",
+   "satisfecho_por": [
+    "barra_olimpica"
+   ]
+  },
+  {
+   "id": "barra_ez",
+   "nombre": "Barra EZ (barra Z)",
+   "grupo": "Pesos libres",
+   "categoria": "Barra",
+   "satisfecho_por": [
+    "barra_ez"
+   ]
+  },
+  {
+   "id": "barra_hexagonal",
+   "nombre": "Barra hexagonal (trap bar)",
+   "grupo": "Pesos libres",
+   "categoria": "Barra",
+   "satisfecho_por": [
+    "barra_hexagonal"
+   ]
+  },
+  {
+   "id": "barra_safety",
+   "nombre": "Safety squat bar",
+   "grupo": "Pesos libres",
+   "categoria": "Barra",
+   "satisfecho_por": [
+    "barra_safety"
+   ]
+  },
+  {
+   "id": "landmine",
+   "nombre": "Anclaje landmine / barra T",
+   "grupo": "Pesos libres",
+   "categoria": "Barra",
+   "satisfecho_por": [
+    "landmine"
+   ]
+  },
+  {
+   "id": "plataforma_bumper",
+   "nombre": "Plataforma con discos bumper",
+   "grupo": "Pesos libres",
+   "categoria": "Barra",
+   "satisfecho_por": [
+    "plataforma_bumper"
+   ]
+  },
+  {
+   "id": "mancuernas",
+   "nombre": "Mancuernas",
+   "grupo": "Pesos libres",
+   "categoria": "Mancuernas",
+   "satisfecho_por": [
+    "mancuernas"
+   ]
+  },
+  {
+   "id": "kettlebells",
+   "nombre": "Kettlebells (pesas rusas)",
+   "grupo": "Pesos libres",
+   "categoria": "Kettlebell",
+   "satisfecho_por": [
+    "kettlebells"
+   ]
+  },
+  {
+   "id": "discos",
+   "nombre": "Discos sueltos",
+   "grupo": "Pesos libres",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "discos"
+   ]
+  },
+  {
+   "id": "banco_plano",
+   "nombre": "Banco plano",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "banco_plano",
+    "banco_ajustable"
+   ]
+  },
+  {
+   "id": "banco_ajustable",
+   "nombre": "Banco inclinable o con respaldo",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "banco_ajustable"
+   ]
+  },
+  {
+   "id": "banco_declinado",
+   "nombre": "Banco declinado",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "banco_declinado"
+   ]
+  },
+  {
+   "id": "banco_scott",
+   "nombre": "Banco Scott (predicador)",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "banco_scott"
+   ]
+  },
+  {
+   "id": "rack",
+   "nombre": "Rack, jaula o soportes de seguridad",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "rack"
+   ]
+  },
+  {
+   "id": "cajon",
+   "nombre": "Cajón o step firme",
+   "grupo": "Bancos y racks",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "cajon"
+   ]
+  },
+  {
+   "id": "banco_hiperextensiones",
+   "nombre": "Banco de hiperextensiones 45° (romano)",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "banco_hiperextensiones"
+   ]
+  },
+  {
+   "id": "banco_romano_horizontal",
+   "nombre": "Banco romano horizontal",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "banco_romano_horizontal"
+   ]
+  },
+  {
+   "id": "ghd",
+   "nombre": "Banco GHD",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "ghd"
+   ]
+  },
+  {
+   "id": "silla_romana",
+   "nombre": "Silla romana (captain’s chair)",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "silla_romana"
+   ]
+  },
+  {
+   "id": "banco_nordico",
+   "nombre": "Soporte de tobillos / banco nórdico",
+   "grupo": "Bancos y racks",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "banco_nordico"
+   ]
+  },
+  {
+   "id": "polea_alta",
+   "nombre": "Polea alta",
+   "grupo": "Poleas",
+   "categoria": "Poleas",
+   "satisfecho_por": [
+    "polea_alta",
+    "polea_regulable",
+    "doble_polea"
+   ]
+  },
+  {
+   "id": "polea_baja",
+   "nombre": "Polea baja",
+   "grupo": "Poleas",
+   "categoria": "Poleas",
+   "satisfecho_por": [
+    "polea_baja",
+    "polea_regulable",
+    "doble_polea"
+   ]
+  },
+  {
+   "id": "polea_regulable",
+   "nombre": "Polea regulable en altura",
+   "grupo": "Poleas",
+   "categoria": "Poleas",
+   "satisfecho_por": [
+    "polea_regulable",
+    "doble_polea"
+   ]
+  },
+  {
+   "id": "doble_polea",
+   "nombre": "Doble polea / crossover",
+   "grupo": "Poleas",
+   "categoria": "Poleas",
+   "satisfecho_por": [
+    "doble_polea"
+   ]
+  },
+  {
+   "id": "smith",
+   "nombre": "Máquina Smith (multipower)",
+   "grupo": "Máquina Smith",
+   "categoria": "Máquina Smith",
+   "satisfecho_por": [
+    "smith"
+   ]
+  },
+  {
+   "id": "prensa_45",
+   "nombre": "Prensa 45°",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "prensa_45"
+   ]
+  },
+  {
+   "id": "prensa_horizontal",
+   "nombre": "Prensa horizontal",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "prensa_horizontal"
+   ]
+  },
+  {
+   "id": "prensa_vertical",
+   "nombre": "Prensa vertical",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "prensa_vertical"
+   ]
+  },
+  {
+   "id": "hack_squat",
+   "nombre": "Hack squat",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "hack_squat"
+   ]
+  },
+  {
+   "id": "pendulum_squat",
+   "nombre": "Pendulum squat",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "pendulum_squat"
+   ]
+  },
+  {
+   "id": "v_squat",
+   "nombre": "V-squat",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "v_squat"
+   ]
+  },
+  {
+   "id": "sissy_squat",
+   "nombre": "Máquina sissy squat",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "sissy_squat"
+   ]
+  },
+  {
+   "id": "leg_extension",
+   "nombre": "Sillón de cuádriceps (leg extension)",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "leg_extension"
+   ]
+  },
+  {
+   "id": "leg_curl_tumbado",
+   "nombre": "Camilla de femorales (curl tumbado)",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "leg_curl_tumbado"
+   ]
+  },
+  {
+   "id": "leg_curl_sentado",
+   "nombre": "Curl femoral sentado",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "leg_curl_sentado"
+   ]
+  },
+  {
+   "id": "leg_curl_de_pie",
+   "nombre": "Curl femoral de pie / vertical",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "leg_curl_de_pie"
+   ]
+  },
+  {
+   "id": "maquina_hip_thrust",
+   "nombre": "Máquina de hip thrust",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_hip_thrust"
+   ]
+  },
+  {
+   "id": "maquina_gluteo",
+   "nombre": "Máquina de glúteos (patada / multicadera)",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_gluteo"
+   ]
+  },
+  {
+   "id": "abductora",
+   "nombre": "Máquina abductora",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "abductora"
+   ]
+  },
+  {
+   "id": "aductora",
+   "nombre": "Máquina aductora",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "aductora"
+   ]
+  },
+  {
+   "id": "gemelos_de_pie",
+   "nombre": "Gemelos de pie (standing calf)",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "gemelos_de_pie"
+   ]
+  },
+  {
+   "id": "gemelos_sentado",
+   "nombre": "Gemelos sentado (seated calf)",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "gemelos_sentado"
+   ]
+  },
+  {
+   "id": "donkey_calf",
+   "nombre": "Donkey calf",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "donkey_calf"
+   ]
+  },
+  {
+   "id": "maquina_tibial",
+   "nombre": "Máquina de tibial",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_tibial"
+   ]
+  },
+  {
+   "id": "reverse_hyper",
+   "nombre": "Reverse hyper",
+   "grupo": "Máquinas de piernas y glúteos",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "reverse_hyper"
+   ]
+  },
+  {
+   "id": "maquina_press_pecho",
+   "nombre": "Press de pecho en máquina",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_press_pecho"
+   ]
+  },
+  {
+   "id": "maquina_press_inclinado",
+   "nombre": "Press inclinado en máquina",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_press_inclinado"
+   ]
+  },
+  {
+   "id": "maquina_press_declinado",
+   "nombre": "Press declinado en máquina",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_press_declinado"
+   ]
+  },
+  {
+   "id": "pec_deck",
+   "nombre": "Pec deck / mariposa",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "pec_deck"
+   ]
+  },
+  {
+   "id": "maquina_jalon",
+   "nombre": "Máquina de jalón",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_jalon"
+   ]
+  },
+  {
+   "id": "maquina_remo",
+   "nombre": "Remo sentado en máquina",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_remo"
+   ]
+  },
+  {
+   "id": "maquina_remo_alto",
+   "nombre": "Remo alto (high row)",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_remo_alto"
+   ]
+  },
+  {
+   "id": "maquina_remo_bajo",
+   "nombre": "Remo bajo (low row)",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_remo_bajo"
+   ]
+  },
+  {
+   "id": "maquina_remo_t",
+   "nombre": "Remo T con apoyo de pecho",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_remo_t"
+   ]
+  },
+  {
+   "id": "maquina_pullover",
+   "nombre": "Máquina de pullover",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_pullover"
+   ]
+  },
+  {
+   "id": "maquina_press_hombros",
+   "nombre": "Press de hombros en máquina",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_press_hombros"
+   ]
+  },
+  {
+   "id": "maquina_laterales",
+   "nombre": "Máquina de vuelos laterales",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_laterales"
+   ]
+  },
+  {
+   "id": "maquina_curl",
+   "nombre": "Máquina de curl de bíceps",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_curl"
+   ]
+  },
+  {
+   "id": "maquina_curl_scott",
+   "nombre": "Máquina de curl Scott",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_curl_scott"
+   ]
+  },
+  {
+   "id": "maquina_triceps",
+   "nombre": "Máquina de tríceps",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_triceps"
+   ]
+  },
+  {
+   "id": "maquina_fondos",
+   "nombre": "Máquina de fondos sentado",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_fondos"
+   ]
+  },
+  {
+   "id": "maquina_asistida",
+   "nombre": "Máquina asistida de dominadas y fondos",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_asistida"
+   ]
+  },
+  {
+   "id": "maquina_abdominal",
+   "nombre": "Máquina de abdominales",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_abdominal"
+   ]
+  },
+  {
+   "id": "maquina_rotacion",
+   "nombre": "Máquina de rotación de torso",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_rotacion"
+   ]
+  },
+  {
+   "id": "maquina_lumbar",
+   "nombre": "Máquina lumbar",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_lumbar"
+   ]
+  },
+  {
+   "id": "maquina_shrug",
+   "nombre": "Máquina de encogimientos",
+   "grupo": "Máquinas de torso y core",
+   "categoria": "Máquina guiada",
+   "satisfecho_por": [
+    "maquina_shrug"
+   ]
+  },
+  {
+   "id": "barra_dominadas",
+   "nombre": "Barra de dominadas",
+   "grupo": "Peso corporal y suspensión",
+   "categoria": "Peso corporal",
+   "satisfecho_por": [
+    "barra_dominadas"
+   ]
+  },
+  {
+   "id": "paralelas",
+   "nombre": "Barras paralelas",
+   "grupo": "Peso corporal y suspensión",
+   "categoria": "Peso corporal",
+   "satisfecho_por": [
+    "paralelas"
+   ]
+  },
+  {
+   "id": "anillas",
+   "nombre": "Anillas",
+   "grupo": "Peso corporal y suspensión",
+   "categoria": "Suspensión",
+   "satisfecho_por": [
+    "anillas"
+   ]
+  },
+  {
+   "id": "suspension",
+   "nombre": "Entrenador en suspensión (TRX)",
+   "grupo": "Peso corporal y suspensión",
+   "categoria": "Suspensión",
+   "satisfecho_por": [
+    "suspension"
+   ]
+  },
+  {
+   "id": "lastre",
+   "nombre": "Chaleco o cinturón de lastre",
+   "grupo": "Peso corporal y suspensión",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "lastre"
+   ]
+  },
+  {
+   "id": "colchoneta",
+   "nombre": "Colchoneta",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "colchoneta"
+   ]
+  },
+  {
+   "id": "bandas",
+   "nombre": "Bandas elásticas largas",
+   "grupo": "Accesorios",
+   "categoria": "Bandas elásticas",
+   "satisfecho_por": [
+    "bandas"
+   ]
+  },
+  {
+   "id": "minibandas",
+   "nombre": "Minibandas",
+   "grupo": "Accesorios",
+   "categoria": "Bandas elásticas",
+   "satisfecho_por": [
+    "minibandas"
+   ]
+  },
+  {
+   "id": "fitball",
+   "nombre": "Pelota de estabilidad (fitball)",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "fitball"
+   ]
+  },
+  {
+   "id": "rueda_abdominal",
+   "nombre": "Rueda abdominal",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "rueda_abdominal"
+   ]
+  },
+  {
+   "id": "balon_medicinal",
+   "nombre": "Balón medicinal",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "balon_medicinal"
+   ]
+  },
+  {
+   "id": "foam_roller",
+   "nombre": "Foam roller",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "foam_roller"
+   ]
+  },
+  {
+   "id": "baston",
+   "nombre": "Bastón de movilidad",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "baston"
+   ]
+  },
+  {
+   "id": "discos_deslizantes",
+   "nombre": "Discos deslizantes",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "discos_deslizantes"
+   ]
+  },
+  {
+   "id": "wrist_roller",
+   "nombre": "Rodillo de antebrazos",
+   "grupo": "Accesorios",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "wrist_roller"
+   ]
+  },
+  {
+   "id": "cuerdas_batalla",
+   "nombre": "Cuerdas de batalla",
+   "grupo": "Accesorios",
+   "categoria": "Accesorios funcionales",
+   "satisfecho_por": [
+    "cuerdas_batalla"
+   ]
+  },
+  {
+   "id": "trineo",
+   "nombre": "Trineo de empuje o arrastre",
+   "grupo": "Accesorios",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "trineo"
+   ]
+  },
+  {
+   "id": "neumatico",
+   "nombre": "Neumático de entrenamiento",
+   "grupo": "Accesorios",
+   "categoria": "Equipo específico / accesorio",
+   "satisfecho_por": [
+    "neumatico"
+   ]
+  },
+  {
+   "id": "cinta",
+   "nombre": "Cinta de correr motorizada",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "cinta"
+   ]
+  },
+  {
+   "id": "cinta_curva",
+   "nombre": "Cinta curva manual",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "cinta_curva"
+   ]
+  },
+  {
+   "id": "bici_estatica",
+   "nombre": "Bicicleta estática",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "bici_estatica"
+   ]
+  },
+  {
+   "id": "bici_spinning",
+   "nombre": "Bicicleta de spinning",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "bici_spinning"
+   ]
+  },
+  {
+   "id": "airbike",
+   "nombre": "Bicicleta de aire (air bike)",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "airbike"
+   ]
+  },
+  {
+   "id": "eliptica",
+   "nombre": "Elíptica",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "eliptica"
+   ]
+  },
+  {
+   "id": "remo_ergometro",
+   "nombre": "Remo ergómetro",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "remo_ergometro"
+   ]
+  },
+  {
+   "id": "escaladora",
+   "nombre": "Escaladora (stepmill)",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "escaladora"
+   ]
+  },
+  {
+   "id": "stepper",
+   "nombre": "Stepper",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "stepper"
+   ]
+  },
+  {
+   "id": "ski_erg",
+   "nombre": "Ski erg",
+   "grupo": "Cardio",
+   "categoria": "Cardio",
+   "satisfecho_por": [
+    "ski_erg"
+   ]
+  }
+ ],
+ "presets": {
+  "completo": {
+   "nombre": "Gimnasio completo",
+   "items": [
+    "barra_olimpica",
+    "barra_ez",
+    "barra_hexagonal",
+    "barra_safety",
+    "landmine",
+    "plataforma_bumper",
+    "mancuernas",
+    "kettlebells",
+    "discos",
+    "banco_plano",
+    "banco_ajustable",
+    "banco_declinado",
+    "banco_scott",
+    "rack",
+    "cajon",
+    "banco_hiperextensiones",
+    "banco_romano_horizontal",
+    "ghd",
+    "silla_romana",
+    "banco_nordico",
+    "polea_alta",
+    "polea_baja",
+    "polea_regulable",
+    "doble_polea",
+    "smith",
+    "prensa_45",
+    "prensa_horizontal",
+    "prensa_vertical",
+    "hack_squat",
+    "pendulum_squat",
+    "v_squat",
+    "sissy_squat",
+    "leg_extension",
+    "leg_curl_tumbado",
+    "leg_curl_sentado",
+    "leg_curl_de_pie",
+    "maquina_hip_thrust",
+    "maquina_gluteo",
+    "abductora",
+    "aductora",
+    "gemelos_de_pie",
+    "gemelos_sentado",
+    "donkey_calf",
+    "maquina_tibial",
+    "reverse_hyper",
+    "maquina_press_pecho",
+    "maquina_press_inclinado",
+    "maquina_press_declinado",
+    "pec_deck",
+    "maquina_jalon",
+    "maquina_remo",
+    "maquina_remo_alto",
+    "maquina_remo_bajo",
+    "maquina_remo_t",
+    "maquina_pullover",
+    "maquina_press_hombros",
+    "maquina_laterales",
+    "maquina_curl",
+    "maquina_curl_scott",
+    "maquina_triceps",
+    "maquina_fondos",
+    "maquina_asistida",
+    "maquina_abdominal",
+    "maquina_rotacion",
+    "maquina_lumbar",
+    "maquina_shrug",
+    "barra_dominadas",
+    "paralelas",
+    "anillas",
+    "suspension",
+    "lastre",
+    "colchoneta",
+    "bandas",
+    "minibandas",
+    "fitball",
+    "rueda_abdominal",
+    "balon_medicinal",
+    "foam_roller",
+    "baston",
+    "discos_deslizantes",
+    "wrist_roller",
+    "cuerdas_batalla",
+    "trineo",
+    "neumatico",
+    "cinta",
+    "cinta_curva",
+    "bici_estatica",
+    "bici_spinning",
+    "airbike",
+    "eliptica",
+    "remo_ergometro",
+    "escaladora",
+    "stepper",
+    "ski_erg"
+   ]
+  },
+  "basico": {
+   "nombre": "Gimnasio básico",
+   "items": [
+    "barra_olimpica",
+    "barra_ez",
+    "mancuernas",
+    "discos",
+    "banco_plano",
+    "banco_ajustable",
+    "rack",
+    "polea_alta",
+    "polea_baja",
+    "doble_polea",
+    "smith",
+    "prensa_45",
+    "leg_extension",
+    "leg_curl_tumbado",
+    "pec_deck",
+    "maquina_jalon",
+    "maquina_remo",
+    "barra_dominadas",
+    "paralelas",
+    "colchoneta",
+    "bandas",
+    "cinta",
+    "bici_estatica"
+   ]
+  },
+  "casa": {
+   "nombre": "En casa con mancuernas",
+   "items": [
+    "mancuernas",
+    "banco_plano",
+    "banco_ajustable",
+    "colchoneta",
+    "bandas",
+    "minibandas"
+   ]
+  },
+  "corporal": {
+   "nombre": "Solo peso corporal",
+   "items": [
+    "colchoneta"
+   ]
+  }
+ },
+ "ejercicios": {
+  "FJ-PEC-0001": [
+   "barra_olimpica",
+   "banco_plano",
+   "rack"
+  ],
+  "FJ-PEC-0002": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-PEC-0003": [
+   "maquina_press_pecho"
+  ],
+  "FJ-PEC-0004": [
+   "maquina_press_pecho"
+  ],
+  "FJ-PEC-0005": [
+   "smith",
+   "banco_plano"
+  ],
+  "FJ-PEC-0006": [
+   "doble_polea",
+   "banco_plano"
+  ],
+  "FJ-PEC-0007": [
+   "doble_polea"
+  ],
+  "FJ-PEC-0008": [
+   "maquina_press_pecho"
+  ],
+  "FJ-PEC-0009": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-PEC-0010": [
+   "barra_olimpica",
+   "banco_ajustable",
+   "rack"
+  ],
+  "FJ-PEC-0011": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-PEC-0012": [
+   "maquina_press_inclinado"
+  ],
+  "FJ-PEC-0013": [
+   "smith",
+   "banco_ajustable"
+  ],
+  "FJ-PEC-0014": [
+   "polea_regulable",
+   "banco_ajustable"
+  ],
+  "FJ-PEC-0015": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-PEC-0016": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-PEC-0017": [
+   "barra_olimpica",
+   "banco_declinado",
+   "rack"
+  ],
+  "FJ-PEC-0018": [
+   "banco_declinado",
+   "mancuernas"
+  ],
+  "FJ-PEC-0019": [
+   "maquina_press_declinado"
+  ],
+  "FJ-PEC-0020": [
+   "smith",
+   "banco_declinado"
+  ],
+  "FJ-PEC-0021": [
+   "paralelas"
+  ],
+  "FJ-PEC-0022": [
+   "maquina_asistida"
+  ],
+  "FJ-PEC-0023": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-PEC-0024": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-PEC-0025": [
+   "banco_declinado",
+   "mancuernas"
+  ],
+  "FJ-PEC-0026": [
+   "pec_deck"
+  ],
+  "FJ-PEC-0027": [
+   "doble_polea"
+  ],
+  "FJ-PEC-0028": [
+   "doble_polea"
+  ],
+  "FJ-PEC-0029": [
+   "doble_polea"
+  ],
+  "FJ-PEC-0030": [
+   "polea_regulable"
+  ],
+  "FJ-PEC-0031": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-PEC-0032": [],
+  "FJ-PEC-0033": [
+   "colchoneta"
+  ],
+  "FJ-PEC-0034": [
+   "banco_plano"
+  ],
+  "FJ-PEC-0035": [
+   "banco_plano"
+  ],
+  "FJ-PEC-0036": [
+   "colchoneta"
+  ],
+  "FJ-PEC-0037": [
+   "lastre"
+  ],
+  "FJ-PEC-0038": [
+   "anillas"
+  ],
+  "FJ-ESP-0001": [
+   "barra_dominadas"
+  ],
+  "FJ-ESP-0002": [
+   "barra_dominadas"
+  ],
+  "FJ-ESP-0003": [
+   "barra_dominadas"
+  ],
+  "FJ-ESP-0004": [
+   "barra_dominadas",
+   "lastre"
+  ],
+  "FJ-ESP-0005": [
+   "maquina_asistida"
+  ],
+  "FJ-ESP-0006": [
+   "barra_dominadas",
+   "bandas"
+  ],
+  "FJ-ESP-0007": [
+   "barra_dominadas"
+  ],
+  "FJ-ESP-0008": [
+   "barra_dominadas"
+  ],
+  "FJ-ESP-0009": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0010": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0011": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0012": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0013": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0014": [
+   "maquina_jalon"
+  ],
+  "FJ-ESP-0015": [
+   "maquina_jalon"
+  ],
+  "FJ-ESP-0016": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0017": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0018": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0019": [
+   "barra_olimpica"
+  ],
+  "FJ-ESP-0020": [
+   "barra_olimpica"
+  ],
+  "FJ-ESP-0021": [
+   "barra_olimpica"
+  ],
+  "FJ-ESP-0022": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-ESP-0023": [
+   "mancuernas"
+  ],
+  "FJ-ESP-0024": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-ESP-0025": [
+   "landmine"
+  ],
+  "FJ-ESP-0026": [
+   "maquina_remo_t"
+  ],
+  "FJ-ESP-0027": [
+   "landmine"
+  ],
+  "FJ-ESP-0028": [
+   "kettlebells"
+  ],
+  "FJ-ESP-0029": [
+   "rack"
+  ],
+  "FJ-ESP-0030": [
+   "anillas"
+  ],
+  "FJ-ESP-0031": [
+   "landmine"
+  ],
+  "FJ-ESP-0032": [
+   "barra_olimpica"
+  ],
+  "FJ-ESP-0033": [
+   "polea_baja"
+  ],
+  "FJ-ESP-0034": [
+   "polea_baja"
+  ],
+  "FJ-ESP-0035": [
+   "polea_baja"
+  ],
+  "FJ-ESP-0036": [
+   "polea_baja",
+   "banco_plano"
+  ],
+  "FJ-ESP-0037": [
+   "polea_regulable"
+  ],
+  "FJ-ESP-0038": [
+   "maquina_remo"
+  ],
+  "FJ-ESP-0039": [
+   "maquina_remo"
+  ],
+  "FJ-ESP-0040": [
+   "maquina_remo"
+  ],
+  "FJ-ESP-0041": [
+   "maquina_remo_alto"
+  ],
+  "FJ-ESP-0042": [
+   "maquina_remo_bajo"
+  ],
+  "FJ-ESP-0043": [
+   "polea_regulable"
+  ],
+  "FJ-ESP-0044": [
+   "suspension"
+  ],
+  "FJ-ESP-0045": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-ESP-0046": [
+   "barra_ez",
+   "banco_plano"
+  ],
+  "FJ-ESP-0047": [
+   "maquina_pullover"
+  ],
+  "FJ-ESP-0048": [
+   "polea_alta"
+  ],
+  "FJ-ESP-0049": [
+   "polea_alta"
+  ],
+  "FJ-HOM-0001": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-HOM-0002": [
+   "barra_olimpica",
+   "banco_ajustable",
+   "rack"
+  ],
+  "FJ-HOM-0003": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-HOM-0004": [
+   "mancuernas"
+  ],
+  "FJ-HOM-0005": [
+   "maquina_press_hombros"
+  ],
+  "FJ-HOM-0006": [
+   "maquina_press_hombros"
+  ],
+  "FJ-HOM-0007": [
+   "smith",
+   "banco_ajustable"
+  ],
+  "FJ-HOM-0008": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-HOM-0009": [
+   "mancuernas"
+  ],
+  "FJ-HOM-0010": [
+   "polea_baja"
+  ],
+  "FJ-HOM-0011": [
+   "kettlebells"
+  ],
+  "FJ-HOM-0012": [
+   "landmine"
+  ],
+  "FJ-HOM-0013": [
+   "mancuernas"
+  ],
+  "FJ-HOM-0014": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-HOM-0015": [
+   "polea_baja"
+  ],
+  "FJ-HOM-0016": [
+   "doble_polea"
+  ],
+  "FJ-HOM-0017": [
+   "maquina_laterales"
+  ],
+  "FJ-HOM-0018": [
+   "mancuernas"
+  ],
+  "FJ-HOM-0019": [
+   "bandas"
+  ],
+  "FJ-HOM-0020": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-HOM-0021": [
+   "mancuernas"
+  ],
+  "FJ-HOM-0022": [
+   "mancuernas"
+  ],
+  "FJ-HOM-0023": [
+   "barra_olimpica"
+  ],
+  "FJ-HOM-0024": [
+   "discos"
+  ],
+  "FJ-HOM-0025": [
+   "polea_baja"
+  ],
+  "FJ-HOM-0026": [
+   "polea_baja"
+  ],
+  "FJ-HOM-0027": [
+   "mancuernas"
+  ],
+  "FJ-HOM-0028": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-HOM-0029": [
+   "pec_deck"
+  ],
+  "FJ-HOM-0030": [
+   "doble_polea"
+  ],
+  "FJ-HOM-0031": [
+   "polea_regulable"
+  ],
+  "FJ-HOM-0032": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-HOM-0033": [
+   "polea_alta"
+  ],
+  "FJ-HOM-0034": [
+   "bandas"
+  ],
+  "FJ-HOM-0035": [
+   "polea_baja"
+  ],
+  "FJ-HOM-0036": [
+   "polea_baja"
+  ],
+  "FJ-HOM-0037": [
+   "bandas"
+  ],
+  "FJ-HOM-0038": [
+   "bandas"
+  ],
+  "FJ-HOM-0039": [
+   "mancuernas",
+   "colchoneta"
+  ],
+  "FJ-HOM-0040": [
+   "polea_regulable"
+  ],
+  "FJ-HOM-0041": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-HOM-0042": [],
+  "FJ-BIC-0001": [
+   "barra_olimpica"
+  ],
+  "FJ-BIC-0002": [
+   "barra_ez"
+  ],
+  "FJ-BIC-0003": [
+   "mancuernas"
+  ],
+  "FJ-BIC-0004": [
+   "mancuernas"
+  ],
+  "FJ-BIC-0005": [
+   "polea_baja"
+  ],
+  "FJ-BIC-0006": [
+   "polea_baja"
+  ],
+  "FJ-BIC-0007": [
+   "maquina_curl"
+  ],
+  "FJ-BIC-0008": [
+   "bandas"
+  ],
+  "FJ-BIC-0009": [
+   "banco_scott",
+   "barra_ez"
+  ],
+  "FJ-BIC-0010": [
+   "banco_scott",
+   "barra_olimpica"
+  ],
+  "FJ-BIC-0011": [
+   "banco_scott",
+   "mancuernas"
+  ],
+  "FJ-BIC-0012": [
+   "maquina_curl_scott"
+  ],
+  "FJ-BIC-0013": [
+   "banco_scott",
+   "polea_baja"
+  ],
+  "FJ-BIC-0014": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-BIC-0015": [
+   "banco_ajustable",
+   "mancuernas"
+  ],
+  "FJ-BIC-0016": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-BIC-0017": [
+   "polea_baja"
+  ],
+  "FJ-BIC-0018": [
+   "doble_polea"
+  ],
+  "FJ-BIC-0019": [
+   "barra_olimpica"
+  ],
+  "FJ-BIC-0020": [
+   "mancuernas"
+  ],
+  "FJ-BIC-0021": [
+   "mancuernas"
+  ],
+  "FJ-BIC-0022": [
+   "mancuernas"
+  ],
+  "FJ-BIC-0023": [
+   "polea_baja"
+  ],
+  "FJ-BIC-0024": [
+   "barra_ez"
+  ],
+  "FJ-BIC-0025": [
+   "barra_olimpica"
+  ],
+  "FJ-BIC-0026": [
+   "polea_baja"
+  ],
+  "FJ-BIC-0027": [
+   "mancuernas"
+  ],
+  "FJ-TRI-0001": [
+   "polea_alta"
+  ],
+  "FJ-TRI-0002": [
+   "polea_alta"
+  ],
+  "FJ-TRI-0003": [
+   "polea_alta"
+  ],
+  "FJ-TRI-0004": [
+   "polea_alta"
+  ],
+  "FJ-TRI-0005": [
+   "polea_alta"
+  ],
+  "FJ-TRI-0006": [
+   "polea_alta"
+  ],
+  "FJ-TRI-0007": [
+   "maquina_triceps"
+  ],
+  "FJ-TRI-0008": [
+   "mancuernas"
+  ],
+  "FJ-TRI-0009": [
+   "mancuernas"
+  ],
+  "FJ-TRI-0010": [
+   "barra_ez",
+   "banco_plano"
+  ],
+  "FJ-TRI-0011": [
+   "polea_baja"
+  ],
+  "FJ-TRI-0012": [
+   "polea_baja"
+  ],
+  "FJ-TRI-0013": [
+   "maquina_triceps"
+  ],
+  "FJ-TRI-0014": [
+   "barra_ez",
+   "banco_plano"
+  ],
+  "FJ-TRI-0015": [
+   "barra_olimpica",
+   "banco_plano"
+  ],
+  "FJ-TRI-0016": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-TRI-0017": [
+   "polea_baja",
+   "banco_plano"
+  ],
+  "FJ-TRI-0018": [
+   "barra_olimpica",
+   "banco_plano",
+   "rack"
+  ],
+  "FJ-TRI-0019": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-TRI-0020": [],
+  "FJ-TRI-0021": [
+   "paralelas"
+  ],
+  "FJ-TRI-0022": [
+   "maquina_asistida"
+  ],
+  "FJ-TRI-0023": [
+   "maquina_fondos"
+  ],
+  "FJ-TRI-0024": [
+   "mancuernas"
+  ],
+  "FJ-TRI-0025": [
+   "polea_baja"
+  ],
+  "FJ-TRI-0026": [
+   "banco_plano"
+  ],
+  "FJ-ANT-0001": [
+   "barra_olimpica",
+   "banco_plano"
+  ],
+  "FJ-ANT-0002": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-ANT-0003": [
+   "polea_baja",
+   "banco_plano"
+  ],
+  "FJ-ANT-0004": [
+   "barra_olimpica"
+  ],
+  "FJ-ANT-0005": [
+   "barra_olimpica",
+   "banco_plano"
+  ],
+  "FJ-ANT-0006": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-ANT-0007": [
+   "polea_baja"
+  ],
+  "FJ-ANT-0008": [
+   "mancuernas"
+  ],
+  "FJ-ANT-0009": [
+   "mancuernas"
+  ],
+  "FJ-ANT-0010": [
+   "wrist_roller"
+  ],
+  "FJ-ANT-0011": [
+   "discos"
+  ],
+  "FJ-ANT-0012": [
+   "barra_dominadas"
+  ],
+  "FJ-ANT-0013": [
+   "barra_dominadas"
+  ],
+  "FJ-ANT-0014": [
+   "mancuernas"
+  ],
+  "FJ-ANT-0015": [
+   "barra_hexagonal"
+  ],
+  "FJ-ANT-0016": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-CUA-0001": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-CUA-0002": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-CUA-0003": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-CUA-0004": [
+   "mancuernas"
+  ],
+  "FJ-CUA-0005": [
+   "kettlebells"
+  ],
+  "FJ-CUA-0006": [
+   "mancuernas"
+  ],
+  "FJ-CUA-0007": [
+   "smith"
+  ],
+  "FJ-CUA-0008": [
+   "hack_squat"
+  ],
+  "FJ-CUA-0009": [
+   "pendulum_squat"
+  ],
+  "FJ-CUA-0010": [
+   "v_squat"
+  ],
+  "FJ-CUA-0011": [
+   "barra_safety",
+   "rack"
+  ],
+  "FJ-CUA-0012": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-CUA-0013": [
+   "mancuernas"
+  ],
+  "FJ-CUA-0014": [
+   "kettlebells"
+  ],
+  "FJ-CUA-0015": [
+   "barra_olimpica",
+   "rack",
+   "cajon"
+  ],
+  "FJ-CUA-0016": [],
+  "FJ-CUA-0017": [
+   "prensa_45"
+  ],
+  "FJ-CUA-0018": [
+   "prensa_45"
+  ],
+  "FJ-CUA-0019": [
+   "prensa_horizontal"
+  ],
+  "FJ-CUA-0020": [
+   "prensa_vertical"
+  ],
+  "FJ-CUA-0021": [
+   "prensa_45"
+  ],
+  "FJ-CUA-0022": [
+   "prensa_45"
+  ],
+  "FJ-CUA-0023": [
+   "leg_extension"
+  ],
+  "FJ-CUA-0024": [
+   "leg_extension"
+  ],
+  "FJ-CUA-0025": [
+   "polea_baja",
+   "banco_plano"
+  ],
+  "FJ-CUA-0026": [],
+  "FJ-CUA-0027": [
+   "sissy_squat"
+  ],
+  "FJ-CUA-0028": [
+   "mancuernas"
+  ],
+  "FJ-CUA-0029": [
+   "mancuernas"
+  ],
+  "FJ-CUA-0030": [
+   "mancuernas"
+  ],
+  "FJ-CUA-0031": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-CUA-0032": [
+   "smith"
+  ],
+  "FJ-CUA-0033": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-CUA-0034": [
+   "smith",
+   "banco_plano"
+  ],
+  "FJ-CUA-0035": [
+   "barra_olimpica",
+   "banco_plano",
+   "rack"
+  ],
+  "FJ-CUA-0036": [
+   "mancuernas"
+  ],
+  "FJ-CUA-0037": [
+   "cajon",
+   "mancuernas"
+  ],
+  "FJ-CUA-0038": [
+   "barra_olimpica",
+   "rack",
+   "cajon"
+  ],
+  "FJ-CUA-0039": [
+   [
+    "barra_dominadas",
+    "suspension",
+    "rack"
+   ]
+  ],
+  "FJ-ISQ-0001": [
+   "barra_olimpica"
+  ],
+  "FJ-ISQ-0002": [
+   "mancuernas"
+  ],
+  "FJ-ISQ-0003": [
+   "kettlebells"
+  ],
+  "FJ-ISQ-0004": [
+   "smith"
+  ],
+  "FJ-ISQ-0005": [
+   "mancuernas"
+  ],
+  "FJ-ISQ-0006": [
+   "barra_olimpica"
+  ],
+  "FJ-ISQ-0007": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-ISQ-0008": [
+   "smith"
+  ],
+  "FJ-ISQ-0009": [
+   "polea_baja"
+  ],
+  "FJ-ISQ-0010": [
+   "leg_curl_tumbado"
+  ],
+  "FJ-ISQ-0011": [
+   "leg_curl_tumbado"
+  ],
+  "FJ-ISQ-0012": [
+   "leg_curl_sentado"
+  ],
+  "FJ-ISQ-0013": [
+   "leg_curl_sentado"
+  ],
+  "FJ-ISQ-0014": [
+   "leg_curl_de_pie"
+  ],
+  "FJ-ISQ-0015": [
+   "polea_baja"
+  ],
+  "FJ-ISQ-0016": [
+   "banco_nordico",
+   "bandas"
+  ],
+  "FJ-ISQ-0017": [
+   "discos_deslizantes",
+   "colchoneta"
+  ],
+  "FJ-ISQ-0018": [
+   "fitball",
+   "colchoneta"
+  ],
+  "FJ-ISQ-0019": [
+   "leg_curl_de_pie"
+  ],
+  "FJ-GLU-0001": [
+   "barra_olimpica",
+   "banco_plano"
+  ],
+  "FJ-GLU-0002": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-GLU-0003": [
+   "maquina_hip_thrust"
+  ],
+  "FJ-GLU-0004": [
+   "smith",
+   "banco_plano"
+  ],
+  "FJ-GLU-0005": [
+   "banco_plano",
+   "colchoneta"
+  ],
+  "FJ-GLU-0006": [
+   "colchoneta"
+  ],
+  "FJ-GLU-0007": [
+   "barra_olimpica",
+   "colchoneta"
+  ],
+  "FJ-GLU-0008": [
+   "colchoneta"
+  ],
+  "FJ-GLU-0009": [
+   "banco_plano",
+   "minibandas"
+  ],
+  "FJ-GLU-0010": [
+   "colchoneta"
+  ],
+  "FJ-GLU-0011": [
+   "polea_baja"
+  ],
+  "FJ-GLU-0012": [
+   "maquina_gluteo"
+  ],
+  "FJ-GLU-0013": [
+   "colchoneta"
+  ],
+  "FJ-GLU-0014": [
+   "minibandas"
+  ],
+  "FJ-GLU-0015": [
+   "banco_hiperextensiones"
+  ],
+  "FJ-GLU-0016": [
+   "bandas"
+  ],
+  "FJ-GLU-0017": [
+   "abductora"
+  ],
+  "FJ-GLU-0018": [
+   "polea_baja"
+  ],
+  "FJ-GLU-0019": [
+   "colchoneta"
+  ],
+  "FJ-GLU-0020": [
+   "minibandas"
+  ],
+  "FJ-GLU-0021": [
+   "minibandas"
+  ],
+  "FJ-GLU-0022": [
+   "minibandas",
+   "colchoneta"
+  ],
+  "FJ-GLU-0023": [
+   "maquina_gluteo"
+  ],
+  "FJ-GLU-0024": [
+   "bandas"
+  ],
+  "FJ-GLU-0025": [
+   "cajon",
+   "mancuernas"
+  ],
+  "FJ-GLU-0026": [
+   "mancuernas"
+  ],
+  "FJ-GLU-0027": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-GLU-0028": [
+   "maquina_gluteo"
+  ],
+  "FJ-ADU-0001": [
+   "aductora"
+  ],
+  "FJ-ADU-0002": [
+   "polea_baja"
+  ],
+  "FJ-ADU-0003": [
+   "colchoneta"
+  ],
+  "FJ-ADU-0004": [
+   "bandas"
+  ],
+  "FJ-ADU-0005": [
+   "banco_plano",
+   "colchoneta"
+  ],
+  "FJ-ADU-0006": [
+   "banco_plano",
+   "colchoneta"
+  ],
+  "FJ-ADU-0007": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-PAN-0001": [
+   "gemelos_de_pie"
+  ],
+  "FJ-PAN-0002": [
+   "smith"
+  ],
+  "FJ-PAN-0003": [
+   "mancuernas"
+  ],
+  "FJ-PAN-0004": [
+   "mancuernas"
+  ],
+  "FJ-PAN-0005": [
+   "prensa_45"
+  ],
+  "FJ-PAN-0006": [
+   "donkey_calf"
+  ],
+  "FJ-PAN-0007": [
+   "lastre",
+   "rack"
+  ],
+  "FJ-PAN-0008": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-PAN-0009": [],
+  "FJ-PAN-0010": [
+   "gemelos_sentado"
+  ],
+  "FJ-PAN-0011": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-PAN-0012": [
+   "smith",
+   "banco_plano"
+  ],
+  "FJ-PAN-0013": [
+   "banco_plano",
+   "mancuernas"
+  ],
+  "FJ-PAN-0014": [
+   "maquina_tibial"
+  ],
+  "FJ-PAN-0015": [],
+  "FJ-PAN-0016": [
+   "polea_baja",
+   "banco_plano"
+  ],
+  "FJ-PAN-0017": [
+   "bandas"
+  ],
+  "FJ-COR-0001": [
+   "colchoneta"
+  ],
+  "FJ-COR-0002": [
+   "maquina_abdominal"
+  ],
+  "FJ-COR-0003": [
+   "polea_alta"
+  ],
+  "FJ-COR-0004": [
+   "discos",
+   "colchoneta"
+  ],
+  "FJ-COR-0005": [
+   "colchoneta"
+  ],
+  "FJ-COR-0006": [
+   "banco_declinado"
+  ],
+  "FJ-COR-0007": [
+   "banco_declinado"
+  ],
+  "FJ-COR-0008": [
+   "colchoneta"
+  ],
+  "FJ-COR-0009": [
+   "colchoneta"
+  ],
+  "FJ-COR-0010": [
+   "ghd"
+  ],
+  "FJ-COR-0011": [
+   "barra_dominadas"
+  ],
+  "FJ-COR-0012": [
+   "barra_dominadas"
+  ],
+  "FJ-COR-0013": [
+   "silla_romana"
+  ],
+  "FJ-COR-0014": [
+   "silla_romana"
+  ],
+  "FJ-COR-0015": [
+   "colchoneta"
+  ],
+  "FJ-COR-0016": [
+   "paralelas"
+  ],
+  "FJ-COR-0017": [
+   "barra_dominadas"
+  ],
+  "FJ-COR-0018": [
+   "banco_plano"
+  ],
+  "FJ-COR-0019": [
+   "colchoneta"
+  ],
+  "FJ-COR-0020": [
+   "colchoneta"
+  ],
+  "FJ-COR-0021": [
+   [
+    "discos",
+    "lastre"
+   ],
+   "colchoneta"
+  ],
+  "FJ-COR-0022": [
+   "fitball",
+   "colchoneta"
+  ],
+  "FJ-COR-0023": [
+   "colchoneta"
+  ],
+  "FJ-COR-0024": [
+   "rueda_abdominal",
+   "colchoneta"
+  ],
+  "FJ-COR-0025": [
+   "rueda_abdominal"
+  ],
+  "FJ-COR-0026": [
+   "colchoneta"
+  ],
+  "FJ-COR-0027": [
+   "colchoneta"
+  ],
+  "FJ-COR-0028": [
+   "colchoneta"
+  ],
+  "FJ-COR-0029": [
+   "colchoneta"
+  ],
+  "FJ-COR-0030": [
+   "discos",
+   "colchoneta"
+  ],
+  "FJ-COR-0031": [
+   "maquina_rotacion"
+  ],
+  "FJ-COR-0032": [
+   "polea_regulable"
+  ],
+  "FJ-COR-0033": [
+   "polea_alta"
+  ],
+  "FJ-COR-0034": [
+   "polea_baja"
+  ],
+  "FJ-COR-0035": [
+   "polea_regulable"
+  ],
+  "FJ-COR-0036": [
+   "polea_regulable",
+   "colchoneta"
+  ],
+  "FJ-COR-0037": [
+   "colchoneta"
+  ],
+  "FJ-COR-0038": [
+   "colchoneta"
+  ],
+  "FJ-COR-0039": [
+   "colchoneta"
+  ],
+  "FJ-COR-0040": [
+   "colchoneta"
+  ],
+  "FJ-LUM-0001": [
+   "banco_hiperextensiones"
+  ],
+  "FJ-LUM-0002": [
+   "banco_romano_horizontal"
+  ],
+  "FJ-LUM-0003": [
+   "banco_hiperextensiones"
+  ],
+  "FJ-LUM-0004": [
+   "reverse_hyper"
+  ],
+  "FJ-LUM-0005": [
+   "banco_plano"
+  ],
+  "FJ-LUM-0006": [
+   "colchoneta"
+  ],
+  "FJ-LUM-0007": [
+   "colchoneta"
+  ],
+  "FJ-LUM-0008": [
+   "maquina_lumbar"
+  ],
+  "FJ-TRA-0001": [
+   "mancuernas"
+  ],
+  "FJ-TRA-0002": [
+   "barra_olimpica"
+  ],
+  "FJ-TRA-0003": [
+   "smith"
+  ],
+  "FJ-TRA-0004": [
+   "maquina_shrug"
+  ],
+  "FJ-TRA-0005": [
+   "barra_hexagonal"
+  ],
+  "FJ-TRA-0006": [
+   "polea_baja"
+  ],
+  "FJ-TRA-0007": [
+   "polea_baja",
+   "banco_plano"
+  ],
+  "FJ-TRA-0008": [
+   "polea_alta"
+  ],
+  "FJ-TRA-0009": [
+   "doble_polea"
+  ],
+  "FJ-TRA-0010": [],
+  "FJ-TRA-0011": [],
+  "FJ-COM-0001": [
+   "barra_olimpica"
+  ],
+  "FJ-COM-0002": [
+   "barra_olimpica"
+  ],
+  "FJ-COM-0003": [
+   "barra_hexagonal"
+  ],
+  "FJ-COM-0004": [
+   "mancuernas"
+  ],
+  "FJ-COM-0005": [
+   "kettlebells"
+  ],
+  "FJ-COM-0006": [
+   "barra_olimpica"
+  ],
+  "FJ-COM-0007": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-COM-0008": [
+   "plataforma_bumper",
+   "barra_olimpica"
+  ],
+  "FJ-COM-0009": [
+   "plataforma_bumper",
+   "barra_olimpica"
+  ],
+  "FJ-COM-0010": [
+   "plataforma_bumper",
+   "barra_olimpica"
+  ],
+  "FJ-COM-0011": [
+   "barra_olimpica",
+   "rack"
+  ],
+  "FJ-COM-0012": [
+   "plataforma_bumper",
+   "barra_olimpica"
+  ],
+  "FJ-COM-0013": [
+   "plataforma_bumper",
+   "barra_olimpica"
+  ],
+  "FJ-COM-0014": [
+   "mancuernas"
+  ],
+  "FJ-COM-0015": [
+   "kettlebells"
+  ],
+  "FJ-COM-0016": [
+   "mancuernas"
+  ],
+  "FJ-COM-0017": [
+   "plataforma_bumper",
+   "barra_olimpica"
+  ],
+  "FJ-COM-0018": [
+   "kettlebells"
+  ],
+  "FJ-COM-0019": [
+   "mancuernas"
+  ],
+  "FJ-COM-0020": [
+   "kettlebells"
+  ],
+  "FJ-COM-0021": [
+   "trineo"
+  ],
+  "FJ-COM-0022": [
+   "trineo"
+  ],
+  "FJ-COM-0023": [
+   "trineo"
+  ],
+  "FJ-COM-0024": [
+   "neumatico"
+  ],
+  "FJ-COM-0025": [
+   "cuerdas_batalla"
+  ],
+  "FJ-COM-0026": [
+   "cuerdas_batalla"
+  ],
+  "FJ-COM-0027": [
+   "balon_medicinal"
+  ],
+  "FJ-COM-0028": [],
+  "FJ-COM-0029": [],
+  "FJ-CAR-0001": [
+   "cinta"
+  ],
+  "FJ-CAR-0002": [
+   "cinta"
+  ],
+  "FJ-CAR-0003": [
+   "cinta"
+  ],
+  "FJ-CAR-0004": [
+   "cinta"
+  ],
+  "FJ-CAR-0005": [
+   "bici_estatica"
+  ],
+  "FJ-CAR-0006": [
+   "bici_estatica"
+  ],
+  "FJ-CAR-0007": [
+   "bici_spinning"
+  ],
+  "FJ-CAR-0008": [
+   "airbike"
+  ],
+  "FJ-CAR-0009": [
+   "eliptica"
+  ],
+  "FJ-CAR-0010": [
+   "remo_ergometro"
+  ],
+  "FJ-CAR-0011": [
+   "escaladora"
+  ],
+  "FJ-CAR-0012": [
+   "stepper"
+  ],
+  "FJ-CAR-0013": [
+   "ski_erg"
+  ],
+  "FJ-CAR-0014": [
+   "cinta_curva"
+  ],
+  "FJ-CAR-0015": [
+   "cinta_curva"
+  ],
+  "FJ-MOV-0001": [
+   "colchoneta"
+  ],
+  "FJ-MOV-0002": [
+   "colchoneta"
+  ],
+  "FJ-MOV-0003": [],
+  "FJ-MOV-0004": [
+   "colchoneta"
+  ],
+  "FJ-MOV-0005": [
+   "colchoneta"
+  ],
+  "FJ-MOV-0006": [
+   "colchoneta"
+  ],
+  "FJ-MOV-0007": [
+   "colchoneta"
+  ],
+  "FJ-MOV-0008": [
+   "baston"
+  ],
+  "FJ-MOV-0009": [
+   "banco_plano",
+   "colchoneta"
+  ],
+  "FJ-MOV-0010": [
+   "foam_roller",
+   "colchoneta"
+  ],
+  "FJ-MOV-0011": [],
+  "FJ-MOV-0012": [],
+  "FJ-MOV-0013": []
+ },
+ "tipos_equipo": [
+  "Barra",
+  "Mancuernas",
+  "Máquina Smith",
+  "Poleas",
+  "Máquina guiada",
+  "Kettlebell",
+  "Bandas elásticas",
+  "Peso corporal",
+  "Suspensión",
+  "Accesorios",
+  "Cardio"
+ ],
+ "tipo_equipo": {
+  "FJ-PEC-0001": "Barra",
+  "FJ-PEC-0002": "Mancuernas",
+  "FJ-PEC-0003": "Máquina guiada",
+  "FJ-PEC-0004": "Máquina guiada",
+  "FJ-PEC-0005": "Máquina Smith",
+  "FJ-PEC-0006": "Poleas",
+  "FJ-PEC-0007": "Poleas",
+  "FJ-PEC-0008": "Máquina guiada",
+  "FJ-PEC-0009": "Mancuernas",
+  "FJ-PEC-0010": "Barra",
+  "FJ-PEC-0011": "Mancuernas",
+  "FJ-PEC-0012": "Máquina guiada",
+  "FJ-PEC-0013": "Máquina Smith",
+  "FJ-PEC-0014": "Poleas",
+  "FJ-PEC-0015": "Mancuernas",
+  "FJ-PEC-0016": "Mancuernas",
+  "FJ-PEC-0017": "Barra",
+  "FJ-PEC-0018": "Mancuernas",
+  "FJ-PEC-0019": "Máquina guiada",
+  "FJ-PEC-0020": "Máquina Smith",
+  "FJ-PEC-0021": "Peso corporal",
+  "FJ-PEC-0022": "Máquina guiada",
+  "FJ-PEC-0023": "Mancuernas",
+  "FJ-PEC-0024": "Mancuernas",
+  "FJ-PEC-0025": "Mancuernas",
+  "FJ-PEC-0026": "Máquina guiada",
+  "FJ-PEC-0027": "Poleas",
+  "FJ-PEC-0028": "Poleas",
+  "FJ-PEC-0029": "Poleas",
+  "FJ-PEC-0030": "Poleas",
+  "FJ-PEC-0031": "Mancuernas",
+  "FJ-PEC-0032": "Peso corporal",
+  "FJ-PEC-0033": "Peso corporal",
+  "FJ-PEC-0034": "Peso corporal",
+  "FJ-PEC-0035": "Peso corporal",
+  "FJ-PEC-0036": "Peso corporal",
+  "FJ-PEC-0037": "Peso corporal",
+  "FJ-PEC-0038": "Suspensión",
+  "FJ-ESP-0001": "Peso corporal",
+  "FJ-ESP-0002": "Peso corporal",
+  "FJ-ESP-0003": "Peso corporal",
+  "FJ-ESP-0004": "Peso corporal",
+  "FJ-ESP-0005": "Máquina guiada",
+  "FJ-ESP-0006": "Peso corporal",
+  "FJ-ESP-0007": "Peso corporal",
+  "FJ-ESP-0008": "Peso corporal",
+  "FJ-ESP-0009": "Poleas",
+  "FJ-ESP-0010": "Poleas",
+  "FJ-ESP-0011": "Poleas",
+  "FJ-ESP-0012": "Poleas",
+  "FJ-ESP-0013": "Poleas",
+  "FJ-ESP-0014": "Máquina guiada",
+  "FJ-ESP-0015": "Máquina guiada",
+  "FJ-ESP-0016": "Poleas",
+  "FJ-ESP-0017": "Poleas",
+  "FJ-ESP-0018": "Poleas",
+  "FJ-ESP-0019": "Barra",
+  "FJ-ESP-0020": "Barra",
+  "FJ-ESP-0021": "Barra",
+  "FJ-ESP-0022": "Mancuernas",
+  "FJ-ESP-0023": "Mancuernas",
+  "FJ-ESP-0024": "Mancuernas",
+  "FJ-ESP-0025": "Barra",
+  "FJ-ESP-0026": "Máquina guiada",
+  "FJ-ESP-0027": "Barra",
+  "FJ-ESP-0028": "Kettlebell",
+  "FJ-ESP-0029": "Peso corporal",
+  "FJ-ESP-0030": "Suspensión",
+  "FJ-ESP-0031": "Barra",
+  "FJ-ESP-0032": "Barra",
+  "FJ-ESP-0033": "Poleas",
+  "FJ-ESP-0034": "Poleas",
+  "FJ-ESP-0035": "Poleas",
+  "FJ-ESP-0036": "Poleas",
+  "FJ-ESP-0037": "Poleas",
+  "FJ-ESP-0038": "Máquina guiada",
+  "FJ-ESP-0039": "Máquina guiada",
+  "FJ-ESP-0040": "Máquina guiada",
+  "FJ-ESP-0041": "Máquina guiada",
+  "FJ-ESP-0042": "Máquina guiada",
+  "FJ-ESP-0043": "Poleas",
+  "FJ-ESP-0044": "Suspensión",
+  "FJ-ESP-0045": "Mancuernas",
+  "FJ-ESP-0046": "Barra",
+  "FJ-ESP-0047": "Máquina guiada",
+  "FJ-ESP-0048": "Poleas",
+  "FJ-ESP-0049": "Poleas",
+  "FJ-HOM-0001": "Barra",
+  "FJ-HOM-0002": "Barra",
+  "FJ-HOM-0003": "Mancuernas",
+  "FJ-HOM-0004": "Mancuernas",
+  "FJ-HOM-0005": "Máquina guiada",
+  "FJ-HOM-0006": "Máquina guiada",
+  "FJ-HOM-0007": "Máquina Smith",
+  "FJ-HOM-0008": "Mancuernas",
+  "FJ-HOM-0009": "Mancuernas",
+  "FJ-HOM-0010": "Poleas",
+  "FJ-HOM-0011": "Kettlebell",
+  "FJ-HOM-0012": "Barra",
+  "FJ-HOM-0013": "Mancuernas",
+  "FJ-HOM-0014": "Mancuernas",
+  "FJ-HOM-0015": "Poleas",
+  "FJ-HOM-0016": "Poleas",
+  "FJ-HOM-0017": "Máquina guiada",
+  "FJ-HOM-0018": "Mancuernas",
+  "FJ-HOM-0019": "Bandas elásticas",
+  "FJ-HOM-0020": "Mancuernas",
+  "FJ-HOM-0021": "Mancuernas",
+  "FJ-HOM-0022": "Mancuernas",
+  "FJ-HOM-0023": "Barra",
+  "FJ-HOM-0024": "Accesorios",
+  "FJ-HOM-0025": "Poleas",
+  "FJ-HOM-0026": "Poleas",
+  "FJ-HOM-0027": "Mancuernas",
+  "FJ-HOM-0028": "Mancuernas",
+  "FJ-HOM-0029": "Máquina guiada",
+  "FJ-HOM-0030": "Poleas",
+  "FJ-HOM-0031": "Poleas",
+  "FJ-HOM-0032": "Mancuernas",
+  "FJ-HOM-0033": "Poleas",
+  "FJ-HOM-0034": "Bandas elásticas",
+  "FJ-HOM-0035": "Poleas",
+  "FJ-HOM-0036": "Poleas",
+  "FJ-HOM-0037": "Bandas elásticas",
+  "FJ-HOM-0038": "Bandas elásticas",
+  "FJ-HOM-0039": "Mancuernas",
+  "FJ-HOM-0040": "Poleas",
+  "FJ-HOM-0041": "Mancuernas",
+  "FJ-HOM-0042": "Peso corporal",
+  "FJ-BIC-0001": "Barra",
+  "FJ-BIC-0002": "Barra",
+  "FJ-BIC-0003": "Mancuernas",
+  "FJ-BIC-0004": "Mancuernas",
+  "FJ-BIC-0005": "Poleas",
+  "FJ-BIC-0006": "Poleas",
+  "FJ-BIC-0007": "Máquina guiada",
+  "FJ-BIC-0008": "Bandas elásticas",
+  "FJ-BIC-0009": "Barra",
+  "FJ-BIC-0010": "Barra",
+  "FJ-BIC-0011": "Mancuernas",
+  "FJ-BIC-0012": "Máquina guiada",
+  "FJ-BIC-0013": "Poleas",
+  "FJ-BIC-0014": "Mancuernas",
+  "FJ-BIC-0015": "Mancuernas",
+  "FJ-BIC-0016": "Mancuernas",
+  "FJ-BIC-0017": "Poleas",
+  "FJ-BIC-0018": "Poleas",
+  "FJ-BIC-0019": "Barra",
+  "FJ-BIC-0020": "Mancuernas",
+  "FJ-BIC-0021": "Mancuernas",
+  "FJ-BIC-0022": "Mancuernas",
+  "FJ-BIC-0023": "Poleas",
+  "FJ-BIC-0024": "Barra",
+  "FJ-BIC-0025": "Barra",
+  "FJ-BIC-0026": "Poleas",
+  "FJ-BIC-0027": "Mancuernas",
+  "FJ-TRI-0001": "Poleas",
+  "FJ-TRI-0002": "Poleas",
+  "FJ-TRI-0003": "Poleas",
+  "FJ-TRI-0004": "Poleas",
+  "FJ-TRI-0005": "Poleas",
+  "FJ-TRI-0006": "Poleas",
+  "FJ-TRI-0007": "Máquina guiada",
+  "FJ-TRI-0008": "Mancuernas",
+  "FJ-TRI-0009": "Mancuernas",
+  "FJ-TRI-0010": "Barra",
+  "FJ-TRI-0011": "Poleas",
+  "FJ-TRI-0012": "Poleas",
+  "FJ-TRI-0013": "Máquina guiada",
+  "FJ-TRI-0014": "Barra",
+  "FJ-TRI-0015": "Barra",
+  "FJ-TRI-0016": "Mancuernas",
+  "FJ-TRI-0017": "Poleas",
+  "FJ-TRI-0018": "Barra",
+  "FJ-TRI-0019": "Mancuernas",
+  "FJ-TRI-0020": "Peso corporal",
+  "FJ-TRI-0021": "Peso corporal",
+  "FJ-TRI-0022": "Máquina guiada",
+  "FJ-TRI-0023": "Máquina guiada",
+  "FJ-TRI-0024": "Mancuernas",
+  "FJ-TRI-0025": "Poleas",
+  "FJ-TRI-0026": "Peso corporal",
+  "FJ-ANT-0001": "Barra",
+  "FJ-ANT-0002": "Mancuernas",
+  "FJ-ANT-0003": "Poleas",
+  "FJ-ANT-0004": "Barra",
+  "FJ-ANT-0005": "Barra",
+  "FJ-ANT-0006": "Mancuernas",
+  "FJ-ANT-0007": "Poleas",
+  "FJ-ANT-0008": "Mancuernas",
+  "FJ-ANT-0009": "Mancuernas",
+  "FJ-ANT-0010": "Accesorios",
+  "FJ-ANT-0011": "Accesorios",
+  "FJ-ANT-0012": "Peso corporal",
+  "FJ-ANT-0013": "Peso corporal",
+  "FJ-ANT-0014": "Mancuernas",
+  "FJ-ANT-0015": "Barra",
+  "FJ-ANT-0016": "Barra",
+  "FJ-CUA-0001": "Barra",
+  "FJ-CUA-0002": "Barra",
+  "FJ-CUA-0003": "Barra",
+  "FJ-CUA-0004": "Mancuernas",
+  "FJ-CUA-0005": "Kettlebell",
+  "FJ-CUA-0006": "Mancuernas",
+  "FJ-CUA-0007": "Máquina Smith",
+  "FJ-CUA-0008": "Máquina guiada",
+  "FJ-CUA-0009": "Máquina guiada",
+  "FJ-CUA-0010": "Máquina guiada",
+  "FJ-CUA-0011": "Barra",
+  "FJ-CUA-0012": "Barra",
+  "FJ-CUA-0013": "Mancuernas",
+  "FJ-CUA-0014": "Kettlebell",
+  "FJ-CUA-0015": "Barra",
+  "FJ-CUA-0016": "Peso corporal",
+  "FJ-CUA-0017": "Máquina guiada",
+  "FJ-CUA-0018": "Máquina guiada",
+  "FJ-CUA-0019": "Máquina guiada",
+  "FJ-CUA-0020": "Máquina guiada",
+  "FJ-CUA-0021": "Máquina guiada",
+  "FJ-CUA-0022": "Máquina guiada",
+  "FJ-CUA-0023": "Máquina guiada",
+  "FJ-CUA-0024": "Máquina guiada",
+  "FJ-CUA-0025": "Poleas",
+  "FJ-CUA-0026": "Peso corporal",
+  "FJ-CUA-0027": "Máquina guiada",
+  "FJ-CUA-0028": "Mancuernas",
+  "FJ-CUA-0029": "Mancuernas",
+  "FJ-CUA-0030": "Mancuernas",
+  "FJ-CUA-0031": "Barra",
+  "FJ-CUA-0032": "Máquina Smith",
+  "FJ-CUA-0033": "Mancuernas",
+  "FJ-CUA-0034": "Máquina Smith",
+  "FJ-CUA-0035": "Barra",
+  "FJ-CUA-0036": "Mancuernas",
+  "FJ-CUA-0037": "Mancuernas",
+  "FJ-CUA-0038": "Barra",
+  "FJ-CUA-0039": "Peso corporal",
+  "FJ-ISQ-0001": "Barra",
+  "FJ-ISQ-0002": "Mancuernas",
+  "FJ-ISQ-0003": "Kettlebell",
+  "FJ-ISQ-0004": "Máquina Smith",
+  "FJ-ISQ-0005": "Mancuernas",
+  "FJ-ISQ-0006": "Barra",
+  "FJ-ISQ-0007": "Barra",
+  "FJ-ISQ-0008": "Máquina Smith",
+  "FJ-ISQ-0009": "Poleas",
+  "FJ-ISQ-0010": "Máquina guiada",
+  "FJ-ISQ-0011": "Máquina guiada",
+  "FJ-ISQ-0012": "Máquina guiada",
+  "FJ-ISQ-0013": "Máquina guiada",
+  "FJ-ISQ-0014": "Máquina guiada",
+  "FJ-ISQ-0015": "Poleas",
+  "FJ-ISQ-0016": "Bandas elásticas",
+  "FJ-ISQ-0017": "Accesorios",
+  "FJ-ISQ-0018": "Accesorios",
+  "FJ-ISQ-0019": "Máquina guiada",
+  "FJ-GLU-0001": "Barra",
+  "FJ-GLU-0002": "Mancuernas",
+  "FJ-GLU-0003": "Máquina guiada",
+  "FJ-GLU-0004": "Máquina Smith",
+  "FJ-GLU-0005": "Peso corporal",
+  "FJ-GLU-0006": "Peso corporal",
+  "FJ-GLU-0007": "Barra",
+  "FJ-GLU-0008": "Peso corporal",
+  "FJ-GLU-0009": "Bandas elásticas",
+  "FJ-GLU-0010": "Peso corporal",
+  "FJ-GLU-0011": "Poleas",
+  "FJ-GLU-0012": "Máquina guiada",
+  "FJ-GLU-0013": "Peso corporal",
+  "FJ-GLU-0014": "Bandas elásticas",
+  "FJ-GLU-0015": "Peso corporal",
+  "FJ-GLU-0016": "Bandas elásticas",
+  "FJ-GLU-0017": "Máquina guiada",
+  "FJ-GLU-0018": "Poleas",
+  "FJ-GLU-0019": "Peso corporal",
+  "FJ-GLU-0020": "Bandas elásticas",
+  "FJ-GLU-0021": "Bandas elásticas",
+  "FJ-GLU-0022": "Bandas elásticas",
+  "FJ-GLU-0023": "Máquina guiada",
+  "FJ-GLU-0024": "Bandas elásticas",
+  "FJ-GLU-0025": "Mancuernas",
+  "FJ-GLU-0026": "Mancuernas",
+  "FJ-GLU-0027": "Mancuernas",
+  "FJ-GLU-0028": "Máquina guiada",
+  "FJ-ADU-0001": "Máquina guiada",
+  "FJ-ADU-0002": "Poleas",
+  "FJ-ADU-0003": "Peso corporal",
+  "FJ-ADU-0004": "Bandas elásticas",
+  "FJ-ADU-0005": "Peso corporal",
+  "FJ-ADU-0006": "Peso corporal",
+  "FJ-ADU-0007": "Barra",
+  "FJ-PAN-0001": "Máquina guiada",
+  "FJ-PAN-0002": "Máquina Smith",
+  "FJ-PAN-0003": "Mancuernas",
+  "FJ-PAN-0004": "Mancuernas",
+  "FJ-PAN-0005": "Máquina guiada",
+  "FJ-PAN-0006": "Máquina guiada",
+  "FJ-PAN-0007": "Peso corporal",
+  "FJ-PAN-0008": "Barra",
+  "FJ-PAN-0009": "Peso corporal",
+  "FJ-PAN-0010": "Máquina guiada",
+  "FJ-PAN-0011": "Mancuernas",
+  "FJ-PAN-0012": "Máquina Smith",
+  "FJ-PAN-0013": "Mancuernas",
+  "FJ-PAN-0014": "Máquina guiada",
+  "FJ-PAN-0015": "Peso corporal",
+  "FJ-PAN-0016": "Poleas",
+  "FJ-PAN-0017": "Bandas elásticas",
+  "FJ-COR-0001": "Peso corporal",
+  "FJ-COR-0002": "Máquina guiada",
+  "FJ-COR-0003": "Poleas",
+  "FJ-COR-0004": "Accesorios",
+  "FJ-COR-0005": "Peso corporal",
+  "FJ-COR-0006": "Peso corporal",
+  "FJ-COR-0007": "Peso corporal",
+  "FJ-COR-0008": "Peso corporal",
+  "FJ-COR-0009": "Peso corporal",
+  "FJ-COR-0010": "Peso corporal",
+  "FJ-COR-0011": "Peso corporal",
+  "FJ-COR-0012": "Peso corporal",
+  "FJ-COR-0013": "Peso corporal",
+  "FJ-COR-0014": "Peso corporal",
+  "FJ-COR-0015": "Peso corporal",
+  "FJ-COR-0016": "Peso corporal",
+  "FJ-COR-0017": "Peso corporal",
+  "FJ-COR-0018": "Peso corporal",
+  "FJ-COR-0019": "Peso corporal",
+  "FJ-COR-0020": "Peso corporal",
+  "FJ-COR-0021": "Accesorios",
+  "FJ-COR-0022": "Accesorios",
+  "FJ-COR-0023": "Peso corporal",
+  "FJ-COR-0024": "Accesorios",
+  "FJ-COR-0025": "Accesorios",
+  "FJ-COR-0026": "Peso corporal",
+  "FJ-COR-0027": "Peso corporal",
+  "FJ-COR-0028": "Peso corporal",
+  "FJ-COR-0029": "Peso corporal",
+  "FJ-COR-0030": "Accesorios",
+  "FJ-COR-0031": "Máquina guiada",
+  "FJ-COR-0032": "Poleas",
+  "FJ-COR-0033": "Poleas",
+  "FJ-COR-0034": "Poleas",
+  "FJ-COR-0035": "Poleas",
+  "FJ-COR-0036": "Poleas",
+  "FJ-COR-0037": "Peso corporal",
+  "FJ-COR-0038": "Peso corporal",
+  "FJ-COR-0039": "Peso corporal",
+  "FJ-COR-0040": "Peso corporal",
+  "FJ-LUM-0001": "Peso corporal",
+  "FJ-LUM-0002": "Peso corporal",
+  "FJ-LUM-0003": "Peso corporal",
+  "FJ-LUM-0004": "Máquina guiada",
+  "FJ-LUM-0005": "Peso corporal",
+  "FJ-LUM-0006": "Peso corporal",
+  "FJ-LUM-0007": "Peso corporal",
+  "FJ-LUM-0008": "Máquina guiada",
+  "FJ-TRA-0001": "Mancuernas",
+  "FJ-TRA-0002": "Barra",
+  "FJ-TRA-0003": "Máquina Smith",
+  "FJ-TRA-0004": "Máquina guiada",
+  "FJ-TRA-0005": "Barra",
+  "FJ-TRA-0006": "Poleas",
+  "FJ-TRA-0007": "Poleas",
+  "FJ-TRA-0008": "Poleas",
+  "FJ-TRA-0009": "Poleas",
+  "FJ-TRA-0010": "Peso corporal",
+  "FJ-TRA-0011": "Peso corporal",
+  "FJ-COM-0001": "Barra",
+  "FJ-COM-0002": "Barra",
+  "FJ-COM-0003": "Barra",
+  "FJ-COM-0004": "Mancuernas",
+  "FJ-COM-0005": "Kettlebell",
+  "FJ-COM-0006": "Barra",
+  "FJ-COM-0007": "Barra",
+  "FJ-COM-0008": "Barra",
+  "FJ-COM-0009": "Barra",
+  "FJ-COM-0010": "Barra",
+  "FJ-COM-0011": "Barra",
+  "FJ-COM-0012": "Barra",
+  "FJ-COM-0013": "Barra",
+  "FJ-COM-0014": "Mancuernas",
+  "FJ-COM-0015": "Kettlebell",
+  "FJ-COM-0016": "Mancuernas",
+  "FJ-COM-0017": "Barra",
+  "FJ-COM-0018": "Kettlebell",
+  "FJ-COM-0019": "Mancuernas",
+  "FJ-COM-0020": "Kettlebell",
+  "FJ-COM-0021": "Accesorios",
+  "FJ-COM-0022": "Accesorios",
+  "FJ-COM-0023": "Accesorios",
+  "FJ-COM-0024": "Accesorios",
+  "FJ-COM-0025": "Accesorios",
+  "FJ-COM-0026": "Accesorios",
+  "FJ-COM-0027": "Accesorios",
+  "FJ-COM-0028": "Peso corporal",
+  "FJ-COM-0029": "Peso corporal",
+  "FJ-CAR-0001": "Cardio",
+  "FJ-CAR-0002": "Cardio",
+  "FJ-CAR-0003": "Cardio",
+  "FJ-CAR-0004": "Cardio",
+  "FJ-CAR-0005": "Cardio",
+  "FJ-CAR-0006": "Cardio",
+  "FJ-CAR-0007": "Cardio",
+  "FJ-CAR-0008": "Cardio",
+  "FJ-CAR-0009": "Cardio",
+  "FJ-CAR-0010": "Cardio",
+  "FJ-CAR-0011": "Cardio",
+  "FJ-CAR-0012": "Cardio",
+  "FJ-CAR-0013": "Cardio",
+  "FJ-CAR-0014": "Cardio",
+  "FJ-CAR-0015": "Cardio",
+  "FJ-MOV-0001": "Peso corporal",
+  "FJ-MOV-0002": "Peso corporal",
+  "FJ-MOV-0003": "Peso corporal",
+  "FJ-MOV-0004": "Peso corporal",
+  "FJ-MOV-0005": "Peso corporal",
+  "FJ-MOV-0006": "Peso corporal",
+  "FJ-MOV-0007": "Peso corporal",
+  "FJ-MOV-0008": "Accesorios",
+  "FJ-MOV-0009": "Peso corporal",
+  "FJ-MOV-0010": "Accesorios",
+  "FJ-MOV-0011": "Peso corporal",
+  "FJ-MOV-0012": "Peso corporal",
+  "FJ-MOV-0013": "Peso corporal"
+ }
+}
