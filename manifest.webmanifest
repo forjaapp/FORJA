@@ -1,94 +1,33 @@
 {
-  "name": "FORJA APP",
+  "id": "./",
+  "name": "FORJA · Tu progreso se forja",
   "short_name": "FORJA",
-  "description": "Creá tu rutina y entrená con registro de series, descansos, récords, calendario y peso.",
+  "description": "Entrená con foco, registrá cada serie y seguí tu progreso.",
   "lang": "es-AR",
-  "dir": "ltr",
   "start_url": "./",
   "scope": "./",
-  "id": "./",
   "display": "standalone",
-  "display_override": [
-    "standalone",
-    "minimal-ui"
-  ],
-  "orientation": "portrait",
-  "background_color": "#09131b",
-  "theme_color": "#09131b",
-  "categories": [
-    "health",
-    "fitness",
-    "sports"
-  ],
-  "prefer_related_applications": false,
+  "background_color": "#09131B",
+  "theme_color": "#09131B",
+  "orientation": "any",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "./icon-192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-512.png",
+      "src": "./icon-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icon-maskable-512.png",
+      "src": "./icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
-    }
-  ],
-  "shortcuts": [
-    {
-      "name": "Entrenar",
-      "short_name": "Entrenar",
-      "url": "./",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Biblioteca de ejercicios",
-      "short_name": "Biblioteca",
-      "url": "./#library",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Progreso y récords",
-      "short_name": "Progreso",
-      "url": "./#progress",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
-    },
-    {
-      "name": "Calendario y peso",
-      "short_name": "Calendario",
-      "url": "./#calendar",
-      "icons": [
-        {
-          "src": "icon-192.png",
-          "sizes": "192x192",
-          "type": "image/png"
-        }
-      ]
     }
   ]
 }
