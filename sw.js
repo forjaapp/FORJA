@@ -1,15 +1,15 @@
-/* FORJA 7.2 · service worker
+/* FORJA 7 · service worker
    - La página (index.html, revision.html) se pide primero a la red: cada publicación en GitHub llega sin quedar atrapada en caché.
      Sin conexión, o si la red tarda más de 3,5 s, se usa la última copia guardada.
    - La biblioteca (data/*.json) se sirve desde caché y se actualiza en segundo plano.
    - Las imágenes de ejercicios se guardan al verlas por primera vez.
    - Al activarse borra las cachés de versiones anteriores. Los datos del usuario NO están acá: viven en localStorage. */
-const VERSION = '7.2.0';
+const VERSION = '7.0.0';
 const CORE_CACHE = 'forja-v7-core-' + VERSION;
 const DATA_CACHE = 'forja-v7-data';
 const IMG_CACHE = 'forja-v7-img';
 const KEEP = [CORE_CACHE, DATA_CACHE, IMG_CACHE];
-const CORE = ['./', './index.html', './premium.css', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png', './favicon-32.png'];
+const CORE = ['./', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png', './icon-maskable-512.png', './apple-touch-icon.png', './favicon-32.png'];
 const NETWORK_TIMEOUT = 3500;
 const IMG_LIMIT = 300;
 
@@ -59,7 +59,7 @@ async function pageFromNetwork(event) {
   /* (si la página nunca se abrió con conexión, no se reemplaza por otra) */
   if (cached) { event.waitUntil(network.catch(() => {})); return cached; }
   try { return await network; } catch (e) {
-    return new Response('<!doctype html><meta charset="utf-8"><title>FORJA</title><body style="font-family:system-ui;background:#09131b;color:#f5f7f8;padding:24px"><h1>Sin conexión</h1><p>Abrí FORJA una vez con internet para poder usarla sin conexión.</p></body>', { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+    return new Response('<!doctype html><meta charset="utf-8"><title>FORJA</title><body style="font-family:system-ui;background:#09131b;color:#f3f9fa;padding:24px"><h1>Sin conexión</h1><p>Abrí FORJA una vez con internet para poder usarla sin conexión.</p></body>', { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
   }
 }
 

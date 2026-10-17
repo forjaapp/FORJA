@@ -15,8 +15,8 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
-<meta name="description" content="FORJA: entrená con foco, registrá cada serie y seguí tu progreso a tu ritmo.">
-<title>FORJA · Tu progreso se forja</title>
+<meta name="description" content="FORJA APP: armá tu rutina en tres pasos y entrená un ejercicio por vez, con descansos, superseries, historial, calendario y peso.">
+<title>FORJA APP · Tu Rutina y Entrenar</title>
 <style>
 :root{color-scheme:dark;--bg:#09131b;--bg2:#0d1c26;--card:#12222c;--card-hi:#192d37;--line:#29414a;--softline:#21363f;--txt:#f3f9fa;--muted:#a1b8bd;--mint:#a2f2c0;--mint-dark:#123c31;--amber:#f7c782;--red:#ff9e9a;--blue:#9ac5f4;--radius:19px;--shadow:0 16px 45px #00000028}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;background:radial-gradient(ellipse 65% 28% at 90% -5%,#1c4a43 0%,transparent 88%),var(--bg);color:var(--txt);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;font-size:15px;line-height:1.5;font-variant-numeric:tabular-nums;-webkit-tap-highlight-color:transparent}
@@ -642,151 +642,20 @@ button,a,label,summary,select,input{touch-action:manipulation}
 @keyframes sheetUp{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
 @media(max-width:730px){.day-pick-dialog{margin:auto auto 0;width:100%;max-width:100%;border-radius:22px 22px 0 0;border-bottom:0;max-height:90dvh}.day-pick-dialog[open]{animation:sheetUp .22s ease-out}.day-pick-dialog .summary-inner{max-height:90dvh;padding-bottom:calc(18px + env(safe-area-inset-bottom))}}
 
-
-/* ============= FORJA 7.1 · UX performance & brand system =============
-   Design tokens: dark graphite + copper (actions), green (completed), gold (records).
-   All records, exercises, migration IDs and app storage schema remain unchanged. */
-:root{
- --bg:#0b1117;--bg2:#111b23;--card:#17242b;--card-hi:#22333c;--line:#35474f;
- --softline:#293a42;--txt:#f5f7f8;--muted:#adbec3;--mint:#f28a48;--mint-dark:#422719;
- --success:#a2f2c0;--amber:#f5ce82;--blue:#9ac5f4;--shadow:0 14px 38px #02060960;
-}
-body{background:radial-gradient(ellipse 72% 32% at 88% -12%,#4c291d85,transparent 78%),var(--bg);font-family:Inter,"Segoe UI Variable",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;letter-spacing:.005em}
-h1,h2,h3,.focus-name,.brand-name{font-family:"Avenir Next","Segoe UI Variable Display",Inter,ui-sans-serif,system-ui,sans-serif}
-h1{font-weight:850;letter-spacing:-.05em}h2,h3{font-weight:780}
-.masthead{background:linear-gradient(180deg,#0b1117 88%,#0b1117f3);border-bottom-color:#33414a}
-.panel,.history-card,.stat-card,.guide-card,.lib-card{background:linear-gradient(160deg,#1a2b33,#142129);border-color:#34464e}
-.brand-icon{background:linear-gradient(150deg,#ffb178,var(--mint));color:#21150e;box-shadow:0 8px 23px #f28a482f}
-.brand-name{letter-spacing:.11em;font-weight:900}.brand-icon{background:transparent;box-shadow:none}.brand-icon svg{width:100%;height:100%;display:block}
-.btn.primary,.seg-btn[aria-pressed="true"],.nav-btn[aria-pressed="true"]{color:#26150e}
-.btn.primary{box-shadow:0 8px 18px #f28a4823}
-.btn.primary:active{transform:scale(.985)}
-.btn,.nav-btn,.step-btn,.mobile-more,.mobile-tab{transition:background-color .17s ease,color .17s ease,transform .16s ease}
-.btn:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline-color:var(--mint)}
-.progress-track .fill{background:linear-gradient(90deg,#dc713b,#ffac6d)}
-.tag.good{background:#1c4835;color:#a2f2c0}.cal-date.has-finished{border-color:#58a37d;background:#204737;color:#cbffdc}
-.set-dot.is-done{background:var(--success);border-color:var(--success);color:#153025}
-.set-dot.is-pr{background:var(--amber);border-color:var(--amber)}
-.fs-dot.is-done{background:#254a36;border-color:#75ce9b;color:var(--success)}
-.focus-complete .fc-title,.session-state.finished,.ref-row.last{color:var(--success)}
-.ref-row.last{border-left-color:var(--success)}.ref-row.plan{border-left-color:var(--mint)}
-.hub-main{background:linear-gradient(125deg,#3b2a23,#1c2d35);border-color:#765340}.hub-main .subtext{color:#d8ccc5}.save-pill .save-dot{background:var(--success)}.record-row{background:#1a2a30}.week-dot.done{background:var(--success);border-color:var(--success)}
-.welcome-dialog .summary-inner{max-height:calc(100dvh - 50px);overflow-y:auto}
-.welcome-dialog h2{font-size:1.8rem;letter-spacing:-.045em}
-.profile-shortcut{width:42px;height:42px;flex:none;display:grid;place-items:center;border:1px solid #86553b;border-radius:50%;background:#3b281f;color:#ffb27b;font-size:.96rem;font-weight:900;cursor:pointer}
-.profile-avatar{width:51px;height:51px;display:grid;place-items:center;border-radius:17px;background:#3f2c24;border:1px solid #ad7047;color:#ffd0a2;font-size:1.55rem;font-weight:900;flex:none}
-.profile-heading{display:flex;align-items:center;gap:13px;margin-bottom:12px}
-.profile-heading p{margin:4px 0 0}.profile-safety-note{font-size:.8rem;background:#1b3036;border:1px solid #37515a;padding:10px 12px;border-radius:12px}
-.profile-fields .field label{font-size:.82rem;color:#d6e2e4}
-.profile-note{line-height:1.55}
-.welcome-optional{border:1px solid #40525b;background:#14242b;border-radius:14px;padding:0 13px;margin:2px 0}
-.welcome-optional>summary{font-size:.89rem;font-weight:800;cursor:pointer;padding:12px 0;color:#ffbd8f;list-style:revert}
-.welcome-optional .profile-fields{padding-bottom:10px}
-.welcome-optional .toggle-list{padding-bottom:12px}
-.plan-advanced{border:1px solid #3a4a51;border-radius:14px;background:#12212a;overflow:hidden}
-.plan-advanced>summary{cursor:pointer;padding:15px;font-size:.88rem;font-weight:780;color:#b4c7ca}
-.plan-advanced .panel{margin:0;border:0;border-top:1px solid #3a4a51;border-radius:0}
-.profile-nudge{display:flex;align-items:center;justify-content:space-between;gap:13px;background:linear-gradient(120deg,#33271f,#242c2d);border:1px solid #775a44;border-radius:14px;padding:13px 14px;margin-bottom:13px}
-.profile-nudge strong{font-size:.88rem;color:#ffd1af}.profile-nudge p{font-size:.78rem;margin:2px 0 0}.nudge-actions{display:flex;gap:7px;flex-wrap:wrap;flex:none}
-.forja-quicknav{display:flex;gap:8px;margin:0 0 19px;flex-wrap:wrap}
-.forja-quicknav .nav-btn{background:#18262d;border:1px solid #3a5058;border-radius:12px;padding:10px 16px;font-size:.88rem;min-height:43px}
-.forja-quicknav .nav-btn[aria-pressed="true"]{background:#f28a48;border-color:#f28a48;box-shadow:0 5px 16px #f28a4824}
-.mobile-tabs{display:none}
-/* compact Focus: active set stays accessible while rest is counting */
-.focus{max-width:770px}.focus-route{margin-bottom:8px}.focus-track{height:6px;margin:7px 0}
-.focus-strip{gap:5px;padding-bottom:4px}.fs-dot{width:34px;height:34px;border-radius:10px}
-.focus-card{background:linear-gradient(160deg,#1b3039,#111f27 78%);border-color:#3c5460;box-shadow:0 22px 48px #02060940}
-.focus-name{font-size:clamp(1.55rem,5.4vw,2.35rem);line-height:1.1;margin:9px 0 5px}
-.focus-tags .training-muscle-tag{background:#382e25;border-color:#71503c;color:#ffd6b7}
-.focus-ex-progress{margin:10px 0 3px}.set-dot{width:35px;height:35px}
-.focus-entry{margin:10px 0 2px;padding-top:11px}
-.focus-rest{margin:10px 0 5px;padding:10px 12px;border-radius:15px;text-align:left;background:linear-gradient(115deg,#213239,#162831);display:grid;grid-template-columns:82px minmax(0,1fr);column-gap:12px;align-items:center}
-.focus-rest .rest-ring.big{width:82px;height:82px;grid-column:1;grid-row:1/3;margin:0}
-.focus-rest .ring-time{font-size:1.38rem}.focus-rest .rest-ring-center small{font-size:.59rem;margin-top:1px}
-.focus-rest .rest-next{margin:0;min-width:0;grid-column:2;grid-row:1}
-.focus-rest .rest-next strong{display:block;font-size:.86rem;line-height:1.3;overflow-wrap:anywhere}
-.focus-rest .rest-next span{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase}
-.focus-rest .rest-actions{display:flex;grid-column:1/-1;flex-wrap:wrap;gap:5px;margin-top:8px}
-.focus-rest .rest-actions .btn{flex:1 1 auto;min-width:60px;min-height:37px;font-size:.76rem;padding:6px 7px}
-.focus-rest .rest-actions .btn.ghost{flex:1 1 auto;min-height:37px}
-.focus-fields{gap:8px}.stepper{padding:7px}.stepper-row{grid-template-columns:36px minmax(0,1fr) 36px;gap:3px}
-.step-btn{height:43px;border-radius:9px}.stepper-input{font-size:1.55rem}
-.stepper-label{font-size:.75rem}.stepper-unit{font-size:.7rem}
-.focus-save{margin-top:9px;min-height:49px}
-.focus-last-set{font-size:.78rem;color:#cadbd8;margin:-2px 0 9px;padding:7px 10px;border-radius:9px;border-left:3px solid var(--success);background:#17302c}
-.focus-last-set strong{color:#e8fff1}
-.focus-ref{margin-top:10px}
-.ref-row{padding:7px 10px}.ref-row strong{font-size:.84rem}.ref-row span{font-size:.69rem}
-.focus-route-top{font-size:.75rem}
-.focus-quick-save{display:none}
-.lib-filter-details{margin-top:10px;border:1px solid #364952;border-radius:12px;background:#14252d;padding:0 12px}
-.lib-filter-details>summary{cursor:pointer;padding:10px 0;color:#e0ecec;font-weight:760;font-size:.86rem}
-.lib-filter-detail-body{padding-bottom:11px}
-.lib-quick{display:flex;overflow-x:auto;gap:7px;margin:10px 0 3px;padding-bottom:3px;scrollbar-width:thin}
-.lib-quick-btn{flex:none;border:1px solid #445862;border-radius:23px;padding:8px 13px;color:#d7e1e3;background:#1b3039;min-height:37px;font-size:.78rem;font-weight:750}
-.lib-quick-btn[aria-pressed="true"]{background:var(--mint);border-color:var(--mint);color:#28160d}
-.wz-review-day>summary{display:flex;align-items:center;gap:9px;padding:10px 4px;cursor:pointer;color:#f3f7f7;font-size:.87rem;font-weight:800}
-.wz-review-day>summary small{display:block;color:var(--muted);font-weight:600;font-size:.73rem}
-.wz-review-body{padding-top:6px}
-@media(max-width:730px){
- .forja-quicknav{display:none}
- .app{padding-bottom:calc(145px + env(safe-area-inset-bottom))}
- .mobile-tabs{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));align-items:stretch;position:fixed;left:0;right:0;bottom:0;z-index:67;padding:7px max(4px,env(safe-area-inset-right)) calc(7px + env(safe-area-inset-bottom)) max(4px,env(safe-area-inset-left));gap:2px;background:#101a21f5;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid #344850;box-shadow:0 -10px 30px #0005}
- .mobile-tab,.mobile-more{background:transparent;border:0;border-radius:11px;color:#acbdc2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;min-width:0;min-height:52px;padding:6px 1px;font-weight:730;font-size:.66rem;line-height:1.15}
- .mobile-tab svg,.mobile-more svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
- .mobile-more svg circle{fill:currentColor;stroke:none}
- .mobile-tab[aria-pressed="true"]{background:#3b2b22;color:#ffae77;box-shadow:none}
- .mobile-tab[aria-pressed="true"] svg{stroke:#ffae77}
- .mobile-tab:active,.mobile-more:active{transform:scale(.94)}
- .menu-panel{top:calc(67px + var(--sat));max-height:calc(100dvh - 150px - var(--sat));border-color:#6a4b37}
- .masthead{gap:8px}.brand-sub{display:none}.save-pill:not(.warning){display:none}
- .brand-name{font-size:1.05rem}.profile-shortcut{width:39px;height:39px}
- #view-workout .greet-head:not([hidden]){display:block;margin:7px 0 12px}
- #view-workout .greet-head h1{font-size:1.4rem;margin:3px 0 0}
- #view-workout .greet-head .eyebrow{font-size:.7rem}
- #view-workout .greet-head .greet-sub{font-size:.81rem;margin:3px 0 0}
- .focus{margin-bottom:14px}
- .focus-route-top{font-size:.73rem}.focus-strip{margin-bottom:0}
- .focus-card{padding:13px 13px 14px;border-radius:17px}
- .focus-name{font-size:clamp(1.4rem,5.2vw,1.82rem)}
- .focus-target{font-size:.79rem;line-height:1.34}
- .focus-tags{gap:4px}.focus-tags span{font-size:.65rem}
- .focus-ex-progress{gap:5px}
- .set-dot{width:34px;height:34px}.set-dots{gap:5px}.set-count{font-size:1rem}
- .day-trigger{margin:0 0 9px;padding:8px 11px;min-height:55px;border-color:#46565c}
- .day-trigger .dt-main small{font-size:.68rem}.day-trigger .dt-action{padding:6px 9px;color:#ffb688;border-color:#80543e}
- .focus-save{margin-bottom:4px}
- .focus-quick-save{display:flex;position:fixed;bottom:calc(71px + env(safe-area-inset-bottom));left:12px;right:12px;z-index:64;width:calc(100% - 24px);max-width:750px;margin:0 auto;min-height:47px;border-radius:13px;box-shadow:0 10px 34px #0009}
- .focus-quick-save[hidden]{display:none!important}
- .focus-entry .focus-save{display:none}
- .focus-card{padding-bottom:14px}
- .toast{top:auto;bottom:calc(139px + env(safe-area-inset-bottom));max-width:calc(100% - 25px)}
- .profile-nudge{align-items:center;flex-direction:row;gap:8px;padding:9px 10px}.profile-nudge strong{font-size:.78rem}.profile-nudge p{display:none}.nudge-actions{width:auto;flex:none;gap:3px}.nudge-actions .btn{min-height:35px;padding:5px 9px;font-size:.72rem}.nudge-actions .btn.ghost{font-size:1.2rem;min-width:29px;padding:3px 5px}
- .profile-fields{grid-template-columns:1fr}
- .lib-filters{padding:14px}.lib-filter-details{padding:0 10px}
- .lib-status{gap:5px;margin-top:9px}
- .day-pick-dialog{margin:auto auto 0}
-}
-@media(max-width:350px){.mobile-tab,.mobile-more{font-size:.6rem}.profile-shortcut{width:34px;height:34px}.brand-name{font-size:.93rem}.focus-rest{grid-template-columns:72px minmax(0,1fr);padding:8px}.focus-rest .rest-ring.big{width:72px;height:72px}.focus-rest .rest-actions .btn{font-size:.7rem}}
-@media(prefers-reduced-motion:reduce){.mobile-tab,.mobile-more,.btn,.nav-btn,.step-btn{transition:none!important}}
-
 </style>
-<link rel="stylesheet" href="premium.css?v=7.2.0">
 </head>
 <body>
 <div class="app">
   <header class="masthead">
     <button type="button" class="menu-toggle" id="menuToggle" aria-controls="mainMenu" aria-expanded="false" aria-label="Abrir menú de secciones">☰</button>
-    <button type="button" class="identity home-brand" id="homeBrand" aria-label="Ir al inicio de FORJA"><div class="brand-icon" aria-hidden="true"><svg class="forja-mark" viewBox="0 0 512 512" focusable="false" aria-hidden="true"><rect width="512" height="512" rx="109" fill="#0b1117"/><rect x="17" y="17" width="478" height="478" rx="100" fill="none" stroke="#4d8274" stroke-width="4"/><path d="M153 130H380L355 193H220V239H324L300 297H220V385H153Z" fill="#a2f2c0"/><path d="M375 99L395 119L375 139L355 119Z" fill="#a2f2c0"/><path d="M346 331L365 350L346 369L327 350Z" fill="#59c9b1"/></svg></div><div><div class="brand-name">FORJA</div><span class="brand-sub">TU PROGRESO SE FORJA</span></div></button>
-    <span class="view-chip" id="currentViewName">Inicio</span>
-    <button type="button" class="profile-shortcut" id="profileShortcut" aria-label="Abrir mi perfil" title="Mi perfil"><span id="profileInitial">U</span></button>
+    <div class="identity"><div class="brand-icon" aria-hidden="true">F</div><div><div class="brand-name">FORJA</div><span class="brand-sub">FORJA APP</span></div></div>
+    <span class="view-chip" id="currentViewName">Entrenar</span>
     <div class="save-pill" id="savePill" role="status"><span class="save-dot" aria-hidden="true"></span><span id="saveIndicator">Comprobando guardado…</span></div>
   </header>
   <div class="menu-layer" id="menuLayer" hidden>
     <button type="button" class="menu-dismiss" id="menuDismiss" aria-label="Cerrar menú"></button>
     <nav class="menu-panel" id="mainMenu" aria-label="Secciones de FORJA">
       <div class="menu-kicker">Ir a una sección</div>
-      <button class="menu-item nav-btn" type="button" data-view="home" aria-pressed="true"><span class="menu-symbol">⌂</span> Inicio</button>
       <button class="menu-item nav-btn" type="button" data-view="workout" aria-pressed="true"><span class="menu-symbol">▣</span> Entrenar</button>
       <button class="menu-item nav-btn" type="button" data-view="plan" aria-pressed="false"><span class="menu-symbol">✎</span> Tu Rutina</button>
       <button class="menu-item nav-btn" type="button" data-view="library" aria-pressed="false"><span class="menu-symbol">▤</span> Biblioteca de ejercicios</button>
@@ -799,65 +668,12 @@ h1{font-weight:850;letter-spacing:-.05em}h2,h3{font-weight:780}
       <p class="menu-caption" id="menuCaption">Podés instalar FORJA como app.</p>
     </nav>
   </div>
-  <nav class="forja-quicknav" aria-label="Accesos principales">
-    <button type="button" class="nav-btn" data-view="home" aria-pressed="true">Inicio</button>
-    <button type="button" class="nav-btn" data-view="workout" aria-pressed="true">Entrenar</button>
-    <button type="button" class="nav-btn" data-view="plan" aria-pressed="false">Mi rutina</button>
-    <button type="button" class="nav-btn" data-view="progress" aria-pressed="false">Progreso</button>
-    <button type="button" class="nav-btn" data-view="library" aria-pressed="false">Ejercicios</button>
-    <button type="button" class="desktop-quick" id="desktopQuick" aria-label="Acciones rápidas" aria-expanded="false" aria-controls="premiumQuickMenu">+</button>
-  </nav>
-  <nav class="mobile-tabs" aria-label="Navegación principal">
-    <button type="button" class="nav-btn mobile-tab" data-view="home" aria-pressed="true" aria-label="Inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-7 9 7v9h-7v-6h-4v6H3z"/></svg><span>Inicio</span></button>
-    <button type="button" class="nav-btn mobile-tab" data-view="workout" aria-pressed="false" aria-label="Entrenar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9v6m3-9v12M17 6v12m3-9v6M7 12h10"/></svg><span>Entrenar</span></button>
-    <button type="button" class="nav-btn mobile-tab" data-view="plan" aria-pressed="false" aria-label="Mi rutina"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3.5" width="16" height="17" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg><span>Rutina</span></button>
-    <button type="button" class="quick-fab" id="mobileQuick" aria-label="Abrir acciones rápidas" aria-expanded="false" aria-controls="premiumQuickMenu">+</button>
-    <button type="button" class="nav-btn mobile-tab" data-view="progress" aria-pressed="false" aria-label="Progreso"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18.5h18M5 15l5-5 3 3 6-7M16 6h3v3"/></svg><span>Progreso</span></button>
-    <button type="button" class="mobile-more" id="mobileMore" aria-label="Más secciones" aria-haspopup="menu" aria-expanded="false"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></svg><span>Más</span></button>
-  </nav>
-  <div class="quick-menu" id="premiumQuickMenu" hidden role="group" aria-label="Acciones rápidas">
-    <span class="quick-menu-title">Acciones rápidas</span>
-    <button type="button" class="quick-menu-btn" data-premium-quick="train"><span class="qicon">✧</span>Entrenar ahora</button>
-    <button type="button" class="quick-menu-btn" data-premium-quick="wizard"><span class="qicon">＋</span>Crear una rutina</button>
-    <button type="button" class="quick-menu-btn" data-premium-quick="import"><span class="qicon">⤓</span>Pegar rutina existente</button>
-    <button type="button" class="quick-menu-btn" data-premium-quick="library"><span class="qicon">▤</span>Ver biblioteca de ejercicios</button>
-  </div>
   <div class="notice" id="scriptNotice"><strong>Este visor todavía no activó la rutina interactiva.</strong> Si los botones no responden o ves «Comprobando guardado», abrí el archivo como página HTML en un navegador que permita ejecutar JavaScript. Algunas vistas previas de archivos lo bloquean.</div>
   <div class="notice" id="storageWarning" hidden><strong>Atención: guardado local no disponible.</strong> Los cambios solo permanecerán mientras este archivo siga abierto. Probá abrirlo en un navegador completo y exportá una copia JSON en Ajustes.</div>
   <noscript><div class="bottom-noscript"><strong>Este visor no ejecuta JavaScript.</strong> Para registrar tus entrenamientos, abrí el archivo HTML en Safari, Chrome u otro navegador que permita ejecutar archivos HTML locales. La vista previa de Archivos puede no hacerlo.</div></noscript>
   <main>
-    <section id="view-home" class="view" hidden aria-label="Inicio de FORJA">
-      <div class="home-heading">
-        <div><span class="home-overline">TU ESPACIO PARA CRECER</span><h1 id="homeGreeting">Tu progreso se forja.</h1><p id="homeWelcome">Cada serie cuenta. Todo listo para tu entrenamiento.</p></div>
-        <span class="home-date" id="homeDate"></span>
-      </div>
-      <section class="home-hero" aria-label="Tu próximo entrenamiento">
-        <div class="home-hero-copy"><span id="homeHeroKicker">TU RUTINA</span><h2 id="homePlanName">Preparando tu entrenamiento…</h2><p id="homePlanDetail"></p>
-          <div class="home-hero-actions"><button type="button" class="btn primary" id="homePrimary">Empezar entrenamiento</button><button type="button" class="btn ghost" id="homeSecondary">Ver mi rutina</button></div>
-        </div>
-        <div class="home-ring" id="homeRing" role="progressbar" aria-label="Series completadas de la sesión" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-          <svg viewBox="0 0 120 120" aria-hidden="true"><circle class="track" cx="60" cy="60" r="48"/><circle class="bar" id="homeRingBar" cx="60" cy="60" r="48"/></svg>
-          <div style="display:flex;flex-direction:column;align-items:center;gap:0"><strong id="homePercent">0%</strong><small>de la sesión</small></div>
-        </div>
-      </section>
-      <section class="home-stats" id="homeStats" aria-label="Resumen de tu actividad">
-        <article class="home-stat"><span class="stat-icon" aria-hidden="true">✦</span><strong id="homeCompleted">0</strong><span>Entrenamientos terminados</span></article>
-        <article class="home-stat"><span class="stat-icon" aria-hidden="true">✓</span><strong id="homeSeries">0</strong><span>Series completadas</span></article>
-        <article class="home-stat"><span class="stat-icon" aria-hidden="true">↗</span><strong id="homeWeekDays">0</strong><span>Días activos · 7 días</span></article>
-      </section>
-      <div class="home-lower">
-        <section class="home-trend" aria-label="Actividad de la última semana"><div class="panel-heading"><div><h2>Tu constancia</h2><p class="subtext">Series completadas · últimos 7 días</p></div><span class="pill">Esta semana</span></div><div id="homeWeeklyChart"></div></section>
-        <section class="home-recent" aria-label="Entrenamientos recientes"><div class="panel-heading"><div><h2>Últimas sesiones</h2><p class="subtext">Retomá tus registros sin perder marcas</p></div><button class="btn sm ghost" type="button" id="homeSeeHistory">Ver todas</button></div><div class="home-recent-list" id="homeRecentList"></div></section>
-      </div>
-      <div class="home-shortcuts" aria-label="Accesos desde inicio">
-        <button type="button" class="home-shortcut" data-home-to="plan"><span class="glyph">▤</span><span><strong>Mi rutina</strong><small>Configurar días</small></span></button>
-        <button type="button" class="home-shortcut" data-home-to="library"><span class="glyph">◉</span><span><strong>Ejercicios</strong><small>Explorar variantes</small></span></button>
-        <button type="button" class="home-shortcut" data-home-to="settings"><span class="glyph">◈</span><span><strong>Mi perfil</strong><small>Tus preferencias</small></span></button>
-      </div>
-    </section>
     <section id="view-workout" class="view">
       <div class="page-head tight-head greet-head" id="greetHead"><div class="eyebrow" id="greetKicker">Entrenar</div><h1 id="greetTitle">Tu entrenamiento.</h1><p class="greet-sub" id="greetSub"></p></div>
-      <aside class="profile-nudge" id="profileNudge" hidden aria-label="Completar perfil"><div><strong>¿Personalizamos tu experiencia?</strong><p>Podés completar tu perfil cuando quieras.</p></div><div class="nudge-actions"><button type="button" class="btn sm primary" id="profileNudgeGo">Perfil</button><button type="button" class="btn sm ghost" id="profileNudgeClose" aria-label="No volver a sugerir completar el perfil">×</button></div></aside>
       <div class="install-card" id="installCard" hidden><div><strong>📲 Usá FORJA como app</strong><span id="installCardText"></span></div><div class="install-card-actions"><button type="button" class="btn sm primary" id="installCardButton" hidden>Instalar</button><button type="button" class="btn sm ghost" id="installCardDismiss" aria-label="Ocultar sugerencia de instalación">✕</button></div></div>
       <section class="panel training-selector" aria-label="Seleccionar entrenamiento">
         <div class="selector-compact" id="selectorCompact" hidden><div class="sel-compact-text"><strong id="selCompactTitle">Día 1</strong><small id="selCompactMeta"></small></div><button type="button" class="btn sm" id="selectorToggle" aria-expanded="false" aria-controls="selectorFull">Cambiar día</button></div>
@@ -911,11 +727,10 @@ h1{font-weight:850;letter-spacing:-.05em}h2,h3{font-weight:780}
         <div class="hub-foot"><button type="button" class="btn sm ghost" id="copyRoutine">⧉ Copiar mi rutina como texto</button></div>
         <div class="notice import-undo" id="importUndo" hidden><p>Aplicaste una rutina nueva. ¿No era lo que querías?</p><button type="button" class="btn sm" id="undoImport">↶ Deshacer y volver a la anterior</button></div>
       </section>
-      <details class="plan-advanced" id="planAdvanced"><summary>Opciones avanzadas del plan · 52 semanas</summary><section class="panel plan-overview" aria-label="Configuración del plan anual">
+      <section class="panel plan-overview" aria-label="Configuración del plan anual">
         <div class="panel-heading"><h2>Plan anual</h2><span class="pill">52 semanas</span></div>
         <div class="plan-date-row"><div class="field"><label for="planStartDate">Comienzo del plan</label><input type="date" id="planStartDate"></div><div class="plan-duration"><span>Duración</span><strong>52 semanas</strong><small>La semana en Entrenar se calcula desde esta fecha.</small></div></div>
       </section>
-      </details>
       <section class="panel" id="planPanel" aria-label="Configurar semana">
         <div class="panel-heading"><h2>Los días de tu rutina</h2><span class="pill" id="routineDaysPill">3 días</span></div>
         <p class="subtext day-rotation-hint">Tu rutina va en orden: Día 1, Día 2… y después del último vuelve a empezar. Entrená los días de la semana que quieras: FORJA te sugiere cuál sigue.</p>
@@ -948,13 +763,10 @@ h1{font-weight:850;letter-spacing:-.05em}h2,h3{font-weight:780}
       <div class="page-head"><div class="eyebrow">Biblioteca FORJA</div><h1>Ejercicios.</h1><p id="libIntro">Cada variante es un registro distinto: barra, mancuernas, Smith, poleas y máquinas nunca se mezclan.</p></div>
       <section class="panel lib-filters" aria-label="Buscar y filtrar ejercicios">
         <div class="field"><label for="libSearch">Buscar</label><input type="search" id="libSearch" placeholder="Nombre, sinónimo, músculo o equipo (ej. «jalón», «glúteo medio», «smith»)" autocomplete="off" enterkeyhint="search"></div>
-        <div class="lib-quick" id="libQuickGroups" role="group" aria-label="Filtrar por grupo muscular"></div>
-        <details class="lib-filter-details"><summary>Más filtros · músculo y equipamiento</summary><div class="lib-filter-detail-body">
         <div class="lib-row"><div class="field"><label for="libGroup">Grupo muscular</label><select id="libGroup"></select></div><div class="field"><label for="libMuscle">Músculo específico</label><select id="libMuscle"></select></div></div>
         <div class="lib-tipos-wrap"><span class="field-label">Tipo de equipo</span><div class="lib-tipos" id="libTipos" role="group" aria-label="Tipo de equipo"></div></div>
         <div class="lib-gym-row"><label class="lib-gym-toggle"><input type="checkbox" id="libGymOnly"><span>Solo lo que hay en mi gimnasio</span></label><button type="button" class="btn sm" id="libGymConfig">⚙ Mi gimnasio</button></div>
         <details class="lib-more"><summary>Más filtros</summary><div class="lib-row three"><div class="field"><label for="libSub">Subgrupo</label><select id="libSub"></select></div><div class="field"><label for="libPattern">Patrón de movimiento</label><select id="libPattern"></select></div><div class="field"><label for="libMachine">Máquina específica</label><select id="libMachine"></select></div></div><label class="lib-gym-toggle"><input type="checkbox" id="libUnilateral"><span>Solo ejercicios unilaterales</span></label></details>
-        </div></details>
         <div class="lib-status"><span id="libCount">Cargando biblioteca…</span><span class="lib-add-to"><label for="libAddDay">＋ agrega a</label><select id="libAddDay"></select></span><button type="button" class="btn sm ghost" id="libClear">Limpiar filtros</button></div>
       </section>
       <div class="lib-list" id="libList"></div>
@@ -1001,14 +813,9 @@ h1{font-weight:850;letter-spacing:-.05em}h2,h3{font-weight:780}
     <section id="view-settings" class="view" hidden>
       <div class="page-head"><div class="eyebrow">Todo bajo control</div><h1>Ajustes y datos.</h1><p class="subtext">El registro funciona sin servidores ni cuentas. Las fotos remotas de la guía requieren internet; las ilustraciones de respaldo están integradas. Tus datos permanecen en este navegador cuando el almacenamiento está disponible.</p></div>
       <div class="settings-grid">
-        <section class="panel" id="profilePanel"><div class="profile-heading"><span class="profile-avatar" id="profileAvatar">F</span><div><h2>Tu perfil</h2><p class="subtext">Tus datos se guardan en este dispositivo. Podés modificarlos cuando quieras.</p></div></div><p class="profile-safety-note">No creás una cuenta ni necesitás ingresar información personal para entrenar. Los datos de esta sección son opcionales.</p>
-          <div class="profile-fields"><div class="field"><label for="profileName">Nombre</label><input id="profileName" type="text" maxlength="40" autocomplete="given-name" placeholder="Ej. Marce"></div><div class="field"><label for="profileAge">Edad · opcional</label><input id="profileAge" type="number" inputmode="numeric" min="13" max="100" placeholder="Ej. 28"></div>
-          <div class="field"><label for="profileGender">Género · opcional</label><select id="profileGender"><option value="">Prefiero no indicarlo</option><option value="mujer">Mujer</option><option value="hombre">Hombre</option><option value="no_binario">No binario</option><option value="otro">Otro</option></select></div>
-          <div class="field"><label for="profileExperience">Experiencia · opcional</label><select id="profileExperience"><option value="">Sin indicar</option><option value="principiante">Estoy empezando</option><option value="intermedio">Entreno hace un tiempo</option><option value="avanzado">Entreno hace años</option></select></div>
-          <div class="field"><label for="profileGoal">Objetivo · opcional</label><select id="profileGoal"><option value="">Sin indicar</option><option value="hipertrofia">Ganar músculo</option><option value="fuerza">Ganar fuerza</option><option value="resistencia">Resistencia / condición física</option><option value="salud">Salud y constancia</option></select></div>
-          <div class="field"><label for="profileHeight">Altura (cm) · opcional</label><input id="profileHeight" type="number" inputmode="decimal" min="90" max="250" placeholder="Ej. 173"></div>
-          <div class="field"><label for="profileWeightKg">Peso corporal (kg)</label><input id="profileWeightKg" class="num-input" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej. 75"></div><div class="field"><label for="profileWelcome">Saludo en Entrenar</label><select id="profileWelcome"><option value="always">Mostrar saludo breve</option><option value="daily">Mostrar saludo del día</option><option value="off">Interfaz compacta (sin saludo)</option></select></div><div class="field"><label for="profileMode">Pantalla de entrenamiento</label><select id="profileMode"><option value="focus">Focus · un ejercicio por vez</option><option value="list">Lista completa</option></select></div></div>
-          <p class="subtext profile-note">Los cambios se guardan automáticamente al salir de cada campo. Edad, género y altura no modifican tu rutina ni se usan para inferir tus capacidades. El peso solo sirve para estimaciones orientativas.</p><button type="button" class="btn sm" id="profilePreview">Ver la bienvenida</button></section>
+        <section class="panel" id="profilePanel"><h2>Tu perfil</h2><p class="subtext">FORJA te saluda por tu nombre y usa tu peso para estimar calorías. Se guarda solo en este dispositivo.</p>
+          <div class="profile-fields"><div class="field"><label for="profileName">Nombre</label><input id="profileName" type="text" maxlength="40" autocomplete="given-name" placeholder="Ej. Marce"></div><div class="field"><label for="profileWeightKg">Peso corporal (kg)</label><input id="profileWeightKg" class="num-input" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej. 75"></div><div class="field"><label for="profileWelcome">Bienvenida al abrir FORJA</label><select id="profileWelcome"><option value="always">Cada vez que abro FORJA</option><option value="daily">Una vez por día</option><option value="off">No mostrar</option></select></div><div class="field"><label for="profileMode">Pantalla de entrenamiento</label><select id="profileMode"><option value="focus">Focus · un ejercicio por vez</option><option value="list">Lista completa</option></select></div></div>
+          <p class="subtext profile-note">Para las calorías se usa la medición de Calendario y peso más cercana a cada entrenamiento; si no hay, este peso.</p><button type="button" class="btn sm" id="profilePreview">Ver la bienvenida</button></section>
         <section class="panel" id="alertsPanel"><h2>Descansos: sonido y vibración</h2><p class="subtext">Cómo te avisa FORJA cuando termina el descanso.</p>
           <div class="toggle-list"><label class="toggle-row"><input type="checkbox" id="optSound"><span><strong>Sonido al terminar</strong><small>Tres tonos cortos al llegar a cero.</small></span></label><label class="toggle-row"><input type="checkbox" id="optCountdown"><span><strong>Cuenta regresiva</strong><small>Un tono suave en los últimos 3 segundos.</small></span></label><label class="toggle-row"><input type="checkbox" id="optVibrate"><span><strong>Vibración</strong><small>Al terminar el descanso, al guardar una serie y al batir un récord.</small><small class="warn-text" id="vibrateSupport" hidden>Este dispositivo no permite vibrar desde la web (por ejemplo, iPhone).</small></span></label><label class="toggle-row"><input type="checkbox" id="optNotify"><span><strong>Aviso del sistema en segundo plano</strong><small id="notifySupport">Muestra una notificación al terminar el descanso.</small></span></label></div>
           <div class="alert-actions"><button type="button" class="btn sm" id="testAlert">▶ Probar aviso</button></div>
@@ -1016,31 +823,30 @@ h1{font-weight:850;letter-spacing:-.05em}h2,h3{font-weight:780}
         <section class="panel"><h2>Tu objetivo de proteína</h2><p class="subtext">Referencia orientativa de 1,6–2,0 gramos por kilogramo de peso corporal al día.</p><div class="field"><label for="proteinWeight">Peso corporal (kg)</label><input id="proteinWeight" class="num-input" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej. 75"></div><div class="mini-result" id="proteinResult"><strong>—</strong><span>Ingresá tu peso para calcular el rango diario.</span></div></section>
         <section class="panel"><h2>Guardar y recuperar datos</h2><p class="subtext">Se recomienda exportar un respaldo JSON periódicamente. El CSV se puede abrir en Excel.</p><div class="backup-btns"><button type="button" class="btn primary" id="downloadCsv">↓ Descargar CSV</button><button type="button" class="btn" id="downloadBackup">↓ Copia JSON</button><button type="button" class="btn" id="downloadActivity">↓ Calendario y peso CSV</button><button type="button" class="btn" id="importBackup">↑ Restaurar JSON</button><input class="backup-input" id="backupFile" type="file" accept=".json,application/json" aria-label="Seleccionar copia JSON"></div><div class="notice" style="margin-top:16px"><p><strong>Importar reemplaza todos los datos actuales.</strong> Descargá una copia antes de restaurar otro respaldo.</p></div></section>
         <section class="panel"><h2>Durante el entrenamiento</h2><p class="subtext">Ayudas automáticas mientras registrás tus series.</p><div class="toggle-list"><label class="toggle-row"><input type="checkbox" id="optAutoRest"><span><strong>Descanso automático</strong><small>El cronómetro arranca solo cuando marcás una serie como hecha.</small></span></label><label class="toggle-row"><input type="checkbox" id="optKeepAwake"><span><strong>Pantalla siempre encendida</strong><small>Evita que el teléfono se bloquee entre series mientras tenés un entrenamiento en curso.</small><small class="warn-text" id="wakeSupport" hidden>Este navegador no permite mantener la pantalla encendida.</small></span></label><label class="toggle-row"><input type="checkbox" id="optProgression"><span><strong>Sugerencias de progresión</strong><small>Te propone subir el peso cuando la vez anterior completaste todas las series en el tope del rango de repeticiones.</small></span></label></div><div class="inc-grid"><div class="field"><label for="incTotal">Aumento sugerido · carga total (kg)</label><input id="incTotal" class="num-input" type="text" inputmode="decimal" autocomplete="off" placeholder="2,5"></div><div class="field"><label for="incDumbbell">Aumento sugerido · por mancuerna (kg)</label><input id="incDumbbell" class="num-input" type="text" inputmode="decimal" autocomplete="off" placeholder="2"></div></div></section>
-        <section class="panel forja-internal" hidden><h2>Equipo FORJA</h2><p class="subtext">Herramienta interna para mantener la biblioteca: preparar lotes de imágenes, revisarlas con un checklist técnico y generar el paquete para publicarlas en GitHub.</p><a class="btn" href="revision.html" target="_blank" rel="noopener">Abrir panel de revisión de imágenes ↗</a></section>
+        <section class="panel"><h2>Equipo FORJA</h2><p class="subtext">Herramienta interna para mantener la biblioteca: preparar lotes de imágenes, revisarlas con un checklist técnico y generar el paquete para publicarlas en GitHub.</p><a class="btn" href="revision.html" target="_blank" rel="noopener">Abrir panel de revisión de imágenes ↗</a></section>
         <section class="panel" id="installPanel"><h2>Instalar FORJA</h2><p class="subtext" id="installText">Instalala para usarla como una app.</p><button type="button" class="btn primary" id="installButton" hidden>⤓ Instalar app</button><p class="subtext">Funciona en iPhone, Android y computadoras con Windows o Mac. Los datos se guardan en cada dispositivo: para pasarlos a otro, usá la copia JSON.</p></section>
         <section class="panel"><h2>Tu plan anual</h2><p class="subtext">Configurá cada día en la sección «Tu Rutina»: grupos musculares, ejercicios elegidos, series y descanso general. Entrenar muestra únicamente tu configuración y el registro diario. Los entrenamientos guardados conservan su propia copia aunque edites el plan.</p></section>
         <section class="panel"><h2>Privacidad y reinicio</h2><p class="subtext">Los registros de entrenamiento no se envían a internet; las fotos de la guía pueden descargarse del sitio público de Free Exercise DB. Si cambiás el dominio de publicación, navegador o dispositivo, importá una copia JSON para recuperar tus registros.</p><div class="notice"><p>Algunos visores de archivos de iPhone no ejecutan JavaScript o no conservan los datos. Para uso persistente, abrí el HTML como página en un navegador compatible. Si el indicador superior avisa que el guardado no está disponible, exportá copias con frecuencia.</p></div><button type="button" class="btn danger" id="wipeAll">Borrar todos mis datos</button></section>
       </div>
     </section>
   </main>
-  <footer class="feature-foot">FORJA · versión 7.2 · beta de prueba</footer>
+  <footer class="feature-foot">FORJA APP · versión 7.0</footer>
 </div>
 <dialog class="ex-dialog" id="exDialog" aria-labelledby="exTitle"><div class="ex-inner" id="exInner"></div></dialog>
 <dialog class="ex-dialog" id="gymDialog" aria-labelledby="gymTitle"><div class="ex-inner"><div class="dlg-top"><div class="eyebrow">Inventario</div><button type="button" class="dlg-close" data-close aria-label="Cerrar">×</button></div><h2 id="gymTitle">Mi gimnasio</h2><p class="subtext">Marcá las máquinas y accesorios que tenés. Con el filtro «Solo lo que hay en mi gimnasio», FORJA te muestra únicamente los ejercicios que podés hacer. Peso corporal, suelo y pared no hace falta marcarlos.</p><p class="gym-count" id="gymCount"></p><div class="gym-presets" id="gymPresets"></div><div id="gymGroups"></div><div class="summary-actions"><button type="button" class="btn primary" data-close>Listo</button></div></div></dialog>
 <dialog class="ex-dialog import-dialog" id="importDialog" aria-labelledby="importTitle"><div class="ex-inner" id="importInner"></div></dialog>
 <dialog class="summary-dialog" id="summaryDialog" aria-labelledby="summaryTitle"><div class="summary-inner"><div class="eyebrow" id="summaryKicker">Entrenamiento finalizado</div><h2 id="summaryTitle">¡Buen trabajo!</h2><p class="subtext" id="summarySubtitle"></p><div class="summary-stats" id="summaryStats"></div><div class="summary-kcal" id="summaryKcal"></div><div class="summary-records" id="summaryRecords"></div><p class="summary-note" id="summaryNote"></p><div class="summary-actions"><button type="button" class="btn" id="summaryShare">↗ Compartir</button><button type="button" class="btn primary" id="summaryClose" autofocus>Listo</button></div></div></dialog>
-<dialog class="summary-dialog welcome-dialog" id="welcomeDialog" aria-labelledby="welcomeTitle"><div class="summary-inner"><div class="brand-icon" aria-hidden="true"><svg class="forja-mark" viewBox="0 0 512 512" focusable="false" aria-hidden="true"><rect width="512" height="512" rx="109" fill="#0b1117"/><rect x="17" y="17" width="478" height="478" rx="100" fill="none" stroke="#4d8274" stroke-width="4"/><path d="M153 130H380L355 193H220V239H324L300 297H220V385H153Z" fill="#a2f2c0"/><path d="M375 99L395 119L375 139L355 119Z" fill="#a2f2c0"/><path d="M346 331L365 350L346 369L327 350Z" fill="#59c9b1"/></svg></div><div class="eyebrow">Tu punto de partida</div><h2 id="welcomeTitle">Empezá con FORJA</h2><p class="subtext" id="welcomeLead">Empezá a entrenar en pocos pasos. Tu perfil es opcional y lo podés editar después.</p><div class="field"><label for="welcomeName">Tu nombre</label><input id="welcomeName" type="text" maxlength="40" autocomplete="given-name" placeholder="Ej. Marce"></div><details class="welcome-optional" id="welcomeOptional"><summary>Personalizar mi experiencia (opcional)</summary><div class="profile-fields"><div class="field"><label for="welcomeExperience">Experiencia</label><select id="welcomeExperience"><option value="">Elegir más adelante</option><option value="principiante">Estoy empezando</option><option value="intermedio">Entreno hace un tiempo</option><option value="avanzado">Entreno hace años</option></select></div><div class="field"><label for="welcomeGoal">Objetivo</label><select id="welcomeGoal"><option value="">Elegir más adelante</option><option value="hipertrofia">Ganar músculo</option><option value="fuerza">Ganar fuerza</option><option value="resistencia">Resistencia</option><option value="salud">Salud y constancia</option></select></div><div class="field"><label for="welcomeAge">Edad</label><input id="welcomeAge" type="number" min="13" max="100" inputmode="numeric" placeholder="Opcional"></div><div class="field"><label for="welcomeGender">Género</label><select id="welcomeGender"><option value="">Prefiero no indicarlo</option><option value="mujer">Mujer</option><option value="hombre">Hombre</option><option value="no_binario">No binario</option><option value="otro">Otro</option></select></div><div class="field"><label for="welcomeHeight">Altura (cm)</label><input id="welcomeHeight" type="number" min="90" max="250" inputmode="decimal" placeholder="Opcional"></div><div class="field"><label for="welcomeWeight">Peso corporal (kg) · opcional</label><input id="welcomeWeight" class="num-input" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej. 75"><small>Solo para estimaciones orientativas. Podés cambiarlo luego.</small></div></div><div class="toggle-list"><label class="toggle-row"><input type="checkbox" id="welcomeSound" checked><span><strong>Sonido al terminar el descanso</strong></span></label><label class="toggle-row"><input type="checkbox" id="welcomeVibrate" checked><span><strong>Vibración</strong><small>Si tu dispositivo lo permite.</small></span></label></div></details><div class="summary-actions"><button type="button" class="btn" id="welcomeSkip">Omitir</button><button type="button" class="btn primary" id="welcomeSave">Continuar →</button></div></div></dialog>
+<dialog class="summary-dialog welcome-dialog" id="welcomeDialog" aria-labelledby="welcomeTitle"><div class="summary-inner"><div class="brand-icon" aria-hidden="true">F</div><h2 id="welcomeTitle">Te damos la bienvenida a FORJA</h2><p class="subtext" id="welcomeLead">Contanos cómo te llamás para saludarte cada vez que entres.</p><div class="field"><label for="welcomeName">Tu nombre</label><input id="welcomeName" type="text" maxlength="40" autocomplete="given-name" placeholder="Ej. Marce"></div><div class="field"><label for="welcomeWeight">Peso corporal (kg) · opcional</label><input id="welcomeWeight" class="num-input" type="text" inputmode="decimal" autocomplete="off" placeholder="Ej. 75"><small>Se usa para estimar calorías y proteínas. Podés cambiarlo cuando quieras.</small></div><div class="toggle-list"><label class="toggle-row"><input type="checkbox" id="welcomeSound" checked><span><strong>Sonido al terminar el descanso</strong></span></label><label class="toggle-row"><input type="checkbox" id="welcomeVibrate" checked><span><strong>Vibración</strong><small>Si tu dispositivo lo permite.</small></span></label></div><div class="summary-actions"><button type="button" class="btn" id="welcomeSkip">Ahora no</button><button type="button" class="btn primary" id="welcomeSave">Guardar y empezar</button></div></div></dialog>
 <dialog class="ex-dialog wizard-dialog" id="wizardDialog" aria-labelledby="wizardTitle"><div class="ex-inner" id="wizardInner"></div></dialog>
 <dialog class="summary-dialog greet-dialog" id="greetSplash" aria-labelledby="splashName" aria-describedby="splashNext"><div class="summary-inner greet-inner"><div class="greet-ring" aria-hidden="true">F</div><p class="greet-date" id="splashDate"></p><p class="greet-hello" id="splashHello">Hola,</p><h2 id="splashName">FORJA</h2><p class="greet-next" id="splashNext"></p><button type="button" class="btn primary" id="splashGo">Continuar</button></div></dialog>
 <dialog class="summary-dialog day-pick-dialog" id="dayPickDialog" aria-labelledby="dayPickTitle"><div class="summary-inner" id="dayPickInner"></div></dialog>
 <div class="update-bar" id="updateBar" hidden role="status"><span>Hay una versión nueva de FORJA.</span><button type="button" class="btn sm" id="updateReload">Actualizar</button></div>
 <button type="button" class="floating-timer" id="floatingTimer" hidden aria-label="Ir al temporizador"><span aria-hidden="true">⏱</span> <span id="floatingTimerTime">01:30</span></button>
-  <button type="button" id="focusQuickSave" class="btn primary focus-quick-save" hidden aria-label="Guardar la serie actual">✓ Guardar serie</button>
-  <div class="toast" role="status" aria-live="polite" id="toast"></div>
+<div class="toast" role="status" aria-live="polite" id="toast"></div>
 <script>
 (function(){
 'use strict';
-const VERSION=7, APP_VERSION='7.2', STORAGE='forja_app_v7', LEGACY_STORAGES=['forja_app_v6','forja_app_v5','forja_app_v4','forja_recomposicion_v2'], TIMER_STORAGE='forja_rest_timer_v7';
+const VERSION=7, APP_VERSION='7.0', STORAGE='forja_app_v7', LEGACY_STORAGES=['forja_app_v6','forja_app_v5','forja_app_v4','forja_recomposicion_v2'], TIMER_STORAGE='forja_rest_timer_v7';
 const MAX_DAYS=7,DEFAULT_DAYS=3;const dayLabel=d=>'Día '+(Number(d)+1);
 const GROUPS=['Pecho','Espalda','Hombros','Bíceps','Tríceps','Antebrazos y agarre','Cuádriceps','Isquiotibiales','Glúteos','Aductores','Pantorrillas y tibial','Abdomen y core','Lumbar y erectores','Trapecio y cuello','Cuerpo completo','Cardio','Movilidad y activación'];
 const VISUALS = {
@@ -1154,7 +960,7 @@ function startOfWeek(date){const x=new Date(date+'T12:00:00');x.setDate(x.getDat
 function weekForDate(date){const from=app.settings.planStartDate;if(!dateIsValid(date)||!dateIsValid(from))return 1;const a=Date.parse(date+'T12:00:00Z'),b=Date.parse(from+'T12:00:00Z');return Math.min(52,Math.max(1,Math.floor((a-b)/604800000)+1));} 
 function normalizeNumber(v,max){if(v===null||v===undefined||String(v).trim()==='')return '';const n=Number(String(v).trim().replace(',','.'));return Number.isFinite(n)&&n>=0&&n<=max?String(n):'';}
 function defaultPlan(){return Array.from({length:MAX_DAYS},()=>({name:'',groups:[],exercises:[]}));}
-function emptyState(){return {version:VERSION,ui:{week:1,day:0,planDay:0,date:today(),chartExercise:'',chartMetric:'weight',profileWeight:'',galleryDay:0,calendarMonth:today().slice(0,7),calendarSelected:today(),group:'',installDismissed:false,planGymOnly:false,lib:{},focusKey:''},settings:{restSeconds:90,planStartDate:startOfWeek(today()),routineDays:DEFAULT_DAYS,autoRest:true,keepAwake:true,progression:true,incTotal:2.5,incDumbbell:2,gym:null,catalogLocale:'es-AR',sound:true,vibration:true,countdown:true,restNotify:false,workoutMode:'focus'},profile:{name:'',weight:'',age:'',gender:'',height:'',experience:'',goal:'',profileNudgeDismissed:false,welcome:'off',onboarded:false,lastWelcome:''},meta:{createdWith:APP_VERSION,migratedFrom:null,migratedAt:null,v6sig:''},plan:defaultPlan(),customExercises:[],sessions:{},measurements:[],attendance:[]};}
+function emptyState(){return {version:VERSION,ui:{week:1,day:0,planDay:0,date:today(),chartExercise:'',chartMetric:'weight',profileWeight:'',galleryDay:0,calendarMonth:today().slice(0,7),calendarSelected:today(),group:'',installDismissed:false,planGymOnly:false,lib:{},focusKey:''},settings:{restSeconds:90,planStartDate:startOfWeek(today()),routineDays:DEFAULT_DAYS,autoRest:true,keepAwake:true,progression:true,incTotal:2.5,incDumbbell:2,gym:null,catalogLocale:'es-AR',sound:true,vibration:true,countdown:true,restNotify:false,workoutMode:'focus'},profile:{name:'',weight:'',welcome:'always',onboarded:false,lastWelcome:''},meta:{createdWith:APP_VERSION,migratedFrom:null,migratedAt:null,v6sig:''},plan:defaultPlan(),customExercises:[],sessions:{},measurements:[],attendance:[]};}
 function sanitizeEx(ex){if(!ex||typeof ex!=='object')return null;const id=String(ex.id||'').slice(0,95);if(!/^[a-zA-Z0-9_:-]+$/.test(id))return null;const base=BY_ID.get(id)||{};const name=String(ex.name||base.name||'').trim().slice(0,100);if(!name)return null;const load=['par','una','total','cuerpo'].includes(ex.load)?ex.load:(base.load||'par');const sets=Math.max(1,Math.min(10000,Math.trunc(Number(ex.sets)||3)));const category=normGroup(ex.category)||normGroup(base.category)||'Cuerpo completo';
   const out={id,name,category,sets,target:String(ex.target||base.target||'8–12').slice(0,65),load,timing:!!ex.timing,cue:String(ex.cue||base.cue||'Controlá la técnica y registrá tus repeticiones.').slice(0,350),visual:String(ex.visual||base.visual||'').slice(0,20)};
   /* V7: datos opcionales del lugar en la rutina (solo se guardan si tienen valor) */
@@ -1251,19 +1057,13 @@ function ensureUids(state){
   for(const d of state.plan){const taken=new Set();for(const ex of d.exercises){if(!ex.uid||taken.has(ex.uid))ex.uid=newUid(ex.id,taken);taken.add(ex.uid);}normalizeSupersets(d.exercises);}
   for(const s of Object.values(state.sessions)){const taken=new Set();for(const ex of [...(s.exercises||[]),...(s.archivedExercises||[])]){if(!ex.uid)ex.uid=ex.id;if(taken.has(ex.uid))ex.uid=newUid(ex.id,taken);taken.add(ex.uid);}}
 }
-function validOptionalProfileNumber(v,min,max){if(v==null||String(v).trim()==="")return "";const n=Number(v);return Number.isFinite(n)&&n>=min&&n<=max?String(n):"";}
 function sanitizeV7Extras(out,raw){
   const st=raw.settings||{},pr=raw.profile||{},me=raw.meta||{},u=raw.ui||{};
   out.settings.sound=st.sound!==false;out.settings.vibration=st.vibration!==false;out.settings.countdown=st.countdown!==false;
   out.settings.restNotify=st.restNotify===true;out.settings.workoutMode=st.workoutMode==='list'?'list':'focus';
   out.profile.name=cleanName(pr.name);
   out.profile.weight=normalizeNumber(pr.weight,350);if(out.profile.weight&&Number(out.profile.weight)<25)out.profile.weight='';
-  out.profile.welcome=['always','daily','off'].includes(pr.welcome)?pr.welcome:'off';
-   out.profile.age=validOptionalProfileNumber(pr.age,13,100);out.profile.height=validOptionalProfileNumber(pr.height,90,250);
-   out.profile.gender=['mujer','hombre','no_binario','otro'].includes(pr.gender)?pr.gender:'';
-   out.profile.experience=['principiante','intermedio','avanzado'].includes(pr.experience)?pr.experience:'';
-   out.profile.goal=['hipertrofia','fuerza','resistencia','salud'].includes(pr.goal)?pr.goal:'';
-   out.profile.profileNudgeDismissed=pr.profileNudgeDismissed===true;
+  out.profile.welcome=['always','daily','off'].includes(pr.welcome)?pr.welcome:'always';
   out.profile.onboarded=pr.onboarded===true;out.profile.lastWelcome=dateIsValid(pr.lastWelcome)?pr.lastWelcome:'';
   if(typeof me.createdWith==='string')out.meta.createdWith=me.createdWith.slice(0,12);
   out.meta.migratedFrom=Number.isInteger(me.migratedFrom)?me.migratedFrom:null;
@@ -1342,7 +1142,7 @@ function loadUnit(ex){return ex.load==='total'?'kg totales':ex.load==='cuerpo'?'
 function lastWeight(exId){for(const ss of allSessions()){if(ss.date>app.ui.date||sessionKey(ss.date,ss.week,ss.day)===sessionKey())continue;const rows=rowsForExercise(ss,exId);for(let i=rows.length-1;i>=0;i--)if(rows[i]?.done&&rows[i].weight!=='')return rows[i].weight;}return null;}
 function plural(n,singular,pluralWord){return n+' '+(n===1?singular:pluralWord||singular+'s');}
 function toggleMenu(open){
-  if(open){$('menuLayer').hidden=false;$('mobileMore').setAttribute('aria-expanded','true');$('menuToggle').setAttribute('aria-expanded','true');$('menuToggle').textContent='×';$('menuToggle').setAttribute('aria-label','Cerrar menú');try{if(!history.state?.forjaMenu)history.pushState({forjaView:currentView,forjaMenu:true},'',location.href);}catch(err){}return;}
+  if(open){$('menuLayer').hidden=false;$('menuToggle').setAttribute('aria-expanded','true');$('menuToggle').textContent='×';$('menuToggle').setAttribute('aria-label','Cerrar menú');try{if(!history.state?.forjaMenu)history.pushState({forjaView:currentView,forjaMenu:true},'',location.href);}catch(err){}return;}
   const wasOpen=!$('menuLayer').hidden;closeMenuUI();
   if(wasOpen&&history.state?.forjaMenu){try{history.back();}catch(err){}}
 }
@@ -1350,14 +1150,13 @@ function showView(name,opts={}){
   if(!VIEWS.includes(name))name='workout';
   for(const t of VIEWS)$('view-'+t).hidden=t!==name;
   document.querySelectorAll('.nav-btn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===name?'true':'false'));
-  $('currentViewName').textContent=({home:'Inicio',workout:'Entrenar',plan:'Tu Rutina',library:'Biblioteca',guide:'Guía visual',calendar:'Calendario',history:'Historial',progress:'Progreso',settings:'Ajustes'})[name];
+  $('currentViewName').textContent=({workout:'Entrenar',plan:'Tu Rutina',library:'Biblioteca',guide:'Guía visual',calendar:'Calendario',history:'Historial',progress:'Progreso',settings:'Ajustes'})[name];
   const menuOnTop=!!history.state?.forjaMenu;
   closeMenuUI();
   /* Historial del navegador: el botón «atrás» de Android (y del navegador en PC) vuelve a la sección anterior en lugar de cerrar la app. */
   if(!opts.fromHistory){try{if(menuOnTop){if(name===currentView)history.back();else history.replaceState({forjaView:name},'',viewUrl(name));}else if(name!==currentView)history.pushState({forjaView:name},'',viewUrl(name));}catch(err){}}
   currentView=name;
-  closePremiumQuickMenu();
-  $('focusQuickSave').hidden=name!=='workout'||app.settings.workoutMode==='list';if(name==='home')renderHome();if(name==='workout')renderWorkout();if(name==='plan')renderPlan();if(name==='library')renderLibrary();if(name==='guide')renderGuide();if(name==='calendar')renderCalendar();if(name==='history')renderHistory();if(name==='progress')renderProgress();if(name==='settings')renderSettings();
+  if(name==='workout')renderWorkout();if(name==='plan')renderPlan();if(name==='library')renderLibrary();if(name==='guide')renderGuide();if(name==='calendar')renderCalendar();if(name==='history')renderHistory();if(name==='progress')renderProgress();if(name==='settings')renderSettings();
   window.scrollTo({top:0,behavior:'instant'});
   updateTimerDisplay();
 }
@@ -1390,7 +1189,7 @@ function renderWorkout(focusEx=''){
   const compact=focus&&!selectorOpen;document.querySelector('.training-selector').classList.toggle('is-compact',compact);$('selectorCompact').hidden=!focus;$('selectorToggle').setAttribute('aria-expanded',String(!compact));$('selectorToggle').textContent=compact?'Cambiar día':'Listo';
   $('selCompactTitle').textContent=dayLabel(app.ui.day)+' · '+planTitle(app.ui.day);$('selCompactMeta').textContent=formatDate(app.ui.date)+' · semana '+app.ui.week+' de 52'+(isNext?' · próximo en tu rutina':'');
   $('focusView').hidden=!focus;$('listView').hidden=focus;$('timerPanel').hidden=focus;
-  renderGreeting();renderDayTrigger();renderWorkoutTitles();renderProfileNudge();
+  renderGreeting();renderDayTrigger();renderWorkoutTitles();
   if(focus)renderFocus();else renderExerciseList(focusEx);
   renderSessionProgress();updateRestLabels();renderInstallCard();updateWakeLock();
 }
@@ -1523,7 +1322,7 @@ function renderWeightChart(){const list=app.measurements.filter(m=>m.weight&&num
 function renderMeasurements(){const ms=app.measurements.slice().reverse();$('measurementList').innerHTML=ms.length?ms.map(m=>'<div class="measure-row"><div><strong>'+safeHtml(formatDate(m.date))+'</strong><div class="values">'+(m.weight?m.weight+' kg':'Sin peso')+' · '+(m.waist?m.waist+' cm cintura':'Sin cintura')+'</div></div><button type="button" class="btn sm ghost" data-delete-measure="'+m.date+'">Eliminar</button></div>').join(''):'<p class="subtext">Todavía no guardaste medidas.</p>';}
 function saveMeasurement(e){e.preventDefault();const date=$('measureDate').value,weight=normalizeNumber($('measureWeight').value,350),waist=normalizeNumber($('measureWaist').value,250);if(!dateIsValid(date)||weight&&Number(weight)<30||waist&&Number(waist)<30||!weight&&!waist){toast('Revisá la fecha, peso y cintura.',true);return;}const existing=app.measurements.find(m=>m.date===date);if(existing){existing.weight=weight||existing.weight;existing.waist=waist||existing.waist;}else app.measurements.push({date,weight,waist});app.measurements.sort((a,b)=>a.date.localeCompare(b.date));$('measureWeight').value='';$('measureWaist').value='';persist();renderCalendar();toast('Medición guardada.');}
 function renderSettings(){$('proteinWeight').value=fmtInput(app.ui.profileWeight);renderProtein();$('optAutoRest').checked=app.settings.autoRest!==false;$('optKeepAwake').checked=app.settings.keepAwake!==false;$('optProgression').checked=app.settings.progression!==false;$('incTotal').value=fmtInput(app.settings.incTotal);$('incDumbbell').value=fmtInput(app.settings.incDumbbell);$('wakeSupport').hidden='wakeLock' in navigator;
-  $('profileName').value=app.profile.name;$('profileWeightKg').value=fmtInput(app.profile.weight);$('profileAge').value=app.profile.age||'';$('profileGender').value=app.profile.gender||'';$('profileHeight').value=app.profile.height||'';$('profileExperience').value=app.profile.experience||'';$('profileGoal').value=app.profile.goal||'';$('profileWelcome').value=app.profile.welcome;$('profileMode').value=app.settings.workoutMode==='list'?'list':'focus';
+  $('profileName').value=app.profile.name;$('profileWeightKg').value=fmtInput(app.profile.weight);$('profileWelcome').value=app.profile.welcome;$('profileMode').value=app.settings.workoutMode==='list'?'list':'focus';
   $('optSound').checked=app.settings.sound!==false;$('optCountdown').checked=app.settings.countdown!==false;$('optVibrate').checked=app.settings.vibration!==false;$('optNotify').checked=!!app.settings.restNotify&&'Notification' in window&&Notification.permission==='granted';
   $('vibrateSupport').hidden='vibrate' in navigator;$('notifySupport').textContent=notifySupportText();
   renderInstall();}
@@ -1599,11 +1398,11 @@ function onVisibilityChange(){if(!document.hidden){if(timer.running)tick();else 
 function initControls(){renderDayOptions();$('trainDate').value=app.ui.date;$('planStartDate').value=app.settings.planStartDate;$('measureDate').value=app.ui.calendarSelected;$('proteinWeight').value=fmtInput(app.ui.profileWeight);renderRestConfig();}
 
 /* ================= FORJA V6 ================= */
-const VIEWS=['home','workout','plan','library','guide','calendar','history','progress','settings'];
+const VIEWS=['workout','plan','library','guide','calendar','history','progress','settings'];
 let currentView='workout';
 function viewFromHash(){let h='';try{h=decodeURIComponent(location.hash.replace(/^#/,''));}catch(err){}return VIEWS.includes(h)?h:null;}
-function viewUrl(name){return name==='home'?location.pathname+location.search:'#'+name;}
-function closeMenuUI(){$('mobileMore').setAttribute('aria-expanded','false');$('menuLayer').hidden=true;$('menuToggle').setAttribute('aria-expanded','false');$('menuToggle').textContent='☰';$('menuToggle').setAttribute('aria-label','Abrir menú de secciones');}
+function viewUrl(name){return name==='workout'?location.pathname+location.search:'#'+name;}
+function closeMenuUI(){$('menuLayer').hidden=true;$('menuToggle').setAttribute('aria-expanded','false');$('menuToggle').textContent='☰';$('menuToggle').setAttribute('aria-label','Abrir menú de secciones');}
 
 /* --- Días de la rutina (Día 1…Día N, en rotación) --- */
 function routineDays(){const n=Number(app.settings.routineDays);return Number.isInteger(n)&&n>=1&&n<=MAX_DAYS?n:DEFAULT_DAYS;}
@@ -2031,7 +1830,7 @@ function catPlan(id){if(!catPlanCache.has(id)){const e=CAT.byId.get(id);if(!e)re
 /* --- Imagen: solo se publica con estado produccion_aprobada --- */
 const MEDIA_LABEL={pendiente_generacion_individual:['Imagen en preparación','Se publica cuando un profesional valide la técnica.'],muestra_generada_pendiente_revision_profesional:['Imagen en revisión técnica','Hay una muestra, pero todavía no fue aprobada.'],en_revision:['Imagen en revisión técnica','Un profesional está validando la técnica.'],rechazada:['Imagen en preparación','La versión anterior no pasó la revisión: se está rehaciendo.']};
 function mediaEntry(e){return CAT.media[e.id]||{estado:e.imagen?.estado||'pendiente_generacion_individual'};}
-function approvedSrc(e){const m=mediaEntry(e);return m.estado==='produccion_aprobada'&&m.archivo?m.archivo:null;}
+function approvedSrc(e){const m=mediaEntry(e);return m.estado==='produccion_aprobada'&&m.archivo?m.archivo+(Number(m.version_imagen)>0?'?v='+Number(m.version_imagen):''):null;}
 function mediaFigure(e,cls=''){
   if(e){const src=approvedSrc(e),iso=catTiming(e);
     if(src)return '<figure class="ex-media '+cls+'"><img src="'+safeHtml(src)+'" alt="'+safeHtml(e.imagen?.alt_text||tx(e,'nombre_es'))+'" loading="lazy" decoding="async" width="800" height="1000"><figcaption><span>'+(iso?'Vista 1':'Inicio')+'</span><span aria-hidden="true">→</span><span>'+(iso?'Vista 2':'Final')+'</span></figcaption></figure>';
@@ -2062,7 +1861,6 @@ function renderLibrary(){
   const L=libState(),list=$('libList');
   if(!CAT.ready){$('libCount').textContent=CAT.failed?'No se pudo cargar la biblioteca.':'Cargando biblioteca…';list.innerHTML=CAT.failed?'<div class="empty-state"><strong>No se pudo cargar la biblioteca</strong>Revisá tu conexión y volvé a abrir esta sección. Si abriste el archivo HTML directamente desde tu computadora, la biblioteca solo funciona publicada (por ejemplo, en GitHub Pages).</div>':'';loadCatalog();return;}
   const opt=(v,t,sel)=>'<option value="'+safeHtml(v)+'"'+(v===sel?' selected':'')+'>'+safeHtml(t)+'</option>';
-  $('libQuickGroups').innerHTML=['',...CAT.groups.filter(g=>['Pecho','Espalda','Hombros','Bíceps','Glúteos','Cuádriceps','Abdomen y core'].includes(g))].map(g=>'<button class="lib-quick-btn" type="button" data-lib-quick="'+safeHtml(g)+'" aria-pressed="'+(String(L.group||'')===g)+'">'+safeHtml(g||'Todos')+'</button>').join('');
   $('libGroup').innerHTML=opt('','Todos los grupos',L.group||'')+CAT.groups.map(g=>opt(g,g+' ('+CAT.list.filter(e=>e.grupo_muscular===g).length+')',L.group||'')).join('');
   $('libMuscle').innerHTML=opt('','Todos los músculos',L.muscle||'')+CAT.muscles.map(m=>opt(m,m,L.muscle||'')).join('');
   const subs=L.group?(CAT.subgroups.get(L.group)||[]):[...new Set([].concat(...CAT.subgroups.values()))].sort((a,b)=>a.localeCompare(b,'es'));
@@ -2186,7 +1984,6 @@ async function copyText(text,okMsg){try{await navigator.clipboard.writeText(text
 function initCatalogUI(){
   $('libSearch').addEventListener('input',e=>{clearTimeout(libTimer);libTimer=setTimeout(()=>{libState().q=e.target.value;libShown=40;persist();renderLibraryList();},140);});
   $('libGroup').addEventListener('change',e=>libUpdate({group:e.target.value,sub:''}));
-  $('libQuickGroups').addEventListener('click',e=>{const b=e.target.closest('[data-lib-quick]');if(b)libUpdate({group:b.dataset.libQuick,sub:''});});
   $('libMuscle').addEventListener('change',e=>libUpdate({muscle:e.target.value}));
   $('libSub').addEventListener('change',e=>libUpdate({sub:e.target.value}));
   $('libPattern').addEventListener('change',e=>libUpdate({pattern:e.target.value}));
@@ -2286,7 +2083,7 @@ function kcalBlockHtml(s,minutes){const k=estimateKcal(s,minutes),levels='<div c
 function greetingWord(d=new Date()){const h=d.getHours();return h>=5&&h<12?'Buen día':h>=12&&h<20?'Buenas tardes':'Buenas noches';}
 function longToday(){const t=new Intl.DateTimeFormat('es-AR',{weekday:'long',day:'numeric',month:'long'}).format(new Date());return t.charAt(0).toUpperCase()+t.slice(1);}
 function todayPlanLine(){const s=currentSession(),list=activeExercises();if(s?.finishedAt)return 'Entrenamiento finalizado ✓ · '+planTitle(app.ui.day);if(s&&progressOf(s).done){const p=progressOf(s);return 'Entrenamiento en curso · '+p.done+' de '+p.total+' series';}if(!list.length)return plannedDays()?'Este día no tiene ejercicios. Elegí otro o configuralo en Tu Rutina.':'Armá tu rutina para empezar.';return (app.ui.date===today()?'Hoy toca ':'')+dayLabel(app.ui.day)+' · '+planTitle(app.ui.day);}
-function renderGreeting(){const name=app.profile.name;const a=$('profileInitial'),p=$('profileAvatar');const initial=name?name.charAt(0).toLocaleUpperCase('es-AR'):'F';if(a)a.textContent=initial;if(p)p.textContent=initial;$('greetHead').hidden=app.profile.welcome==='off';$('greetKicker').textContent=app.ui.date===today()?longToday():formatDate(app.ui.date);$('greetTitle').textContent=name?greetingWord()+', '+name+'.':'Tu entrenamiento.';$('greetSub').textContent=todayPlanLine();}
+function renderGreeting(){const name=app.profile.name;$('greetKicker').textContent=app.ui.date===today()?longToday():formatDate(app.ui.date);$('greetTitle').textContent=name?greetingWord()+', '+name+'.':'Tu entrenamiento.';$('greetSub').textContent=todayPlanLine();}
 /* Bienvenida al abrir FORJA (pop-up). En teléfono, al cerrarla se abre la elección del entrenamiento. */
 let splashChain=false;
 function isPhone(){try{return matchMedia('(max-width: 730px)').matches;}catch(err){return false;}}
@@ -2298,11 +2095,7 @@ function showSplash(force,chain){const d=$('greetSplash');if(!d||typeof d.showMo
   setTimeout(()=>$('splashGo')?.focus(),40);}
 function hideSplash(){const d=$('greetSplash');if(d&&d.open)d.close();}
 function onSplashClosed(){if(splashChain){splashChain=false;startDayPick();}}
-function renderProfileNudge(){const n=$('profileNudge');if(!n)return;const exists=allSessions().length>0||plannedDays()>0;
- n.hidden=!exists||!!app.profile.profileNudgeDismissed||!!(app.profile.name&&app.profile.goal&&app.profile.experience);
-}
-function goProfile(){showView('settings');$('profilePanel').scrollIntoView({behavior:'smooth',block:'start'});}
-function maybeWelcome(){if(!app.profile.onboarded){if(wasMigrated||allSessions().length||plannedDays()){app.profile.onboarded=true;persist();renderProfileNudge();return;}openOnboarding();return;}/* Usuarios habituales entran directamente a entrenar: sin dos pop-ups consecutivos. */}
+function maybeWelcome(){if(!app.profile.onboarded){openOnboarding();return;}const w=app.profile.welcome;if(w==='always'||(w==='daily'&&app.profile.lastWelcome!==today()))showSplash(false,true);else startDayPick();}
 /* ---------- Elegir el entrenamiento (pop-up) ---------- */
 function startDayPick(){if(isPhone()&&currentView==='workout'&&!$('welcomeDialog').open)openDayPicker();}
 function sessionsOnDate(date){const m=new Map();for(const s of allSessions())if(s.date===date&&!m.has(s.day))m.set(s.day,s);return m;}
@@ -2323,7 +2116,7 @@ function renderDayPicker(){
    '<details class="dp-more"'+(isToday?'':' open')+'><summary>Registrar otra fecha</summary><div class="field"><label for="dpDate">Fecha del entrenamiento</label><input type="date" id="dpDate" value="'+safeHtml(app.ui.date)+'"></div>'+(isToday?'':'<button type="button" class="btn sm ghost" data-dp-today>Volver a hoy</button>')+'</details>';}
 function openDayPicker(){const d=$('dayPickDialog');if(!d||typeof d.showModal!=='function')return;renderDayPicker();if(!d.open){try{d.showModal();}catch(err){return;}}setTimeout(()=>(d.querySelector('.dp-day.is-selected')||d.querySelector('.dp-day,[data-dp-go]'))?.focus(),40);}
 function setTrainDate(v){app.ui.date=v;app.ui.week=weekForDate(v);app.ui.day=pickDayForDate(v);app.ui.focusKey='';persist();renderWorkout();}
-function renderDayTrigger(){if(!$('dayTrigger'))return;const s=currentSession(),p=s?progressOf(s):null;$('dayTriggerTitle').textContent=dayLabel(app.ui.day)+' · '+planTitle(app.ui.day);$('dayTriggerMeta').textContent=(app.ui.date===today()?'Hoy':formatDate(app.ui.date))+(s?.finishedAt?' · finalizado':s&&p.done?' · en curso':'');}
+function renderDayTrigger(){if(!$('dayTrigger'))return;const s=currentSession(),p=s?progressOf(s):null;$('dayTriggerTitle').textContent=dayLabel(app.ui.day)+' · '+planTitle(app.ui.day);$('dayTriggerMeta').textContent=(app.ui.date===today()?'Hoy':formatDate(app.ui.date))+' · semana '+app.ui.week+' de 52'+(s?.finishedAt?' · finalizado':s&&p.done?' · en curso':'');}
 function initDayPickUI(){const d=$('dayPickDialog');
   $('dayTrigger').addEventListener('click',openDayPicker);
   d.addEventListener('click',e=>{const t=e.target;if(t===d||t.closest('[data-close]')){d.close();return;}
@@ -2333,8 +2126,8 @@ function initDayPickUI(){const d=$('dayPickDialog');
     const g=t.closest('[data-dp-go]');if(g){d.close();showView('plan');if(g.dataset.dpGo==='wizard')openWizard();else openImport();}});
   d.addEventListener('change',e=>{if(e.target.id!=='dpDate')return;if(!dateIsValid(e.target.value)){toast('Fecha inválida.',true);e.target.value=app.ui.date;return;}setTrainDate(e.target.value);renderDayPicker();});
   const g=$('greetSplash');g.addEventListener('click',e=>{if(e.target===g)g.close();});$('splashGo').addEventListener('click',hideSplash);g.addEventListener('close',onSplashClosed);}
-function openOnboarding(){const d=$('welcomeDialog');if(!d||typeof d.showModal!=='function'){app.profile.onboarded=true;persist();return;}$('welcomeName').value=app.profile.name;$('welcomeWeight').value=fmtInput(app.profile.weight);$('welcomeAge').value=app.profile.age||'';$('welcomeHeight').value=app.profile.height||'';$('welcomeGender').value=app.profile.gender||'';$('welcomeGoal').value=app.profile.goal||'';$('welcomeExperience').value=app.profile.experience||'';$('welcomeSound').checked=app.settings.sound!==false;$('welcomeVibrate').checked=app.settings.vibration!==false;$('welcomeLead').textContent=wasMigrated?'Tus entrenamientos, récords, calendario y medidas de la versión anterior se conservaron. Contanos cómo te llamás para saludarte cada vez que entres.':'Tu perfil es opcional. Empezá cuando quieras y completá tus datos después.';try{d.showModal();}catch(err){app.profile.onboarded=true;persist();return;}setTimeout(()=>$('welcomeName').focus(),60);}
-function saveOnboarding(skip){if(!skip){for(const [id,lo,hi] of [['welcomeAge',13,100],['welcomeHeight',90,250]]){const el=$(id);if(el.value.trim()&&!validOptionalProfileNumber(el.value,lo,hi)){toast('Revisá el valor: debe estar entre '+lo+' y '+hi+'.',true);el.focus();return;}}const el=$('welcomeWeight'),checkWeight=normalizeNumber(el.value,350);if(el.value.trim()&&(!checkWeight||Number(checkWeight)<25)){toast('Ingresá un peso entre 25 y 350 kg.',true);el.focus();return;} app.profile.name=cleanName($('welcomeName').value);const w=normalizeNumber($('welcomeWeight').value,350);if(w&&Number(w)>=25){app.profile.weight=w;if(!app.ui.profileWeight)app.ui.profileWeight=w;}app.settings.sound=$('welcomeSound').checked;app.settings.vibration=$('welcomeVibrate').checked;app.profile.age=validOptionalProfileNumber($('welcomeAge').value,13,100);app.profile.height=validOptionalProfileNumber($('welcomeHeight').value,90,250);app.profile.gender=$('welcomeGender').value;app.profile.experience=$('welcomeExperience').value;app.profile.goal=$('welcomeGoal').value;}app.profile.onboarded=true;app.profile.lastWelcome=today();persist();$('welcomeDialog').close();renderGreeting();if(!skip&&app.profile.name)toast('¡Listo, '+app.profile.name+'! Tu perfil queda disponible en Ajustes.');if(!plannedDays()){showView('plan');}else renderWorkout();}
+function openOnboarding(){const d=$('welcomeDialog');if(!d||typeof d.showModal!=='function'){app.profile.onboarded=true;persist();return;}$('welcomeName').value=app.profile.name;$('welcomeWeight').value=fmtInput(app.profile.weight);$('welcomeSound').checked=app.settings.sound!==false;$('welcomeVibrate').checked=app.settings.vibration!==false;$('welcomeLead').textContent=wasMigrated?'Tus entrenamientos, récords, calendario y medidas de la versión anterior se conservaron. Contanos cómo te llamás para saludarte cada vez que entres.':'Contanos cómo te llamás para saludarte cada vez que entres. Todo queda guardado en este dispositivo.';try{d.showModal();}catch(err){app.profile.onboarded=true;persist();return;}setTimeout(()=>$('welcomeName').focus(),60);}
+function saveOnboarding(skip){if(!skip){app.profile.name=cleanName($('welcomeName').value);const w=normalizeNumber($('welcomeWeight').value,350);if(w&&Number(w)>=25){app.profile.weight=w;if(!app.ui.profileWeight)app.ui.profileWeight=w;}app.settings.sound=$('welcomeSound').checked;app.settings.vibration=$('welcomeVibrate').checked;}app.profile.onboarded=true;app.profile.lastWelcome=today();persist();$('welcomeDialog').close();renderGreeting();if(!skip&&app.profile.name)toast('¡Listo, '+app.profile.name+'! Podés cambiarlo en Ajustes → Tu perfil.');startDayPick();}
 
 /* ================= Entrenamiento FORJA Focus =================
    Un ejercicio protagonista: progreso del ejercicio y de la rutina, lo que hiciste la vez anterior,
@@ -2367,7 +2160,7 @@ function ringHtml(){return '<div class="rest-ring big"><svg class="ring-svg" vie
 function emptyWorkoutHtml(){return '<div class="empty-plan workout-empty"><strong>Este día todavía no tiene ejercicios.</strong>Armá tu rutina con el asistente, elegí una plantilla o pegá la que ya tenés.<br><button type="button" class="btn primary open-wizard-from-training">Armar con el asistente</button> <button type="button" class="btn open-plan-from-training">✎ Configurar en Tu Rutina</button> <button type="button" class="btn open-import-from-training">📋 Pegar mi rutina</button></div>';}
 function renderFocus(){
   const root=$('focusView'),s=currentSession(),list=activeExercises(),locked=!!s?.finishedAt;
-  if(!list.length){root.innerHTML=emptyWorkoutHtml();$('focusQuickSave').hidden=true;return;}
+  if(!list.length){root.innerHTML=emptyWorkoutHtml();return;}
   const ex=currentFocusSlot(),key=slotKey(ex),rows=s?.sets?.[key]||[],n=ex.sets,pos=list.indexOf(ex),b=blockOf(list,ex);
   const editing=FOCUS.editKey===key&&Number.isInteger(FOCUS.editIdx)&&FOCUS.editIdx<n;
   const pend=pendingIndex(s,ex),idx=editing?FOCUS.editIdx:pend;
@@ -2386,17 +2179,15 @@ function renderFocus(){
   if(plannedTxt&&ex.load!=='cuerpo')refs+='<div class="ref-row plan"><span>Peso planificado</span><strong>'+safeHtml(plannedTxt)+'</strong></div>';
   if(ex.ref)refs+='<div class="ref-row imported"><span>Referencia importada'+(ex.ref.date?' · '+safeHtml(formatDate(ex.ref.date)):'')+'</span><strong>'+safeHtml(setText(ex,{weight:ex.ref.weight,reps:ex.ref.reps||''}))+'</strong><small>Dato de tu texto: no cuenta como entrenamiento registrado.</small></div>';
   const histHtml=hist.length?'<details class="focus-history"><summary>Historial de este ejercicio <span>'+plural(hist.length,'sesión','sesiones')+'</span></summary><ol>'+hist.map(h=>{const st=statsOfRows(h.rows);return '<li><span class="fh-date">'+safeHtml(formatDate(h.s.date))+'</span><span class="fh-sets">'+h.rows.map(r=>safeHtml(setText(ex,r))).join(' · ')+'</span>'+(st.e?'<span class="fh-best">1RM est. '+fmtKg(st.e,1)+'</span>':'')+'</li>';}).join('')+'</ol></details>':'';
-  const prevComparable=last?.rows[idx]||last?.rows.at(-1)||null;
-  const miniCompare=idx>=0&&last&&prevComparable?'<div class="focus-last-set">Última vez · serie '+(idx+1)+': <strong>'+safeHtml(setText(ex,prevComparable))+'</strong></div>':'';
   const tip=locked?null:progressionFor(ex),tipHtml=tip?.ready&&!rows.some(r=>(numberOrNull(r?.weight)??-1)>=tip.to-1e-9)?'<div class="progression-tip"><span>↑ <strong>Probá con '+fmtKg(tip.to)+'</strong> · la última vez completaste todas las series con '+tip.top+' reps o más.</span><button class="btn sm primary" type="button" data-focus-progress>Usar '+fmtKg(tip.to)+'</button></div>':'';
   /* estado del entrenamiento */
   let body='';
   const resting=timer.running&&!locked;
-  if(resting){const nx=list.find(e=>slotKey(e)===app.ui.focusKey);body+='<section class="focus-rest" aria-label="Descanso">'+ringHtml()+'<div class="rest-next"><span>Sigue</span><strong>'+safeHtml(timer.label||restLabel(nx||ex))+'</strong></div><div class="rest-actions"><button type="button" class="btn" data-rest-adjust="-15" aria-label="Quitar 15 segundos">−15 s</button><button type="button" class="btn" data-rest-toggle>Ⅱ Pausar</button><button type="button" class="btn" data-rest-adjust="15" aria-label="Agregar 15 segundos">+15 s</button><button type="button" class="btn ghost" data-rest-skip>Saltar descanso</button></div></section>';}
+  if(resting){const nx=list.find(e=>slotKey(e)===app.ui.focusKey);body+='<section class="focus-rest" aria-label="Descanso">'+ringHtml()+'<div class="rest-next"><span>Sigue</span><strong>'+safeHtml(timer.label||restLabel(nx||ex))+'</strong></div><div class="rest-actions"><button type="button" class="btn" data-rest-adjust="-15" aria-label="Quitar 15 segundos">−15 s</button><button type="button" class="btn" data-rest-toggle>Ⅱ Pausar</button><button type="button" class="btn" data-rest-adjust="15" aria-label="Agregar 15 segundos">+15 s</button><button type="button" class="btn primary" data-rest-skip>Saltar descanso</button></div></section>';}
   if(locked){body+='<section class="focus-locked"><p><strong>Entrenamiento finalizado.</strong> Podés revisar cada ejercicio o reabrirlo para editar.</p><button type="button" class="btn" data-focus-reopen>↶ Reabrir para editar</button> <button type="button" class="btn ghost" data-focus-summary>Ver resumen</button></section>';}
   else if(idx<0){const nextEx=nextPendingAfter(list,ex);body+='<section class="focus-complete"><p class="fc-title">✓ '+safeHtml(ex.name)+': '+plural(n,'serie')+' completas.</p>'+(nextEx?'<button type="button" class="btn primary focus-save" data-focus-go="'+safeHtml(slotKey(nextEx))+'">Siguiente: '+safeHtml(nextEx.name)+' →</button>':'<p class="subtext">¡Completaste todas las series de la rutina!</p><button type="button" class="btn primary focus-save" data-focus-finish>✓ Finalizar entrenamiento</button>')+'<button type="button" class="btn sm ghost" data-focus-addset>＋ Agregar una serie más</button></section>';}
   else{const v=focusDefaults(s,ex,idx),isBody=ex.load==='cuerpo';
-    body+='<section class="focus-entry'+(resting?' is-preparing':'')+'" aria-label="Serie actual"><div class="entry-head"><strong>'+(resting?'Preparar · ':'')+'Serie '+(idx+1)+' de '+n+'</strong>'+(editing?'<span class="pill">Editando</span>':'')+'</div>'+miniCompare+'<div class="focus-fields'+(isBody?' single':'')+'">'+(isBody?'':stepperHtml('weight','Peso',loadUnit(ex),v.weight,false))+stepperHtml('reps',ex.timing?'Segundos':'Repeticiones',ex.timing?'seg':'reps',v.reps,false)+'</div><button type="button" class="btn primary focus-save" data-focus-save>✓ '+(editing?'Guardar cambios de la serie '+(idx+1):'Guardar serie '+(idx+1))+'</button>'+(editing?'<div class="entry-edit-actions"><button type="button" class="btn sm ghost" data-focus-cancel>Cancelar</button><button type="button" class="btn sm danger" data-focus-unmark>Desmarcar serie</button></div>':'')+'</section>';}
+    body+='<section class="focus-entry'+(resting?' is-preparing':'')+'" aria-label="Serie actual"><div class="entry-head"><strong>'+(resting?'Preparar · ':'')+'Serie '+(idx+1)+' de '+n+'</strong>'+(editing?'<span class="pill">Editando</span>':'')+'</div><div class="focus-fields'+(isBody?' single':'')+'">'+(isBody?'':stepperHtml('weight','Peso',loadUnit(ex),v.weight,false))+stepperHtml('reps',ex.timing?'Segundos':'Repeticiones',ex.timing?'seg':'reps',v.reps,false)+'</div><button type="button" class="btn primary focus-save" data-focus-save>✓ '+(editing?'Guardar cambios de la serie '+(idx+1):'Guardar serie '+(idx+1))+'</button>'+(editing?'<div class="entry-edit-actions"><button type="button" class="btn sm ghost" data-focus-cancel>Cancelar</button><button type="button" class="btn sm danger" data-focus-unmark>Desmarcar serie</button></div>':'')+'</section>';}
   const done=rows.map((r,j)=>({r,j})).filter(x=>x.j<n&&x.r?.done);
   const doneHtml=done.length?'<ol class="focus-done" aria-label="Series guardadas">'+done.map(({r,j})=>'<li><button type="button" data-focus-edit="'+j+'"'+(locked?' disabled':'')+'><span class="fd-n">'+(marks.has(j)?'🏆':j+1)+'</span><span class="fd-v">'+safeHtml(setText(ex,r))+'</span>'+(locked?'':'<span class="fd-e">Editar</span>')+'</button></li>').join('')+'</ol>':'';
   root.innerHTML='<div class="focus-route"><div class="focus-route-top"><span>Ejercicio <b>'+(pos+1)+'</b> de '+list.length+'</span><span>'+p.done+'/'+p.total+' series · '+p.percent+'%</span></div><div class="progress-track focus-track" role="progressbar" aria-label="Progreso de la rutina" aria-valuemin="0" aria-valuemax="100" aria-valuenow="'+p.percent+'"><div class="fill" style="width:'+p.percent+'%"></div></div><div class="focus-strip" role="group" aria-label="Ejercicios de la rutina">'+strip+'</div></div>'+
@@ -2406,20 +2197,16 @@ function renderFocus(){
    '<div class="focus-ex-progress"><div class="set-dots" role="group" aria-label="Series de este ejercicio">'+setDots+'</div><span class="set-count">'+doneEx+'/'+n+'</span></div></header>'+
    body+'<section class="focus-ref" aria-label="Referencias">'+refs+tipHtml+histHtml+'</section>'+doneHtml+
    '<nav class="focus-nav" aria-label="Cambiar de ejercicio"><button type="button" class="btn ghost" data-focus-move="-1"'+(pos===0?' disabled':'')+'>← Anterior</button>'+(cat?'<button type="button" class="btn ghost" data-ficha="'+safeHtml(ex.id)+'">Ficha</button>':'')+(!locked&&!resting?'<button type="button" class="btn ghost" data-focus-rest>⏱ Descanso</button>':'')+'<button type="button" class="btn ghost" data-focus-move="1"'+(pos===list.length-1?' disabled':'')+'>Siguiente →</button></nav></article>';
-  const qs=$('focusQuickSave');if(qs){const finish=p.total>0&&p.done>=p.total&&!locked;qs.hidden=currentView!=='workout'||app.settings.workoutMode==='list'||locked||(idx<0&&!finish);qs.dataset.action=finish?'finish':'save';qs.textContent=finish?'✓ Finalizar entrenamiento':editing?'✓ Guardar cambios':'✓ Guardar serie '+(idx+1)+' de '+n;}
   updateTimerDisplay();
 }
 function focusStep(kind,dir){const input=kind==='weight'?$('focusWeight'):$('focusReps');if(!input)return;const ex=currentFocusSlot();let step=1;if(kind==='weight')step=ex.load==='total'?(app.settings.incTotal||2.5):(app.settings.incDumbbell||2);else if(ex.timing)step=5;const cur=numberOrNull(input.value)??0,next=Math.max(0,Math.round((cur+dir*step)*100)/100);input.value=fmtInput(String(next));storeFocusDraft();}
 function storeFocusDraft(){const ex=currentFocusSlot();if(!ex)return;const s=currentSession(),idx=FOCUS.editKey===slotKey(ex)&&Number.isInteger(FOCUS.editIdx)?FOCUS.editIdx:pendingIndex(s,ex);if(idx<0)return;FOCUS.draft[slotKey(ex)+'|'+idx]={weight:$('focusWeight')?.value??'',reps:$('focusReps')?.value??''};}
-let focusSaveLockedUntil=0;
 function focusSave(){
-  if(Date.now()<focusSaveLockedUntil)return;
   const s0=currentSession();if(s0?.finishedAt){toast('El entrenamiento está finalizado. Reabrilo para editar.',true);return;}
   const ex=currentFocusSlot();if(!ex)return;const key=slotKey(ex),editing=FOCUS.editKey===key&&Number.isInteger(FOCUS.editIdx),idx=editing?FOCUS.editIdx:pendingIndex(s0,ex);if(idx<0||idx>=ex.sets)return;
   const w=ex.load==='cuerpo'?'':normalizeNumber($('focusWeight')?.value,9999),reps=normalizeNumber($('focusReps')?.value,999999);
   if(reps===''||Number(reps)<=0){toast(ex.timing?'Ingresá los segundos de la serie.':'Ingresá las repeticiones de la serie.',true);$('focusReps')?.focus();return;}
   if(ex.load!=='cuerpo'&&$('focusWeight')?.value.trim()&&w===''){toast('Revisá el peso: tiene que ser un número.',true);$('focusWeight').focus();return;}
-  focusSaveLockedUntil=Date.now()+550;
   const s=ensureSession(),rows=s.sets[key]||(s.sets[key]=[]);while(rows.length<=idx)rows.push({weight:'',reps:'',done:false});
   const wasDone=!!rows[idx].done,now=new Date().toISOString();
   rows[idx]={weight:w,reps,done:true};s.updatedAt=now;if(!s.startedAt)s.startedAt=now;if(!wasDone)s.lastSetAt=now;
@@ -2437,7 +2224,6 @@ function focusUnmark(){const ex=currentFocusSlot(),s=currentSession();if(!ex||!s
 function focusAddSet(){const ex=currentFocusSlot(),s=currentSession();if(!ex||s?.finishedAt)return;const sess=ensureSession(),slot=sess.exercises.find(e=>slotKey(e)===slotKey(ex));if(!slot)return;slot.sets=Math.min(50,slot.sets+1);sess.updatedAt=new Date().toISOString();persist();toast('Serie extra agregada solo a este entrenamiento.');renderFocus();renderSessionProgress();}
 function initFocusUI(){
   const root=$('focusView');
-  $('focusQuickSave').addEventListener('click',()=>{if($('focusQuickSave').dataset.action==='finish')finishSession();else focusSave();});
   $('selectorToggle').addEventListener('click',()=>{selectorOpen=!selectorOpen;renderWorkout();if(selectorOpen)$('trainDay').focus();});
   root.addEventListener('click',e=>{const t=e.target;
     const go=t.closest('[data-focus-go]');if(go){app.ui.focusKey=go.dataset.focusGo;FOCUS.editKey='';FOCUS.editIdx=null;persist();renderFocus();root.scrollIntoView({behavior:'smooth',block:'start'});return;}
@@ -2525,24 +2311,26 @@ const WZ_TEMPLATES=[
  {id:'t-db3',name:'Mancuernas en casa · 3 días',desc:'Solo mancuernas y banco. Con superseries.',cfg:{days:3,goal:'hipertrofia',minutes:45,split:'full',equip:'db',supersets:true}},
  {id:'t-home3',name:'Sin equipo · 3 días',desc:'Peso corporal y bandas. 30 minutos.',cfg:{days:3,goal:'resistencia',minutes:30,split:'full',equip:'home',supersets:true}}];
 let WZ=null;
-function wzDefaults(){const n=Math.max(1,Math.min(7,plannedDays()||3));return {step:1,days:n,goal:app.profile.goal||'hipertrofia',minutes:60,split:wzRecommended(n),splitTouched:false,equip:gymConfigured()?'gym':'full',supersets:false,dayDefs:null,result:null,mode:'replace',applyRest:true,fromTemplate:''};}
+function wzDefaults(){const n=Math.max(1,Math.min(7,plannedDays()||3));return {step:1,days:n,goal:'hipertrofia',minutes:60,split:wzRecommended(n),splitTouched:false,equip:gymConfigured()?'gym':'full',supersets:false,dayDefs:null,result:null,mode:'replace',applyRest:true,fromTemplate:''};}
 function wzSplit(){return WZ_SPLITS.find(s=>s.id===WZ.split)||WZ_SPLITS[0];}
 function wzRecommended(n){return n>=5?'ppl':n===4?'ul':'full';}
 function wzFitSplit(){const sp=wzSplit();if(!WZ.splitTouched||WZ.days<sp.min||WZ.days>sp.max)WZ.split=wzRecommended(WZ.days);}
 function wzBuildDayDefs(){WZ.dayDefs=wzSplit().days(WZ.days).map(([name,groups])=>({name,groups:groups.slice()}));}
 let wzRank=null;
-function wzPrefRank(){if(wzRank)return wzRank;wzRank=new Map();let i=0;for(const v of Object.values(GENERIC_SRC))for(const id of (Array.isArray(v)?v:[v]))if(!wzRank.has(id))wzRank.set(id,i++);for(const v of Object.values(LEGACY_CATALOG))if(!wzRank.has(v[0]))wzRank.set(v[0],i++);return wzRank;}
+/* Equipo real disponible en las opciones sin gimnasio (IDs de data/equipamiento_v1.json). Evita proponer dominadas, paralelas, lastre o máquinas a quien entrena en casa. */
+const WZ_EQUIP_ITEMS={db:['mancuernas','banco_plano','banco_ajustable','colchoneta','bandas','minibandas'],home:['colchoneta','bandas','minibandas']};
+function wzPrefRank(){if(wzRank)return wzRank;wzRank=new Map();let i=0;for(const v of Object.values(GENERIC_SRC))for(const id of (Array.isArray(v)?v:[v]))if(!wzRank.has(id))wzRank.set(id,i++);for(const v of Object.values(LEGACY_CATALOG))if(!wzRank.has(v[0]))wzRank.set(v[0],i++);if(wzRank.has('FJ-ESP-0001')&&wzRank.has('FJ-ESP-0033'))wzRank.set('FJ-ESP-0001',wzRank.get('FJ-ESP-0033')+.5);if(wzRank.has('FJ-PEC-0017'))wzRank.set('FJ-PEC-0017',999);return wzRank;}
 function wzCandidates(group){
   if(CAT.ready&&CAT.list.length){let list=CAT.list.filter(e=>e.grupo_muscular===group);
     if(WZ.equip==='gym'&&gymConfigured()){const have=gymSet();list=list.filter(e=>isCompatible(e,have));}
-    else{const t=WZ_EQUIP.find(x=>x.id===WZ.equip)?.tipos;if(t)list=list.filter(e=>t.includes(e._tipo));}
+    else{const t=WZ_EQUIP.find(x=>x.id===WZ.equip)?.tipos;if(t)list=list.filter(e=>t.includes(e._tipo));const allow=WZ_EQUIP_ITEMS[WZ.equip];if(allow){const have=new Set(allow);list=list.filter(e=>isCompatible(e,have));}}
     if(group!=='Abdomen y core'&&group!=='Cardio')list=list.filter(e=>!catTiming(e));
     const pref=wzPrefRank();return list.map((e,i)=>({e,r:pref.has(e.id)?pref.get(e.id):1000+i})).sort((a,b)=>a.r-b.r).map(x=>({...catToPlan(x.e),_fam:x.e.familia_ejercicio||''}));}
   /* Sin biblioteca (por ejemplo, sin conexión): ejercicios básicos integrados en FORJA */
   return Object.entries(LEGACY_CATALOG).filter(([,v])=>v[2]===group).map(([k,v])=>{const b=BY_ID.get(k)||{};return {id:v[0],name:v[1],category:v[2],sets:3,target:b.target||'8–12',load:b.load||'par',timing:!!b.timing,cue:v[3],_fam:v[1]};}).filter(e=>WZ.equip!=='home'||e.load==='cuerpo');}
 function wzPerSession(){const per={fuerza:12,hipertrofia:9,resistencia:7,salud:8}[WZ.goal]||9;let n=Math.round((WZ.minutes-5)/per);if(WZ.supersets)n=Math.round(n*1.3);return Math.max(3,Math.min(9,n));}
 function wzDose(ex,i){if(ex.timing)return {sets:3,target:WZ.goal==='fuerza'?'30–40 s':'30–45 s'};switch(WZ.goal){case 'fuerza':return i===0?{sets:5,target:'5'}:{sets:4,target:'6–8'};case 'resistencia':return {sets:3,target:'12–15'};case 'salud':return i===0?{sets:3,target:'8–10'}:{sets:3,target:'10–12'};default:return i===0?{sets:4,target:'6–8'}:i>=3?{sets:3,target:'10–15'}:{sets:3,target:'8–12'};}}
-function wzBuildDay(def,used){const groups=def.groups.filter(Boolean);if(!groups.length)return [];const total=wzPerSession(),count=new Map(groups.map(g=>[g,0]));let left=total;
+function wzBuildDay(def,used){const groups=def.groups.filter(Boolean).filter(g=>wzCandidates(g).length);if(!groups.length)return [];const total=wzPerSession(),count=new Map(groups.map(g=>[g,0]));let left=total;
   for(const g of groups){if(left<=0)break;count.set(g,1);left--;}
   const bigs=groups.filter(g=>WZ_GROUPS_BIG.has(g)&&count.get(g)>0);let k=0;while(left>0&&bigs.length){const g=bigs[k%bigs.length];if(count.get(g)<3){count.set(g,count.get(g)+1);left--;}k++;if(k>60)break;}
   k=0;while(left>0&&k<60){const g=groups[k%groups.length];if(count.get(g)>0&&count.get(g)<3){count.set(g,count.get(g)+1);left--;}k++;}
@@ -2560,7 +2348,7 @@ function renderWizard(){const box=$('wizardInner'),st=WZ.step,head='<div class="
     html='<h2 id="wizardTitle">¿Cómo dividís los días y con qué equipo?</h2>'+wzChips('División',splits,WZ.split,'data-wz-split')+'<details class="wz-days-edit"'+(WZ.split==='custom'?' open':'')+'><summary>Ver o cambiar los grupos de cada día</summary>'+WZ.dayDefs.map((d,i)=>'<div class="wz-daydef"><label class="field"><span>'+dayLabel(i)+'</span><input type="text" maxlength="80" data-wz-dname="'+i+'" value="'+safeHtml(d.name)+'"></label><div class="wz-groups">'+groups.map(g=>'<label class="focus-check"><input type="checkbox" data-wz-g="'+i+'" value="'+safeHtml(g)+'"'+(d.groups.includes(g)?' checked':'')+'><span>'+safeHtml(g)+'</span></label>').join('')+'</div></div>').join('')+'</details><h3 class="wz-sub">Equipo disponible</h3>'+wzChips('Equipo',eq,WZ.equip,'data-wz-equip')+'<label class="toggle-row wz-ss"><input type="checkbox" id="wzSupersets"'+(WZ.supersets?' checked':'')+'><span><strong>Agrupar en superseries para ahorrar tiempo</strong><small>Une ejercicios de a dos: una serie de cada uno y después el descanso.</small></span></label>';}
   else{if(!WZ.result)wzGenerate();const n=routineDays(),hasCurrent=app.plan.slice(0,n).some(p=>p.exercises.length),canAppend=hasCurrent&&n+WZ.result.length<=MAX_DAYS,goal=WZ_GOALS.find(g=>g.id===WZ.goal),empty=WZ.result.filter(d=>!d.exercises.length).length;
     html='<h2 id="wizardTitle">Revisá tu rutina</h2><p class="subtext">'+(WZ.fromTemplate?'Plantilla «'+safeHtml(WZ.fromTemplate)+'». ':'')+plural(WZ.result.length,'día')+' · '+safeHtml(goal?.name||'')+' · ~'+WZ.minutes+' min. Cambiá cualquier ejercicio por otra variante o quitalo. Después podés ajustar todo en el editor.</p>'+(CAT.ready?'':'<div class="notice"><p>'+(CAT.failed?'La biblioteca completa no cargó: usé los ejercicios básicos integrados en FORJA.':'Cargando la biblioteca… la propuesta se actualiza sola.')+'</p></div>')+(empty?'<div class="notice"><p>'+plural(empty,'día quedó','días quedaron')+' sin ejercicios con el equipo elegido. Volvé al paso 2 y elegí otros grupos o equipo.</p></div>':'')+
-    WZ.result.map((d,di)=>'<details class="wz-review-day"'+(di===0?' open':'')+'><summary><span class="day-index">'+(di+1)+'</span><span>'+safeHtml(d.name||dayLabel(di))+'<small>'+plural(d.exercises.length,'ejercicio')+' · tocá para personalizar</small></span></summary><div class="wz-review-body"><div class="imp-day-head"><span class="day-index">'+(di+1)+'</span><label class="sr-only" for="wzn-'+di+'">Nombre del día</label><input id="wzn-'+di+'" class="imp-day-name" data-wz-rname="'+di+'" maxlength="80" value="'+safeHtml(d.name)+'"></div>'+(d.exercises.length?d.exercises.map((e,ei)=>{const b=blockOf(d.exercises,e),cands=wzCandidates(e.category).filter(c=>c.id===e.id||!d.exercises.some(x=>x.id===c.id)).slice(0,14);return '<div class="wz-ex'+(b.ss?' in-ss':'')+'"><div class="wz-ex-main"><label class="sr-only" for="wzx-'+di+'-'+ei+'">Ejercicio</label><select id="wzx-'+di+'-'+ei+'" data-wz-swap="'+di+':'+ei+'">'+cands.map(c=>'<option value="'+safeHtml(c.id)+'"'+(c.id===e.id?' selected':'')+'>'+safeHtml(c.name)+'</option>').join('')+'</select><span class="wz-dose">'+(b.ss?'<span class="ss-tag">'+ssLetter(d.exercises,b.ss)+(b.items.indexOf(e)+1)+'</span> ':'')+e.sets+' × '+safeHtml(e.target)+' · '+safeHtml(e.category)+'</span></div><button type="button" class="icon-btn" data-wz-del="'+di+':'+ei+'" aria-label="Quitar '+safeHtml(e.name)+'">✕</button></div>';}).join(''):'<p class="subtext">Sin ejercicios para estos grupos con el equipo elegido.</p>')+'</div></details>').join('')+
+    WZ.result.map((d,di)=>'<section class="wz-review-day"><div class="imp-day-head"><span class="day-index">'+(di+1)+'</span><label class="sr-only" for="wzn-'+di+'">Nombre del día</label><input id="wzn-'+di+'" class="imp-day-name" data-wz-rname="'+di+'" maxlength="80" value="'+safeHtml(d.name)+'"></div>'+(d.exercises.length?d.exercises.map((e,ei)=>{const b=blockOf(d.exercises,e),cands=wzCandidates(e.category).filter(c=>c.id===e.id||!d.exercises.some(x=>x.id===c.id)).slice(0,14);return '<div class="wz-ex'+(b.ss?' in-ss':'')+'"><div class="wz-ex-main"><label class="sr-only" for="wzx-'+di+'-'+ei+'">Ejercicio</label><select id="wzx-'+di+'-'+ei+'" data-wz-swap="'+di+':'+ei+'">'+cands.map(c=>'<option value="'+safeHtml(c.id)+'"'+(c.id===e.id?' selected':'')+'>'+safeHtml(c.name)+'</option>').join('')+'</select><span class="wz-dose">'+(b.ss?'<span class="ss-tag">'+ssLetter(d.exercises,b.ss)+(b.items.indexOf(e)+1)+'</span> ':'')+e.sets+' × '+safeHtml(e.target)+' · '+safeHtml(e.category)+'</span></div><button type="button" class="icon-btn" data-wz-del="'+di+':'+ei+'" aria-label="Quitar '+safeHtml(e.name)+'">✕</button></div>';}).join(''):'<p class="subtext">Sin ejercicios para estos grupos con el equipo elegido.</p>')+'</section>').join('')+
     '<fieldset class="imp-apply"><legend>¿Cómo la aplico?</legend><label class="toggle-row"><input type="radio" name="wzMode" value="replace"'+(WZ.mode!=='append'?' checked':'')+'><span><strong>Reemplazar mi rutina actual</strong><small>Tu historial y tus récords se conservan. Podés deshacerlo.</small></span></label>'+(hasCurrent?'<label class="toggle-row'+(canAppend?'':' disabled')+'"><input type="radio" name="wzMode" value="append"'+(WZ.mode==='append'&&canAppend?' checked':'')+(canAppend?'':' disabled')+'><span><strong>Agregar como días nuevos</strong><small>'+(canAppend?'Quedarías con '+(n+WZ.result.length)+' días.':'No entran: el máximo es '+MAX_DAYS+' días.')+'</small></span></label>':'')+'<label class="toggle-row"><input type="checkbox" id="wzRest"'+(WZ.applyRest?' checked':'')+'><span><strong>Usar '+formatClock(goal?.rest||90)+' como descanso general</strong><small>Recomendado para este objetivo. Ahora tenés '+formatClock(app.settings.restSeconds)+'.</small></span></label></fieldset>';}
   const nav='<div class="summary-actions">'+(st>1?'<button type="button" class="btn" data-wz-back>← Atrás</button>':'<button type="button" class="btn" data-close>Cancelar</button>')+(st<3?'<button type="button" class="btn primary" data-wz-next>Siguiente →</button>':'<button type="button" class="btn primary" data-wz-apply>✓ Aplicar rutina</button>')+'</div>';
   box.innerHTML=head+html+nav;box.scrollTop=0;}
@@ -2614,13 +2402,6 @@ function notifySupportText(){if(!('Notification' in window)||!('serviceWorker' i
 async function setNotify(on){if(!on){app.settings.restNotify=false;persist();return;}if(!('Notification' in window)){toast('Este navegador no permite avisos del sistema.',true);$('optNotify').checked=false;return;}let perm=Notification.permission;if(perm==='default'){try{perm=await Notification.requestPermission();}catch(err){perm='denied';}}app.settings.restNotify=perm==='granted';$('optNotify').checked=app.settings.restNotify;persist();$('notifySupport').textContent=notifySupportText();toast(app.settings.restNotify?'Avisos del sistema activados.':'No se otorgó permiso para avisos.',!app.settings.restNotify);}
 function testAlert(){unlockRing();ring(true);const parts=[];parts.push(app.settings.sound===false?'sonido desactivado (la prueba suena igual)':'sonido');parts.push(app.settings.vibration===false?'vibración desactivada':('vibrate' in navigator?'vibración':'sin vibración en este dispositivo'));toast('Prueba de aviso: '+parts.join(' · ')+'.');}
 function initSettingsV7(){
-  for(const [id,key,lo,hi] of [['profileAge','age',13,100],['profileHeight','height',90,250]])$(id).addEventListener('change',e=>{const old=app.profile[key]||'',v=validOptionalProfileNumber(e.target.value,lo,hi);if(e.target.value.trim()&&!v){toast('Revisá el valor: debe estar entre '+lo+' y '+hi+'.',true);e.target.value=old;return;}app.profile[key]=v;persist();e.target.value=v;toast('Perfil actualizado.');});
-  for(const [id,key,choices] of [['profileGender','gender',['mujer','hombre','no_binario','otro']],['profileExperience','experience',['principiante','intermedio','avanzado']],['profileGoal','goal',['hipertrofia','fuerza','resistencia','salud']]])$(id).addEventListener('change',e=>{app.profile[key]=choices.includes(e.target.value)?e.target.value:'';persist();toast('Perfil actualizado.');});
-  $('profileShortcut').addEventListener('click',goProfile);
-  $('profileNudgeGo').addEventListener('click',goProfile);
-  $('profileNudgeClose').addEventListener('click',()=>{app.profile.profileNudgeDismissed=true;persist();renderProfileNudge();});
-  $('mobileMore').addEventListener('click',()=>toggleMenu($('menuLayer').hidden));
-
   $('profileName').addEventListener('change',e=>{app.profile.name=cleanName(e.target.value);e.target.value=app.profile.name;app.profile.onboarded=true;persist();renderGreeting();toast(app.profile.name?'Nombre guardado: '+app.profile.name+'.':'Nombre borrado.');});
   $('profileWeightKg').addEventListener('change',e=>{const w=normalizeNumber(e.target.value,350);if(e.target.value.trim()&&(!w||Number(w)<25)){toast('Ingresá un peso entre 25 y 350 kg.',true);e.target.value=fmtInput(app.profile.weight);return;}app.profile.weight=w;app.ui.profileWeight=w;$('proteinWeight').value=fmtInput(w);renderProtein();persist();toast(w?'Peso guardado: '+fmtKg(numberOrNull(w))+'.':'Peso borrado.');});
   $('profileWelcome').addEventListener('change',e=>{app.profile.welcome=['always','daily','off'].includes(e.target.value)?e.target.value:'always';persist();toast('Preferencia de bienvenida guardada.');});
@@ -2842,71 +2623,8 @@ function initImportV7(){const dlg=$('importDialog');
   dlg.addEventListener('click',e=>{const nr=e.target.closest('[data-imp-noref]');if(nr){const it=impGet(nr.dataset.impNoref);if(it){it.ref=null;renderImportPreview();}}});
   dlg.addEventListener('change',e=>{const t=e.target;if(t.id==='impLogs'&&IMPORT.result){IMPORT.result.importLogs=t.checked;return;}if(t.id==='impSs'&&IMPORT.result){IMPORT.result.keepSs=t.checked;renderImportPreview();return;}if(t.dataset.impWeight){const it=impGet(t.dataset.impWeight);if(!it)return;const v=parsePlannedInput(t.value,Number(it.sets)||3);it.plannedWeight=v.plannedWeight;it.plannedWeights=v.plannedWeights;}});}
 
-
-/* FORJA 7.2 | Dashboard from real saved sessions, never fake metrics. */
-function renderHome(){
- const date=today(),day=app.ui.day,hasPlan=plannedDays()>0,exercises=activeExercises(),s=currentSession();
- const prog=progressOf(s||{day,exercises,sets:{}}),finished=!!s?.finishedAt;
- const label=app.profile.name?greetingWord()+', '+app.profile.name+'.':greetingWord()+'.';
- $('homeGreeting').textContent=label;
- $('homeWelcome').textContent=hasPlan?'Tu entrenamiento y tus marcas, en un solo lugar.':'Creá tu primera rutina en unos pasos y empezá a registrar tus marcas.';
- $('homeDate').textContent=longToday();
- $('homeHeroKicker').textContent=!hasPlan?'PRIMEROS PASOS':finished?'ENTRENAMIENTO COMPLETADO':prog.done?'SESIÓN EN CURSO':'TU PRÓXIMO ENTRENAMIENTO';
- $('homePlanName').textContent=hasPlan?planTitle(day):'Tu entrenamiento empieza acá';
- $('homePlanDetail').textContent=!hasPlan?'Elegí tus días, ejercicios y descansos. Podés cambiar todo cuando quieras.':
-   plural(exercises.length,'ejercicio')+' · '+plural(prog.total,'serie')+(app.ui.date!==date?' · Fecha seleccionada: '+formatDate(app.ui.date):'')+(prog.done?' · '+prog.done+' completadas':'');
- $('homePrimary').textContent=!hasPlan?'Crear mi rutina':finished?'Ver mi entrenamiento':prog.done?'Continuar entrenamiento':'Empezar entrenamiento';
- $('homeSecondary').textContent=!hasPlan?'Pegar una rutina':'Ver mi rutina';
- $('homeRing').classList.toggle('no-plan',!hasPlan);
- $('homeRing').setAttribute('aria-valuenow',String(prog.percent));
- $('homeRingBar').style.strokeDashoffset=String(301.59*(1-prog.percent/100));
- $('homePercent').textContent=prog.percent+'%';
- const all=allSessions(),started=all.filter(x=>progressOf(x).done>0),pastWeek=addDays(date,-6),weekSessions=started.filter(x=>x.date>=pastWeek&&x.date<=date);
- const uniqueDays=new Set(weekSessions.map(x=>x.date));
- const totalSets=started.reduce((sum,x)=>sum+progressOf(x).done,0);
- $('homeStats').classList.toggle('home-empty',started.length===0);
- $('homeCompleted').textContent=all.filter(x=>!!x.finishedAt).length.toLocaleString('es-AR');
- $('homeSeries').textContent=totalSets.toLocaleString('es-AR');
- $('homeWeekDays').textContent=String(uniqueDays.size);
- if(!started.length){
-   $('homeWeeklyChart').innerHTML='<div class="home-blank">Tus gráficos van a aparecer cuando completes tus primeras series. No usamos estadísticas de ejemplo.</div>';
-   $('homeRecentList').innerHTML='<div class="home-blank">Acá vas a poder retomar tus entrenamientos anteriores.</div>';
- }else{
-   const days=Array.from({length:7},(_,i)=>addDays(date,i-6));
-   const vals=days.map(d=>weekSessions.filter(x=>x.date===d).reduce((sum,x)=>sum+progressOf(x).done,0)),top=Math.max(...vals,1);
-   $('homeWeeklyChart').innerHTML='<div class="home-week-chart">'+days.map((d,i)=>'<div class="home-chart-col"><em>'+ (vals[i]||'') +'</em><div class="home-chart-graph"><span class="home-chart-bar'+(vals[i]?'':' zero')+'" style="height:'+Math.max(4,Math.round(vals[i]/top*100))+'%" title="'+safeHtml(formatDate(d))+': '+vals[i]+' series"></span></div><span>'+safeHtml(new Intl.DateTimeFormat('es-AR',{weekday:'short'}).format(new Date(d+'T12:00:00')).replace('.',''))+'</span></div>').join('')+'</div>';
-   $('homeRecentList').innerHTML=started.slice(0,3).map(x=>'<button type="button" class="home-recent-item" data-home-open="'+safeHtml(sessionKey(x.date,x.week,x.day))+'"><div><strong>'+safeHtml(dayLabel(x.day)+' · '+(x.name||app.plan[x.day]?.name||'Entrenamiento'))+'</strong><small>'+safeHtml(formatDate(x.date))+' · '+progressOf(x).done+' series'+(x.finishedAt?' · Finalizado':' · En curso')+'</small></div><span class="recent-bubble" aria-hidden="true">→</span></button>').join('');
- }
-}
-function closePremiumQuickMenu(){
- const menu=$('premiumQuickMenu');if(menu)menu.hidden=true;
- for(const id of ['mobileQuick','desktopQuick']){const b=$(id);if(b)b.setAttribute('aria-expanded','false');}
-}
-function togglePremiumQuickMenu(){
- const menu=$('premiumQuickMenu');menu.hidden=!menu.hidden;
- for(const id of ['mobileQuick','desktopQuick'])$(id).setAttribute('aria-expanded',String(!menu.hidden));
-}
-function runPremiumQuick(action){
- closePremiumQuickMenu();
- if(action==='train'){showView('workout');return;}
- if(action==='wizard'){showView('plan');openWizard();return;}
- if(action==='import'){showView('plan');openImport();return;}
- if(action==='library'){showView('library');return;}
-}
-function initPremiumUI(){
- $('homeBrand').addEventListener('click',()=>showView('home'));
- $('homePrimary').addEventListener('click',()=>{if(plannedDays())showView('workout');else{showView('plan');openWizard();}});
- $('homeSecondary').addEventListener('click',()=>{if(plannedDays())showView('plan');else{showView('plan');openImport();}});
- $('homeSeeHistory').addEventListener('click',()=>showView('history'));
- $('view-home').addEventListener('click',e=>{const route=e.target.closest('[data-home-to]'),historyItem=e.target.closest('[data-home-open]');if(route)showView(route.dataset.homeTo);else if(historyItem)openHistorySession(historyItem.dataset.homeOpen);});
- for(const id of ['mobileQuick','desktopQuick'])$(id).addEventListener('click',togglePremiumQuickMenu);
- $('premiumQuickMenu').addEventListener('click',e=>{const b=e.target.closest('[data-premium-quick]');if(b)runPremiumQuick(b.dataset.premiumQuick);});
- document.addEventListener('click',e=>{if(!$('premiumQuickMenu').hidden&&!e.target.closest('#premiumQuickMenu,#mobileQuick,#desktopQuick'))closePremiumQuickMenu();});
- document.addEventListener('keydown',e=>{if(e.key==='Escape')closePremiumQuickMenu();});
-}
-
-initCatalogUI();initFocusUI();initWizardUI();initSetupHubUI();initSettingsV7();initImportV7();initPremiumUI();
-$('scriptNotice').hidden=true;setStorageStatus();initControls();renderPlan();renderWorkout();updateTimerDisplay();resumeTimerOnLoad();const initialView=viewFromHash()||'home';try{history.replaceState({forjaView:initialView},'',viewUrl(initialView));}catch(err){}if(initialView!=='workout')showView(initialView,{fromHistory:true});renderInstall();
+initCatalogUI();initFocusUI();initWizardUI();initSetupHubUI();initSettingsV7();initImportV7();
+$('scriptNotice').hidden=true;setStorageStatus();initControls();renderPlan();renderWorkout();updateTimerDisplay();resumeTimerOnLoad();const initialView=viewFromHash()||'workout';try{history.replaceState({forjaView:initialView},'',viewUrl(initialView));}catch(err){}if(initialView!=='workout')showView(initialView,{fromHistory:true});renderInstall();
 loadCatalog();
 if(loadError){$('storageWarning').innerHTML='<strong>No pudimos leer tus datos guardados.</strong> Quedaron sin cambios en este navegador y FORJA no va a sobrescribirlos. Restaurá una copia JSON desde Ajustes.';$('storageWarning').hidden=false;}
 if(wasMigrated){persist();toast('FORJA 7: tus entrenamientos, récords y medidas se conservaron.');}
